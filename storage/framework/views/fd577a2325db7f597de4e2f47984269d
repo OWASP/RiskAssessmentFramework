@@ -1,0 +1,170 @@
+
+
+<?php $__env->startSection('content'); ?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Update Factor</h3>
+                </div>
+                <form class="form-horizontal" method="post" action="<?php echo e(URL::to('/factor/update/'.$factor->id_factor)); ?>">
+                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+                    <input type="hidden" name="_id_host" value="<?php echo e($factor->id_host); ?>">
+                    <div class="box-body">
+                        <div class="box-body">
+                            <h3>Host Name: <strong><?php echo e($factor->host_name); ?></strong></h3>
+                            <h3>Category Name: <strong><?php echo e($factor->category_name); ?></strong></h3>
+                            <table class="table table-striped" style="margin-bottom: 20px">
+                                <tr>
+                                    <td style="text-align: center">Skill level</td>
+                                    <td style="text-align: center">Motive</td>
+                                    <td style="text-align: center">Opportunity</td>
+                                    <td style="text-align: center">Size</td>
+                                    <td style="text-align: center">Ease of discovery</td>
+                                    <td style="text-align: center">Ease of exploit</td>
+                                    <td style="text-align: center">Awareness</td>
+                                    <td style="text-align: center">Intrusion detection</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name="skill_level" class="form-control" id="skill_level">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->skill_level == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="motive" class="form-control" id="motive">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->motive == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="opportunity" class="form-control" id="opportunity">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->opportunity == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="size" class="form-control" id="size">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->size == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="ease_discovery" class="form-control" id="ease_discovery">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->ease_discovery == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="ease_exploit" class="form-control" id="ease_exploit">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->ease_exploit == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="awareness" class="form-control" id="awareness">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->awareness == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="intrusion_detection" class="form-control" id="intrusion_detection">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->intrusion_detection == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center">Loss of confidentiality</td>
+                                    <td style="text-align: center">Loss of integrity</td>
+                                    <td style="text-align: center">Loss of availability</td>
+                                    <td style="text-align: center">Loss of accountability</td>
+                                    <td style="text-align: center">Financial damage</td>
+                                    <td style="text-align: center">Reputation damage</td>
+                                    <td style="text-align: center">Non-compliance</td>
+                                    <td style="text-align: center">Privacy violation</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name="loss_confidentiality" class="form-control" id="loss_confidentiality">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->loss_confidentiality == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="loss_integrity" class="form-control" id="loss_integrity">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->loss_integrity == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="loss_availability" class="form-control" id="loss_availability">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->loss_availability == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="loss_accountability" class="form-control" id="loss_accountability">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->loss_accountability == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="financial_damage" class="form-control" id="financial_damage">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->financial_damage == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="reputation_damage" class="form-control" id="reputation_damage">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->reputation_damage == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="non_compliance" class="form-control" id="non_compliance">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->non_compliance == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="privacy_voilation" class="form-control" id="privacy_voilation">
+                                            <?php for($i=0; $i<=9; $i++): ?>
+                                                <option value="<?php echo e($i); ?>" <?php if($factor->privacy_voilation == $i): ?> selected <?php endif; ?>><?php echo e($i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="row" style="margin-top: 10px">
+                                <div class="form-group">
+                                    <span class="col-sm-2"></span>
+                                    <button type="submit" class="btn btn-info col-sm-4">Save</button>
+                                    <button type="button" onclick="history.back(-1)" class="btn btn-default col-sm-4">Cancel</button>
+                                    <span class="col-sm-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
