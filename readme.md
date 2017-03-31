@@ -1,4 +1,11 @@
-OWASP Risk Rating Management Project is a tool projects aim to educate user who want to assessment more than one or many web application using risk rating mathodologies. 
+## OWASP Risk Rating Management Project
+OWASP Risk Rating Management Project is a tool projects aim to educate user who want to assessment more than one or many web application using owasp risk rating mathodologies. 
+
+## Installation Guide
+1. Clone or download reporsitory from: https://github.com/mohammadfebrir/owasp-riskrating.git 
+2. Save on your local htdocs (xampp/wampp) or /var/www/html/ (lammp)
+3. Install composer requirement
+4. Run in command: php artisan serve
 
 ## Laravel PHP Framework
 
