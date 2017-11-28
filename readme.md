@@ -4,8 +4,11 @@ OWASP Risk Rating Management Project is a tool projects aim to educate user who 
 ## Installation Guide
 1. Clone or download reporsitory from: https://github.com/mohammadfebrir/owasp-riskrating.git 
 2. Save on your local htdocs (xampp/wampp) or /var/www/html/ (lammp)
-3. Install composer requirement
-4. Run in command: php artisan serve
+3. Install composer requirement, for instruction you can find here: https://getcomposer.org/download/
+4. Import database from path database/testing.sql
+5. Open .env file and make sure the configuration in the .env file matches with your database configuration (Database name, database password, etc)
+6. Run in command: php artisan serve
+7. Program will redirect to localhost:3000
 
 ## Laravel PHP Framework
 
