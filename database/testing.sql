@@ -40,15 +40,15 @@ CREATE TABLE IF NOT EXISTS `category` (
 
 INSERT INTO `category` (`id_category`, `category_name`, `created_at`, `updated_at`) VALUES
 (1, 'A1 - Injection', '2016-08-26 08:43:10', '2016-08-26 10:55:25'),
-(2, 'A2 - Broken Authentication and Session M', '2016-08-26 08:43:16', '2016-08-26 10:55:40'),
-(3, 'A3 - Cros Site Scripting', '2016-08-26 08:43:21', '2016-08-26 10:55:57'),
-(4, 'A4 - Insecure Direct Object', '2016-08-26 08:43:25', '2016-08-26 10:56:09'),
-(5, 'A5 - Security Misconfiguration', '2016-08-26 08:43:30', '2016-08-26 10:56:19'),
-(6, 'A6 - Sensitive Data Exposure', '2016-08-26 08:43:34', '2016-08-26 10:56:36'),
-(7, 'A7 - Missing Function Level Access Contr', '2016-08-26 08:43:38', '2016-08-26 10:57:14'),
-(8, 'A8 - Cross Site Request Forgery', '2016-08-26 08:43:41', '2016-08-26 10:57:27'),
+(2, 'A2 - Broken Authentication', '2016-08-26 08:43:16', '2016-08-26 10:55:40'),
+(3, 'A3 - Sensitive Data Exposure', '2016-08-26 08:43:21', '2016-08-26 10:55:57'),
+(4, 'A4 - XML External Entities (XXE)', '2016-08-26 08:43:25', '2016-08-26 10:56:09'),
+(5, 'A5 - Broken Access Control', '2016-08-26 08:43:30', '2016-08-26 10:56:19'),
+(6, 'A6 - Security Misconfiguration', '2016-08-26 08:43:34', '2016-08-26 10:56:36'),
+(7, 'A7 - Cross-Site Scripting (XSS)', '2016-08-26 08:43:38', '2016-08-26 10:57:14'),
+(8, 'A8 - Insecure Deserialization', '2016-08-26 08:43:41', '2016-08-26 10:57:27'),
 (9, 'A9 - Using Components with Known Vulnera', '2016-08-26 08:43:45', '2016-08-26 10:57:38'),
-(10, 'A10 - Unvalidated Redirects and Forwards', '2016-08-26 08:43:49', '2016-08-26 10:57:49');
+(10, 'A10 - Insufficient Logging & Monitoring', '2016-08-26 08:43:49', '2016-08-26 10:57:49');
 
 -- --------------------------------------------------------
 
@@ -232,7 +232,7 @@ INSERT INTO `host` (`id_host`, `host_name`, `summary`, `created_at`, `updated_at
 (18, '2.birokeu', 'medium', '2016-08-26 19:16:34', '2016-08-26 19:18:51'),
 (19, '9.esdm', 'medium', '2016-08-26 19:20:20', '2016-08-26 19:22:10'),
 (20, '10.humas', 'low', '2016-08-26 19:22:46', '2016-08-26 19:24:38'),
-(21, 'unikom', 'high', '2016-08-26 21:15:51', '2016-08-26 21:17:46');
+(21, '11. localhost-webportal', 'high', '2016-08-26 21:15:51', '2016-08-26 21:17:46');
 
 -- --------------------------------------------------------
 
