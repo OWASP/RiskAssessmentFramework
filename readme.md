@@ -1,5 +1,5 @@
 ## OWASP Risk Rating Model Project
-OWASP Risk Rating Management Project is a tool projects aim to educate user who want to assessment more than one or many web application using owasp risk rating mathodologies. 
+OWASP Risk Rating Management Project is a framework projects aim to educate user who want to assessment more than one or many web application using owasp risk rating mathodologies. 
 
 ## Installation Guide
 1. Clone or download reporsitory from: https://github.com/OWASP/RiskRatingModel
