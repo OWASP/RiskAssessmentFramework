@@ -1,8 +1,8 @@
-## OWASP Risk Rating Model Project
+## OWASP Risk Rating Management Project
 OWASP Risk Rating Management Project is a framework projects aim to educate user who want to assessment more than one or many web application using owasp risk rating mathodologies. 
 
 ## Installation Guide
-1. Clone or download reporsitory from: https://github.com/OWASP/RiskRatingModel
+1. Clone or download reporsitory from: https://github.com/OWASP/RiskRatingManagement
 2. Save on your local htdocs (xampp/wampp) or /var/www/html/ (lammp)
 3. Install composer requirement, for instruction you can find here: https://getcomposer.org/download/
 4. Import database from path database/testing.sql
