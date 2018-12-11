@@ -1,0 +1,416 @@
+<html><head>
+<title>owasp risk rating</title>
+<style>
+#main{
+	width: 1200px;
+}
+table {
+	width: 98%;
+	font-size: small;
+	text-align: center;
+}
+h3,h4 {
+	text-align: center;
+	margin: 5px auto;
+}
+td, th {
+	border: 1px solid black;
+}
+table,tr,td,th {
+	border-collapse: collapse;
+	margin:0;
+	padding:0;
+}
+div.section{
+	width: 50%;
+	float: left;
+}
+.section th, .section td, .section select {
+	width: 140px;
+}
+.section select {
+	background-color: transparent;
+}
+.section td {
+	height: 2em;
+}
+#likelihood,#techimpact,#busiimpact {
+	border-right: none;
+}
+#likelihood+td,#techimpact+td,#busiimpact+td {
+	border-left: none;
+}
+</style>
+</head><body>
+<div id=main>
+<center><h1>Owasp Risk Rating </h1></center>
+<h3>
+Likelihood
+</h3>
+<div class=mainrow id=tr_likelihood>
+<div class=section>
+<h4>Threat Agent Factors</h4>
+<table>
+<tr>
+<th>Skill Level</th>
+<th>Motive</th>
+<th>Opportunity</th>
+<th>Size</th>
+</tr><tr>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - No technical skills</option>
+<option value='2'>2</option>
+<option value='3'>3 - Some technical skills</option>
+<option value='4'>4</option>
+<option value='5'>5 - Advanced computer user</option>
+<option value='6'>6 - Network and programming skills</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9 - Security penetration skills</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Low or no reward</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4 - Possible reward</option>
+<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9 - High reward</option>
+</select></td>
+<td><select>
+<option value='0' selected>0 - Full access or expensive resources required</option>
+<option value='1'>1</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4 - Special access or resources required</option>
+<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7 - Some access or resources required</option>
+<option value='8'>8</option>
+<option value='9'>9 - No access or resources required</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1'>1</option>
+<option value='2' selected>2 - Developers, system administrators</option>
+<option value='3'>3</option>
+<option value='4'>4 - Intranet users</option>
+<option value='5'>5 -Partners</option>
+<option value='6'>6 - Authenticated users</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9 - Anonymous Internet users</option>
+</select></td>
+</tr>
+</table>
+</div>
+<div class=section>
+<h4>Vulnerability Factors</h4>
+<table>
+<tr>
+<th>Ease of Discovery</th>
+<th>Ease of Exploit</th>
+<th>Awareness</th>
+<th>Intrusion Detection</th>
+</tr><tr>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Practically impossible</option>
+<option value='2'>2</option>
+<option value='3'>3 - Difficult</option>
+<option value='4'>4</option>
+<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7 - Easy</option>
+<option value='8'>8</option>
+<option value='9'>9 - Automated tools available</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Theoretical</option>
+<option value='2'>2</option>
+<option value='3'>3 - Difficult</option>
+<option value='4'>4</option>
+<option value='5'>5 - Easy</option>
+<option value='6'>6</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9 - Automated tools available</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Unknown</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4 - Hidden</option>
+<option value='5'>5</option>
+<option value='6'>6 - Obvious</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9 - Public knowledge</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Active detection in application</option>
+<option value='2'>2</option>
+<option value='3'>3 - Logged and reviewed</option>
+<option value='4'>4</option>
+<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7</option>
+<option value='8'>8 - Logged without review</option>
+<option value='9'>9 - Not logged</option>
+</select></td>
+</tr>
+</table>
+</div>
+</div>
+<div style="clear:both">&nbsp;</div>
+<h3>
+Impact
+</h3>
+<div class=mainrow>
+<div class=section>
+<h4>Technical Impact</h4>
+<table>
+<tr>
+<th>Loss of Confidentiality</th>
+<th>Loss of Integrity</th>
+<th>Loss of Availability</th>
+<th>Loss of Accountability</th>
+</tr><tr id=tr_techimpact>
+<td><select>
+<option value='0'>0</option>
+<option value='1'>1</option>
+<option value='2' selected>2 - Minimal non-sensitive data disclosed</option>
+<option value='3'>3</option>
+<option value='4'>4 - Minimal critical data disclosed, extensive non-sensitive data disclosed</option>
+<option value='5'>5 - Extensive critical data disclosed</option>
+<option value='6'>6</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9 - All data disclosed</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Minimal slightly corrupt data</option>
+<option value='2'>2</option>
+<option value='3'>3 - Minimal seriously corrupt data</option>
+<option value='4'>4</option>
+<option value='5'>5 - Extensive slightly corrupt data</option>
+<option value='6'>6</option>
+<option value='7'>7- Extensive seriously corrupt data</option>
+<option value='8'>8</option>
+<option value='9'>9 - All data totally corrupt</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Minimal secondary services interrupted</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4</option>
+<option value='5'>5 - Minimal primary services interrupted, extensive secondary services interrupted</option>
+<option value='6'>6</option>
+<option value='7'>7 - Extensive primary services interrupted</option>
+<option value='8'>8</option>
+<option value='9'>9 - All services completely lost</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Fully traceable</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4</option>
+<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7 - Possibly traceable</option>
+<option value='8'>8</option>
+<option value='9'>9 - Completely anonymous</option>
+</select></td>
+</tr>
+</table>
+</div>
+<div class=section>
+<h4>Business Impact</h4>
+<table>
+<tr>
+<th>Financial Damage</th>
+<th>Reputation Damage</th>
+<th>Non-Compliance</th>
+<th>Privacy Violation</th>
+</tr><tr id=tr_busiimpact>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Less than the cost to fix the vulnerability</option>
+<option value='2'>2</option>
+<option value='3'>3 - Minor effect on annual profit</option>
+<option value='4'>4</option>
+<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7 - Significant effect on annual profit</option>
+<option value='8'>8</option>
+<option value='9'>9 - Bankruptcy</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1' selected>1 - Minimal damage</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4 - Loss of major accounts</option>
+<option value='5'>5 - Loss of goodwill</option>
+<option value='6'>6</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9 - Brand damage</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1'>1</option>
+<option value='2' selected>2 - Minor violation</option>
+<option value='3'>3</option>
+<option value='4'>4</option>
+<option value='5'>5 - Clear violation</option>
+<option value='6'>6</option>
+<option value='7'>7 - High profile violation</option>
+<option value='8'>8</option>
+<option value='9'>9</option>
+</select></td>
+<td><select>
+<option value='0'>0</option>
+<option value='1'>1</option>
+<option value='2'>2</option>
+<option value='3' selected>3 - One individual</option>
+<option value='4'>4</option>
+<option value='5'>5 - Hundreds of people</option>
+<option value='6'>6</option>
+<option value='7'>7 - Thousands of people</option>
+<option value='8'>8</option>
+<option value='9'>9 - Millions of people</option>
+</select></td>
+</tr>
+</table>
+</div>
+</div>
+<div style="clear:both">&nbsp;</div>
+<h3>Scores</h3>
+<div class=mainrow>
+<div class=section>
+<h4>Intermediate</h4>
+<table id=scores>
+<tr>
+<th colspan=2>Overall Likelihood</th>
+<th colspan=2>Overall Technical Impact</th>
+<th colspan=2>Overall Business Impact</th>
+</tr><tr>
+<td id=likelihood>1</td><td>LOW</td>
+<td id=techimpact>1.25</td><td>LOW</td>
+<td id=busiimpact>1.75</td><td>LOW</td>
+</tr>
+</table>
+</div>
+<div class=section>
+<h4>Final Score</h4>
+<table id=finalscore>
+<tr>
+<th>Adjust score</th>
+<th>Risk</th>
+</tr><tr>
+<td>
+Technical
+&nbsp;&nbsp;&nbsp;
+<input id="adjust" type="range" min="0" max="1" value="0.5" title="0.5" step="0.05" />
+&nbsp;&nbsp;&nbsp;
+Business
+</td>
+<td id=risk>NOTE</td>
+</tr>
+</table>
+</div>
+</div>
+<div style="clear:both">&nbsp;</div>
+</div>
+<script type="text/javascript">
+	function adjustScore(elm){
+		elm.title = elm.value;
+		globalUpdate();
+		window.location.hash = getStatus();
+	}
+	document.getElementById("adjust").onchange = adjustScore;
+	var colors = ['#5f5','#ff5','#f55']
+	var scoreColors = ['#5ff','#5f5','#ff5','#f55','#b02']
+	function value2text(value){
+		return value < 3 ? "LOW" : (value < 6 ? "MEDIUM" : "HIGH");
+	}
+	function val2score(value){
+		return value < 3 ? 0 : (value < 6 ? 1 : 2);
+	}
+	function globalUpdate(){
+		var likelihood = parseFloat(document.getElementById('likelihood').textContent);
+		var techimpact = parseFloat(document.getElementById('techimpact').textContent);
+		var busiimpact = parseFloat(document.getElementById('busiimpact').textContent);
+		var adjust = parseFloat(document.getElementById('adjust').value);
+		var impact = ( busiimpact * adjust ) + ( techimpact * (1-adjust) )
+		function score2text(score){
+			return ['NOTE','LOW','MEDIUM','HIGH','CRITICAL'][score];
+		}
+		var score = val2score(likelihood) + val2score(impact);
+		var elm = document.getElementById('risk');
+		elm.textContent = score2text(score);
+		elm.style.backgroundColor = scoreColors[score];
+	}
+	function getStatus(){
+		var selects = document.querySelectorAll("select");
+		var status = Array.prototype.reduce.call( selects, function(status,elm){
+			if(status === '')
+				return elm.value;
+			else
+				return status + "," + elm.value;
+		},'');
+		status += ','+parseInt(100*parseFloat(document.getElementById('adjust').value));
+		return status;
+	}	
+	function clamp(num,min,max){
+		return Math.min(Math.max(num, min), max);
+	}
+	function setStatus(status){
+		var status = status.replace(/^#/,'').split(",").map(function(n){return parseInt(n)});
+		if(status.length != 17)
+			status = [1,1,0,2,1,1,1,1,2,1,1,1,1,1,2,3,50];
+		document.getElementById('adjust').value = clamp(status.pop(),0,100) / 100.0;
+		var selects = document.querySelectorAll("select");
+		Array.prototype.map.call( selects, function(elm,index){
+			elm.value = clamp(status[index],0,9);
+			elm.onchange();
+		});
+	}
+	var sections = ["likelihood",'techimpact','busiimpact'];
+	sections.map(
+		function(name){
+			var updateFunc = function(){
+				this.parentNode.style.backgroundColor = colors[ val2score(this.value) ];
+				var selects = document.querySelectorAll("#tr_" + name + " select");
+				var value = Array.prototype.reduce.call( selects, function(sum,elm){
+					return sum + parseInt(elm.value);
+				},0) / parseFloat(selects.length);
+				var elm = document.getElementById(name);
+				elm.textContent = value;
+				elm.style.backgroundColor = colors[ val2score(value) ];
+				elm.nextSibling.style.backgroundColor = colors[ val2score(value) ];
+				elm.nextSibling.textContent = value2text(value);
+				globalUpdate();
+				window.location.hash = getStatus();
+			};
+			var selects = document.querySelectorAll("#tr_"+name+" select");
+			Array.prototype.map.call( selects, function(elm){
+				elm.onchange = updateFunc;
+			});
+		}
+	);
+	setStatus(window.location.hash);
+</script>
+</body>
+</html>
