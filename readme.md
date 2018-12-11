@@ -7,6 +7,9 @@ https://github.com/OWASP/RiskAssessmentFramework/blob/master/OWASP%20Risk%20Rati
 For Assessment website using HTML
 https://github.com/OWASP/RiskAssessmentFramework/tree/master/OWASP%20Risk%20Rating%20-%20HTML
 
+For Assessment website using Excel
+https://goo.gl/5BqaR4
+
 ## Contribute
  wanna contribute this project dm me via twitter @johnleedik
  
