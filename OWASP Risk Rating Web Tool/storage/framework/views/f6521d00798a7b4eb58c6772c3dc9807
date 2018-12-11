@@ -1,0 +1,293 @@
+<?php $__env->startSection('content'); ?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header witd-border">
+                    <h3 class="box-title">Add Factor</h3>
+                </div>
+                <form class="form-horizontal" action="<?php echo e(URL::to('/factor/add')); ?>" method="post">
+                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="host_name" class="col-sm-2 control-label">Host Name</label>
+                            <div class="col-sm-9">
+                                <select name="host_name" class="form-control" id="host_name" required>
+                                    <option value="">- Select host name -</option>
+                                    <?php if($host != null): ?>
+                                        <?php foreach($host as $item): ?>
+                                            <option value="<?php echo e($item->id_host); ?>"><?php echo e($item->host_name); ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <?php if($category != null): ?>
+                            <?php foreach($category as $item): ?>
+                                <h3><?php echo e($item->category_name); ?></h3>
+                                <table class="table table-striped" style="margin-bottom: 20px">
+                                    <tr>
+                                        <td style="text-align: center">Skill level</td>
+                                        <td style="text-align: center">Motive</td>
+                                        <td style="text-align: center">Opportunity</td>
+                                        <td style="text-align: center">Size</td>
+                                        <td style="text-align: center">Ease of discovery</td>
+                                        <td style="text-align: center">Ease of exploit</td>
+                                        <td style="text-align: center">Awareness</td>
+                                        <td style="text-align: center">Intrusion detection</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="skill_level_<?php echo e($item->id_category); ?>" class="form-control" id="skill_level">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="motive_<?php echo e($item->id_category); ?>" class="form-control" id="motive">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="opportunity_<?php echo e($item->id_category); ?>" class="form-control" id="opportunity">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="size_<?php echo e($item->id_category); ?>" class="form-control" id="size">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="ease_discovery_<?php echo e($item->id_category); ?>" class="form-control" id="ease_discovery">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="ease_exploit_<?php echo e($item->id_category); ?>" class="form-control" id="ease_exploit">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="awareness_<?php echo e($item->id_category); ?>" class="form-control" id="awareness">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="intrusion_detection_<?php echo e($item->id_category); ?>" class="form-control" id="intrusion_detection">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center">Loss of confidentiality</td>
+                                        <td style="text-align: center">Loss of integrity</td>
+                                        <td style="text-align: center">Loss of availability</td>
+                                        <td style="text-align: center">Loss of accountability</td>
+                                        <td style="text-align: center">Financial damage</td>
+                                        <td style="text-align: center">Reputation damage</td>
+                                        <td style="text-align: center">Non-compliance</td>
+                                        <td style="text-align: center">Privacy violation</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="loss_confidentiality_<?php echo e($item->id_category); ?>" class="form-control" id="loss_confidentiality">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="loss_integrity_<?php echo e($item->id_category); ?>" class="form-control" id="loss_integrity">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="loss_availability_<?php echo e($item->id_category); ?>" class="form-control" id="loss_availability">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="loss_accountability_<?php echo e($item->id_category); ?>" class="form-control" id="loss_accountability">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="financial_damage_<?php echo e($item->id_category); ?>" class="form-control" id="financial_damage">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="reputation_damage_<?php echo e($item->id_category); ?>" class="form-control" id="reputation_damage">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="non_compliance_<?php echo e($item->id_category); ?>" class="form-control" id="non_compliance">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select name="privacy_voilation_<?php echo e($item->id_category); ?>" class="form-control" id="privacy_voilation">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="form-group">
+                                <span class="col-sm-2"></span>
+                                <button type="submit" class="btn btn-info col-sm-4">Save</button>
+                                <button type="button" onclick="history.back(-1)" class="btn btn-default col-sm-4">Cancel</button>
+                                <span class="col-sm-2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
