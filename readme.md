@@ -7,3 +7,7 @@ Thank you for considering contributing to the Laravel framework! The contributio
 
 ## Contribute
  wanna contribute this project dm me via twitter @johnleedik
+
+ 
+#Project Lead
+Ade Yoseman Putra
