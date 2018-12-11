@@ -1,20 +1,12 @@
 ## OWASP Risk Assessment Framework 
 OWASP Risk Asessement Framework is developing from OWASP Risk Rating Methodology
 
-For Assessment website using Database 
-https://github.com/OWASP/RiskAssessmentFramework/blob/master/OWASP%20Risk%20Rating%20Web%20Tool/readme.md
-
-For Assessment website using HTML
-https://github.com/OWASP/RiskAssessmentFramework/tree/master/OWASP%20Risk%20Rating%20-%20HTML
-
-For Assessment website using Excel
-https://goo.gl/5BqaR4
+## Wiki
+https://github.com/OWASP/RiskAssessmentFramework/wiki
 
 ## Contribute
  wanna contribute this project dm me via twitter @johnleedik
  
-## Wiki
-https://github.com/OWASP/RiskAssessmentFramework/wiki
  
 ## Reference
 OWASP Risk Rating Calculator html
