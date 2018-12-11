@@ -9,7 +9,9 @@ https://github.com/OWASP/RiskAssessmentFramework/tree/master/OWASP%20Risk%20Rati
 
 ## Contribute
  wanna contribute this project dm me via twitter @johnleedik
-
+ 
+## Wiki
+https://github.com/OWASP/RiskAssessmentFramework/wiki
  
 ## Reference
 OWASP Risk Rating Calculator html
