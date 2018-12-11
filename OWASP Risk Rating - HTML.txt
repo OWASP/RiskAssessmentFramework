@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OWASP RISK RATING CALCULATOR</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <style type="text/css">
+            .text-0 {
+                color: #ffffff;
+                background-color: #9cc2e5;
+            }
+            .text-1 {
+                color: #ffffff;
+                background-color: #6ea0d2;
+            }
+            .text-2 {
+                color: #ffffff;
+                background-color: #4383c4;
+            }
+            .text-3 {
+                color: #ffffff;
+                background-color: #3178bf;
+            }
+            .text-4 {
+                color: #ffffff;
+                background-color: #fed655;
+            }
+            .text-5 {
+                color: #ffffff;
+                background-color: #feca22;
+            }
+            .text-6 {
+                color: #ffffff;
+                background-color: #fec50d;
+            }
+            .text-7 {
+                color: #ffffff;
+                background-color: #f4b366;
+            }
+            .text-8 {
+                color: #ffffff;
+                background-color: #f19d39;
+            }
+            .text-9 {
+                color: #ffffff;
+                background-color: #f09426;
+            }
+            .text-Note {
+                color: #ffffff;
+                background-color: #9cc2e5;
+            }
+            .text-Low {
+                color: #ffffff;
+                background-color: #3178bf;
+            }
+            .text-Medium {
+                color: #ffffff;
+                background-color: #fec50d;
+            }
+            .text-High {
+                color: #ffffff;
+                background-color: #f09426;
+            }
+            .text-Critical {
+                color: #ffffff;
+                background-color: #d63e34;
+            }
+        </style>
+        <script>
+                $(document).ready(function() {
+                    $(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                        $('.custom-select').change(function() {
+                            $(this).removeClass('text-0 text-1 text-2 text-3 text-4 text-5 text-6 text-7 text-8 text-9');
+                            $(this).addClass('text-' + $(this).val());
+                            calculate();
+                        });
+                        init(getUrlParameter('vector'), getUrlParameter('v'));
+                        colorize();
+                        calculate();
+                    });
+
+                    function init(vector, v) {
+                        var i = 0;
+                        var part = '';
+                        var partials = ["sl", "m", "o", "s", "ed", "ee", "a", "id", "lc", "li", "lav", "lac", "fd", "rd", "nc", "pv"];
+                        for (var i = 0; i < partials.length; i++) {
+                            $("#" + partials[i]).val(0);
+                        }
+                        var reg = /^\d+$/;
+                        if (reg.test(v) && v.length == 16) {
+                            for (var i = 0; i < v.length; i++) {
+                                $("#" + partials[i].toLowerCase()).val(parseInt(v[i]));
+                            }
+                        } else {
+                            vector = vector.replace('(', '').replace(')', '');
+                            var values = vector.split('/');
+                            for (var i = 0; i <= values.length - 1; i++) {
+                                part = values[i].split(':');
+                                if (part.length == 2) {
+                                    if (partials.indexOf(part[0].toLowerCase()) >= 0 && ! isNaN(parseInt(part[1])) && parseInt(part[1]) >= 0 && parseInt(part[1]) <= 9) {
+                                        $("#" + part[0].toLowerCase()).val(parseInt(part[1]));
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    function colorize() {
+                        $('.custom-select').each(function() {
+                            $(this).removeClass('text-0 text-1 text-2 text-3 text-4 text-5 text-6 text-7 text-8 text-9');
+                            $(this).addClass('text-' + $(this).val());
+                        });
+                    }
+                    function getRisk(score) {
+                        if(score == 0) return 'Note';
+                        if(score <  3) return 'Low';
+                        if(score <  6) return 'Medium';
+                        if(score <= 9) return 'High';
+                    }
+                    
+                    function getRiskInNum(score) {
+                        if(score <  3) return 0;
+                        if(score <  6) return 1;
+                        if(score <= 9) return 2;
+                    }
+                    
+                    function setFactor(factor, sFactor) {
+                        $('#' + sFactor).parent().removeClass('text-Note text-Low text-Medium text-High text-Critical').addClass('text-' + getRisk(factor));
+                        $('#' + sFactor).text(getRisk(factor)+' ('+sFactor+': '+factor+')');
+
+                    }
+                    function calculate() {
+                        var TAF, VF, TIF, BIF, LF, IF, R, mLF, mIF = 0;
+                        var score = '';
+                        var matrix = [];
+                        matrix[0] = [];
+                        matrix[1] = [];
+                        matrix[2] = [];
+                        TAF = (+$("#sl").val() + +$("#m").val() + +$("#o").val() + +$("#s").val()) / 4;
+                        VF = (+$("#ed").val() + +$("#ee").val() + +$("#a").val() + +$("#id").val()) / 4;
+                        TIF = (+$("#lc").val() + +$("#li").val() + +$("#lav").val() + +$("#lac").val()) / 4;
+                        BIF = (+$("#fd").val() + +$("#rd").val() + +$("#nc").val() + +$("#pv").val()) / 4;
+                        score = '(';
+                        score = score + 'SL:' + $("#sl").val() + '/';
+                        score = score + 'M:' + $("#m").val() + '/';
+                        score = score + 'O:' + $("#o").val() + '/';
+                        score = score + 'S:' + $("#s").val() + '/';
+                        score = score + 'ED:' + $("#ed").val() + '/';
+                        score = score + 'EE:' + $("#ee").val() + '/';
+                        score = score + 'A:' + $("#a").val() + '/';
+                        score = score + 'ID:' + $("#id").val() + '/';
+                        score = score + 'LC:' + $("#lc").val() + '/';
+                        score = score + 'LI:' + $("#li").val() + '/';
+                        score = score + 'LAV:' + $("#lav").val() + '/';
+                        score = score + 'LAC:' + $("#lac").val() + '/';
+                        score = score + 'FD:' + $("#fd").val() + '/';
+                        score = score + 'RD:' + $("#rd").val() + '/';
+                        score = score + 'NC:' + $("#nc").val() + '/';
+                        score = score + 'PV:' + $("#pv").val();
+                        score = score + ')';
+                        scorev = '';
+                        scorev = scorev + $("#sl").val();
+                        scorev = scorev + $("#m").val();
+                        scorev = scorev + $("#o").val();
+                        scorev = scorev + $("#s").val();
+                        scorev = scorev + $("#ed").val();
+                        scorev = scorev + $("#ee").val();
+                        scorev = scorev + $("#a").val();
+                        scorev = scorev + $("#id").val();
+                        scorev = scorev + $("#lc").val();
+                        scorev = scorev + $("#li").val();
+                        scorev = scorev + $("#lav").val();
+                        scorev = scorev + $("#lac").val();
+                        scorev = scorev + $("#fd").val();
+                        scorev = scorev + $("#rd").val();
+                        scorev = scorev + $("#nc").val();
+                        scorev = scorev + $("#pv").val();
+                        $('#score').text(score);
+                        $("#score").attr("href", "https://owasp-risk-rating.com/?vector=" + score);
+                        $('#scorev').text(scorev);
+                        $("#scorev").attr("href", "https://owasp-risk-rating.com/?v=" + scorev);
+                        matrix[0][0] = 'Note';
+                        matrix[1][0] = 'Low';
+                        matrix[2][0] = 'Medium';
+                        matrix[0][1] = 'Low';
+                        matrix[1][1] = 'Medium';
+                        matrix[2][1] = 'High';
+                        matrix[0][2] = 'Medium';
+                        matrix[1][2] = 'High';
+                        matrix[2][2] = 'Critical';
+                        LF = (TAF + VF) / 2;
+                        if (BIF != 0) {
+                            IF = BIF;
+                        } else {
+                            IF = TIF;
+                        }
+                        setFactor(TAF, 'TAF');
+                        setFactor(VF, 'VF');
+                        setFactor(TIF, 'TIF');
+                        setFactor(BIF, 'BIF');
+                        setFactor(LF, 'LF');
+                        setFactor(IF, 'IF');
+                        if (LF != 0 && IF != 0) {
+                        }
+                        mLF = getRiskInNum(LF);
+                        mIF = getRiskInNum(IF);
+                        $('#R').parent().removeClass('text-Note text-Low text-Medium text-High text-Critical').addClass('text-' + matrix[mLF][mIF]);
+                        $('#R').text(matrix[mLF][mIF]);
+                    }
+                    
+                    function getUrlParameter(name) {
+                        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                        var results = regex.exec(location.search);
+                        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+                    };                    
+                });
+        </script>
+    </head>
+    <body>
+<!--
+TA/SL: 1-3-4-6-9
+TA/M: 1-4-9
+TA/O: 0-4-7-9
+TA/S: 0-2-4-5-6-9
+V/ED: 0-1-3-7-9
+V/EE: 0-1-3-5-9
+V/A: 0-1-4-6-9
+V/ID: 0-1-3-8-9
+TI/LC: 0-2-6-7-9
+TI/LI: 0-1-3-5-7-9
+TI/LAV: 0-1-5-7-9
+TI/LAC: 0-1-7-9
+BI/FD: 0-1-3-7-9
+BI/RD: 0-1-4-5-9
+BI/NC: 0-2-5-7
+BI/PV: 0-3-5-7-9
+-->        
+
+        <div class="container">
+            <h1>OWASP Risk Rating Calculator</h1>
+            <div class="row">
+<div class="col-md-6">                
+    <h2>Likelihood Factors</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Threat Agent Factors</h5>
+            <!--Threat Agent/Skill level: How technically skilled is this group of threat agents? Security penetration skills (1), network and programming skills (3), advanced computer user (5), some technical skills (6), no technical skills (9)-->
+            <h6>Skill Level</h6>
+            <select class="custom-select custom-select-sm" id="sl" data-toggle="tooltip" data-placement="top" title="How technically skilled is this group of threat agents?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Security penetration skills</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3 - Network and programming skills</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5 - Advanced computer user</option>
+              <option class="text-6" value="6">6 - Some technical skills</option>
+              <option class="text-7" value="7">7</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - No technical skills</option>
+            </select>
+
+            <!--Threat Agent/Motive: How motivated is this group of threat agents to find and exploit this vulnerability? Low or no reward (1), possible reward (4), high reward (9)-->
+            <h6>Motive</h6>
+            <select class="custom-select custom-select-sm" id="m" data-toggle="tooltip" data-placement="top" title="How motivated is this group of threat agents to find and exploit this vulnerability?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Low or no reward</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4 - Possible reward</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - High reward</option>
+            </select>
+
+            <!--Threat Agent/Opportunity: What resources and opportunities are required for this group of threat agents to find and exploit this vulnerability? Full access or expensive resources required (0), special access or resources required (4), some access or resources required (7), no access or resources required (9)-->
+            <h6>Opportunity</h6>
+            <select class="custom-select custom-select-sm" id="o" data-toggle="tooltip" data-placement="top" title="What resources and opportunities are required for this group of threat agents to find and exploit this vulnerability?">
+              <option class="text-0" value="0">0 - Full access or expensive resources required</option>
+              <option class="text-1" value="1">1</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4 - Special access or resources required</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - Some access or resources required</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - No access or resources required</option>
+            </select>
+
+            <!--Threat Agent/Size: How large is this group of threat agents? Developers (2), system administrators (2), intranet users (4), partners (5), authenticated users (6), anonymous Internet users (9)-->
+            <h6>Size</h6>
+            <select class="custom-select custom-select-sm" id="s" data-toggle="tooltip" data-placement="top" title="How large is this group of threat agents?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1</option>
+              <option class="text-2" value="2">2 - Developers or system administrators</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4 - Intranet users</option>
+              <option class="text-5" value="5">5 - Partners</option>
+              <option class="text-6" value="6">6 - Authenticated users</option>
+              <option class="text-7" value="7">7</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Anonymous Internet users</option>
+            </select>
+            <div class="alert m-3" role="alert">
+                Threat Agent Factor: <span id="TAF"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5>Vulnerability Factors</h5>
+            <!--Vulnerability/Ease of discovery: How easy is it for this group of threat agents to discover this vulnerability? Practically impossible (1), difficult (3), easy (7), automated tools available (9)-->
+            <h6>Ease of Discovery</h6>
+            <select class="custom-select custom-select-sm" id="ed" data-toggle="tooltip" data-placement="top" title="How easy is it for this group of threat agents to discover this vulnerability?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Practically impossible</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3 - Difficult</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - Easy</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Automated tools available</option>
+            </select>
+
+            <!--Vulnerability/Ease of exploit: How easy is it for this group of threat agents to actually exploit this vulnerability? Theoretical (1), difficult (3), easy (5), automated tools available (9)-->
+            <h6>Ease of Exploit</h6>
+            <select class="custom-select custom-select-sm" id="ee" data-toggle="tooltip" data-placement="top" title="How easy is it for this group of threat agents to actually exploit this vulnerability?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Theoretical</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3 - Difficult</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5 - Easy</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Automated tools available</option>
+            </select>
+
+            <!--Vulnerability/Awareness: How well known is this vulnerability to this group of threat agents? Unknown (1), hidden (4), obvious (6), public knowledge (9)-->
+            <h6>Awareness</h6>
+            <select class="custom-select custom-select-sm" id="a" data-toggle="tooltip" data-placement="top" title="How well known is this vulnerability to this group of threat agents?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Unknown</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4 - Hidden</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6 - Obvious</option>
+              <option class="text-7" value="7">7</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Public knowledge</option>
+            </select>
+
+            <!--Vulnerability/Intrusion detection: How likely is an exploit to be detected? Active detection in application (1), logged and reviewed (3), logged without review (8), not logged (9)-->
+            <h6>Intrusion Detection</h6>
+            <select class="custom-select custom-select-sm" id="id" data-toggle="tooltip" data-placement="top" title="How likely is an exploit to be detected?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Active detection in application</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3 - Logged and reviewed</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7</option>
+              <option class="text-8" value="8">8 - Logged without review</option>
+              <option class="text-9" value="9">9 - Not logged</option>
+            </select>
+            <div class="alert m-3" role="alert">
+                Vulnerability Factor: <span id="VF"></span>
+            </div>
+        </div>
+    </div>
+    <div class="alert m-3" role="alert">
+        Likelihoood Factor: <span id="LF"></span>
+    </div>
+</div>
+<div class="col-md-6">                
+    <h2>Impact Factors</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Technical Impact Factors</h5>
+            <!--Technical Impact/Loss of confidentiality: How much data could be disclosed and how sensitive is it? Minimal non-sensitive data disclosed (2), minimal critical data disclosed (6), extensive non-sensitive data disclosed (6), extensive critical data disclosed (7), all data disclosed (9)-->
+            <h6>Loss of Confidentiality</h6>
+            <select class="custom-select custom-select-sm" id="lc" data-toggle="tooltip" data-placement="top" title="How much data could be disclosed and how sensitive is it?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1</option>
+              <option class="text-2" value="2">2 - Minimal non-sensitive data disclosed</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6 - Minimal critical data or extensive non-sensitive data disclosed</option>
+              <option class="text-7" value="7">7 - Extensive critical data disclosed</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - All data disclosed</option>
+            </select>
+
+            <!--Technical Impact/Loss of integrity: How much data could be corrupted and how damaged is it? Minimal slightly corrupt data (1), minimal seriously corrupt data (3), extensive slightly corrupt data (5), extensive seriously corrupt data (7), all data totally corrupt (9)-->
+            <h6>Loss of Integrity</h6>
+            <select class="custom-select custom-select-sm" id="li" data-toggle="tooltip" data-placement="top" title="How much data could be corrupted and how damaged is it?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Minimal slightly corrupt data</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3 - Minimal seriously corrupt data</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5 - Extensive slightly corrupt data</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - Extensive seriously corrupt data</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - All data totally corrupt</option>
+            </select>
+
+            <!--Technical Impact/Loss of availability: How much service could be lost and how vital is it? Minimal secondary services interrupted (1), minimal primary services interrupted (5), extensive secondary services interrupted (5), extensive primary services interrupted (7), all services completely lost (9)-->
+            <h6>Loss of Availability</h6>
+            <select class="custom-select custom-select-sm" id="lav" data-toggle="tooltip" data-placement="top" title="How much service could be lost and how vital is it?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Minimal secondary services interrupted</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5 - Minimal primary or extensive secondary services interrupted</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - Extensive primary services interrupted</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - All services completely lost</option>
+            </select>
+
+            <!--Technical Impact/Loss of accountability: Are the threat agents' actions traceable to an individual? Fully traceable (1), possibly traceable (7), completely anonymous (9)-->
+            <h6>Loss of Accountability</h6>
+            <select class="custom-select custom-select-sm" id="lac" data-toggle="tooltip" data-placement="top" title="Are the threat agents' actions traceable to an individual?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Fully traceable</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - Possibly traceable</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Completely anonymous</option>
+            </select>
+            <div class="alert m-3" role="alert">
+                Technical Impact Factor: <span id="TIF"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5>Business Impact Factors</h5>
+            <!--Business Impact/Financial damage: How much financial damage will result from an exploit? Less than the cost to fix the vulnerability (1), minor effect on annual profit (3), significant effect on annual profit (7), bankruptcy (9)-->
+            <h6>Financial Damage</h6>
+            <select class="custom-select custom-select-sm" id="fd" data-toggle="tooltip" data-placement="top" title="How much financial damage will result from an exploit?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Less than the cost to fix the vulnerability</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3 - Minor effect on annual profit</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - Significant effect on annual profit</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Bankruptcy</option>
+            </select>
+
+            <!--Business Impact/Reputation damage: Would an exploit result in reputation damage that would harm the business? Minimal damage (1), Loss of major accounts (4), loss of goodwill (5), brand damage (9)-->
+            <h6>Reputation Damage</h6>
+            <select class="custom-select custom-select-sm" id="rd" data-toggle="tooltip" data-placement="top" title="Would an exploit result in reputation damage that would harm the business?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1 - Minimal damage</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4 - Loss of major accounts</option>
+              <option class="text-5" value="5">5 - Loss of goodwill</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Brand damage</option>
+            </select>
+
+            <!--Business Impact/Non-compliance: How much exposure does non-compliance introduce? Minor violation (2), clear violation (5), high profile violation (7)-->
+            <h6>Non-compliance</h6>
+            <select class="custom-select custom-select-sm" id="nc" data-toggle="tooltip" data-placement="top" title="How much exposure does non-compliance introduce?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1</option>
+              <option class="text-2" value="2">2 - Minor violation</option>
+              <option class="text-3" value="3">3</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5 - Clear violation</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - High profile violation</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9</option>
+            </select>
+
+            <!--Business Impact/Privacy violation: How much personally identifiable information could be disclosed? One individual (3), hundreds of people (5), thousands of people (7), millions of people (9)-->
+            <h6>Privacy Violation</h6>
+            <select class="custom-select custom-select-sm" id="pv" data-toggle="tooltip" data-placement="top" title="How much personally identifiable information could be disclosed?">
+              <option class="text-0" value="0">0 - N/A</option>
+              <option class="text-1" value="1">1</option>
+              <option class="text-2" value="2">2</option>
+              <option class="text-3" value="3">3 - One individual</option>
+              <option class="text-4" value="4">4</option>
+              <option class="text-5" value="5">5 - Hundreds of people</option>
+              <option class="text-6" value="6">6</option>
+              <option class="text-7" value="7">7 - Thousands of people</option>
+              <option class="text-8" value="8">8</option>
+              <option class="text-9" value="9">9 - Millions of people</option>
+            </select>
+            <div class="alert m-3" role="alert">
+                Business Impact Factor: <span id="BIF"></span>                
+            </div>
+        </div>
+    </div>
+    <div class="alert m-3" role="alert">
+        Impact Factor: <span id="IF"></span>        
+    </div>
+</div>
+</div>
+<div class="alert m-3" role="alert">
+Overall Risk Severity: <span id="R"></span>
+</div>
+<div class="alert m-3" role="alert">
+Score Vector: <a id="score" target="_blank"></a>
+</div>
+<div class="alert m-3" role="alert">
+Shortened Score Vector: <a id="scorev" target="_blank"></a>
+</div>
+
+            <p>This Risk Rating Calculator is based on <a href="https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology" target="_blank">OWASP's Risk Rating Methodology</a>.</p> 
+
+        </div>
+    </body>
+</html>
