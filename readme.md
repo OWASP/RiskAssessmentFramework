@@ -1,4 +1,4 @@
-## OWASP Risk Rating Management Project
+## OWASP Risk Asessement Framework 
 OWASP Risk Rating Management Project is a framework projects aim to educate user who want to assessment more than one or many web application using owasp risk rating mathodologies. 
 
 ## Installation Guide
