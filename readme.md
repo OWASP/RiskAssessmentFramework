@@ -1,4 +1,4 @@
-## OWASP Risk Asessement Framework 
+## OWASP Risk Assessment Framework 
 OWASP Risk Asessement Framework is developing from OWASP Risk Rating Methodology
 
 ## Contributing
