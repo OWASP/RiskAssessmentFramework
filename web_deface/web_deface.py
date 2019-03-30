@@ -3,7 +3,6 @@ from monitor import Monitor
 from cache import Cache
 import deface_utils
 from crawler import Crawler
-import sys
 import platform
 
 

@@ -9,7 +9,8 @@ class Hash(object):
         """Intialize Hash class."""
         pass
 
-    def extractBytes(self, data):
+    @staticmethod
+    def extractBytes(data):
         """
         Extracts and returns bytes of the file.
 
