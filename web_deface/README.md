@@ -58,12 +58,14 @@ optional arguments:
 - Create new app to obtain authentication and token codes.
 #### Example usage
 - `python web_deface.py --twitter_api_key <data> --twitter_api_secret_key <data> --twitter_access_token <data> --twitter_access_token_secret <data>`
+<br>![](/img/twitter.gif)<br>
 
 ### Twilio SMS tokens
 #### Steps
 - Visit https://www.twilio.com and click on "Get a free API key".
 #### Example usage
 - `sudo python3 web_deface.py --twilio_sid <data> --twilio_token <data> --twilio_from <data> --twilio_to <data>`
+<br>![](/img/SMS.gif)<br>
 
 ### Slack tokens
 #### Steps
@@ -72,9 +74,11 @@ optional arguments:
 - Get the "Bot User OAuth Access Token".
 #### Example usage
 - `sudo python3 web_deface.py --slack_token <data> --slack_user_id <data>`
+<br>![](/img/slack.gif)<br>
 
 ### Telegram tokens
 #### Steps
 - Visit https://core.telegram.org/bots#botfather & follow the steps to obtain Telegram token & user id.
 #### Example usage
 - `sudo python3 web_deface.py --telegram_bot_token <data> --telegram_user_id <data>`
+<br>![](/img/telegram.gif)<br>
