@@ -27,8 +27,7 @@ class Telegram():
         Args:
             msg (TYPE): Description
         """
-        message = (str(msg) + " at " + common.getdatetime() +
-                   " " + common.get_current_location() + common.get_platform())
+        message = str(msg)
 
         bot = telegram.Bot(token=self.token)
         bot.send_message(chat_id=self.user_id, text=message)
