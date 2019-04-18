@@ -1,9 +1,9 @@
 # Remote Web Deface Detection
 
 ## Installing
-- Make sure you are in the web_deface directory, `cd web_deface/`
-- `pip install -r requirements.txt`
-- `python web_deface.py <notif arguments>`
+-   Make sure you are in the web_deface directory, `cd web_deface/`
+-   `pip install -r requirements.txt`
+-   `python web_deface.py <notif arguments>`
 
 ## Arguments
 
@@ -54,31 +54,35 @@ optional arguments:
 
 ### Twitter tokens
 #### Steps
-- Visit https://apps.twitter.com.
-- Create new app to obtain authentication and token codes.
+-   Visit https://apps.twitter.com.
+-   Create new app to obtain authentication and token codes.
 #### Example usage
-- `python web_deface.py --twitter_api_key <data> --twitter_api_secret_key <data> --twitter_access_token <data> --twitter_access_token_secret <data>`
+-   `python web_deface.py --twitter_api_key <data> --twitter_api_secret_key <data> --twitter_access_token <data> --twitter_access_token_secret <data>`
 <br>![](/img/twitter.gif)<br>
 
 ### Twilio SMS tokens
 #### Steps
-- Visit https://www.twilio.com and click on "Get a free API key".
+-   Visit https://www.twilio.com and click on "Get a free API key".
 #### Example usage
-- `sudo python3 web_deface.py --twilio_sid <data> --twilio_token <data> --twilio_from <data> --twilio_to <data>`
+-   `sudo python3 web_deface.py --twilio_sid <data> --twilio_token <data> --twilio_from <data> --twilio_to <data>`
 <br>![](/img/SMS.gif)<br>
 
 ### Slack tokens
 #### Steps
-- Visit https://api.slack.com/apps/new and create a new bot app.
-- In the bot app settings, setup event subscriptions by Enabling Events.
-- Get the "Bot User OAuth Access Token".
+-   Visit https://api.slack.com/apps/new and create a new bot app.
+-   In the bot app settings, setup event subscriptions by Enabling Events.
+-   Get the "Bot User OAuth Access Token".
 #### Example usage
-- `sudo python3 web_deface.py --slack_token <data> --slack_user_id <data>`
+-   `sudo python3 web_deface.py --slack_token <data> --slack_user_id <data>`
 <br>![](/img/slack.gif)<br>
 
 ### Telegram tokens
 #### Steps
-- Visit https://core.telegram.org/bots#botfather & follow the steps to obtain Telegram token & user id.
+-   Sign in to your Telegrm account.
+-   Search for botfather in the telegram search bar.
+-   Follow the instruction given by the BotFather
+-   Note down your newly created bot's API Token and keep it safe from others. Put this after `--twitter_access_token` argument.
+-   Search for @userinfobot and click on `/start` Note down your user info id. Put this after `--telegram_user_id` argument in the terminal.
 #### Example usage
-- `sudo python3 web_deface.py --telegram_bot_token <data> --telegram_user_id <data>`
+-   `sudo python3 web_deface.py --telegram_bot_token 1234:XX1234 --telegram_user_id 123456`
 <br>![](/img/telegram.gif)<br>
