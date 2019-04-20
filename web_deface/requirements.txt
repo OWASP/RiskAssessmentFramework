@@ -1,0 +1,5 @@
+requests
+requests_oauthlib
+python-telegram-bot
+twilio
+tqdm

@@ -2,8 +2,9 @@
 
 ____
 
-## OWASP Risk Assessment Framework 
-OWASP Risk Asessement Framework is Sast Tools, Vapt tools and Risk Assesment tools
+
+## The OWASP Risk Assessment Framework 
+The OWASP Risk Asessement Framework is SAS(Source Code Analysis), VAPT(Vulnerability Assessment & Penetration Testing) and Risk Assesment tool. 
 
 ## features
 -   Web Deface Detection 
@@ -61,12 +62,24 @@ optional arguments:
                         Slack user id
 ```
 
+## features
+*   Web Deface Detection 
+*   Scanning Tools based on OWASP Top 10
+*   Risk Assesment Tools
+*   Static Application security Testing 
+
 ## Wiki
 https://github.com/OWASP/RiskAssessmentFramework/wiki
-____
 
 ## Contribute
- wanna contribute this project dm me via twitter @johnleedik
+Want to contribute to this project? Message me on Twitter.
+My twitter handle is @johnleedik 
 
+
+https://twitter.com/johnleedik
+ 
 ## Project Lead
+
 Ade Yoseman Putra
+
+https://www.owasp.org/index.php/Ade_Yoseman_Putra

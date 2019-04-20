@@ -8,7 +8,11 @@ import sys
 class Monitor(object):
     """Class for Monitor."""
 
-    def __init__(self):
+    def __init__(self,
+                 twitter=None,
+                 telegram=None,
+                 slack=None,
+                 twilio_sms=None):
         """Intialize Monitor class."""
 
         self.JSON_PATH = 'hash.json'
@@ -22,6 +26,42 @@ class Monitor(object):
         # Initialize change_dict
         for key in self.hash_dict.keys():
             self.change_dict[key] = 0
+
+        # Intialize notification medium
+        self.twitter_obj = twitter
+        self.slack_obj = slack
+        self.telegram_obj = telegram
+        self.twilio_sms_obj = twilio_sms
+
+    def notify(self, msg):
+        """
+        Send the warning message using the
+        notification medium.
+
+        Args:
+            msg: (str) Message to send
+
+        Raises:
+            None
+
+        Returns:
+            None
+        """
+        # Send a warning message using twitter
+        if self.twitter_obj is not None:
+            self.twitter_obj.notify(msg)
+
+        # Send a warning message using slack
+        if self.slack_obj is not None:
+            self.slack_obj.notify(msg)
+
+        # Send a warning message using twilio sms
+        if self.twilio_sms_obj is not None:
+            self.twilio_sms_obj.notify(msg)
+
+        # Send a warning message using telegram
+        if self.telegram_obj is not None:
+            self.telegram_obj.notify(msg)
 
     def read_file(self):
         """
@@ -85,8 +125,10 @@ class Monitor(object):
                 self.change_dict[url] = self.change_dict[url] + 1
                 if (self.change_dict[url] > self._TOLERANCE):
                     self.change_dict[url] = 0
-                    msg = "[!] Change detected in: {}".format(url)
-                    print(msg)
+                    msg = "Change detected in: {}, (WARNING)".format(url)
+                    # Notify
+                    self.notify(msg)
+                    print("[!] ", msg)
 
     def monitor(self):
         """
