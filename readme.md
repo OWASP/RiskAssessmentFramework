@@ -62,11 +62,6 @@ optional arguments:
                         Slack user id
 ```
 
-## features
-*   Web Deface Detection 
-*   Scanning Tools based on OWASP Top 10
-*   Risk Assesment Tools
-*   Static Application security Testing 
 
 ## Wiki
 https://github.com/OWASP/RiskAssessmentFramework/wiki
