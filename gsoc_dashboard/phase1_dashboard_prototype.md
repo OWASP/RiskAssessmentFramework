@@ -1,4 +1,4 @@
-# GSOC IDEA - Creation of Dashboard and integration of SAST tool for Automatic generation of assessment scores
+# Creation of Dashboard and integration of SAST tool for Automatic generation of assessment scores [GSOC IDEA]
 
 The whole project is divided into 3 phases *(Testing and documentation is also done in each phase)*
 1. Dashboard Creation 
