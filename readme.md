@@ -6,7 +6,7 @@ ____
 ## The OWASP Risk Assessment Framework 
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7bb78cc6ec4a4951a96e8c712758e030)](https://app.codacy.com/app/adeyosemanputra/RiskAssessmentFramework?utm_source=github.com&utm_medium=referral&utm_content=OWASP/RiskAssessmentFramework&utm_campaign=Badge_Grade_Settings)
-
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 The OWASP Risk Asessement Framework is SAS(Source Code Analysis), VAPT(Vulnerability Assessment & Penetration Testing) and Risk Assesment tool. 
 
 ## features
