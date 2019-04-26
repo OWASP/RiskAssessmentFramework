@@ -1,10 +1,4 @@
 
-[![Codacy Badge][Codacy-badge]][Codacy]
-[![GSOC 2019][GSOC-2019-badge]][GSOC-OWASP]
-[![GitHub issues][Issues-badge]][Issues]
-[![GitHub pull requests][PR-badge]][PRs]
-[![Version][Version-badge]][Version]
-[![GitHub][License-badge]][License]
 
 ____
 
