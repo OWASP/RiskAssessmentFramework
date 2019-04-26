@@ -9,7 +9,7 @@ The whole project is divided into 3 phases *(Testing and documentation is also d
 
 ### PHASE-1 : Dashboard Creation 
 #### Dashboard Prototype  
-[comment]: # (*for better UI and UX feature selection*)
+##### *for better UI and UX feature selection*
 Below are the prototype images of the dashboard and its features. Currently, a simple dashboard layout, easy for any user to manage. Charts and graphs are used for data visualization and analysis.
 The theme, presentation along with the placement of the items may change with the progress of the project. This is the first prototypic view of the dashboard for better understanding.
 
@@ -32,5 +32,5 @@ Settings:
 FAQ:
 ![](https://github.com/shaistha24/RiskAssessmentFramework/blob/master/gsoc_dashboard/pg9.jpg)
 
-[comment]:# (*NOTE: Choice of language for coding is Python , framework: Dash*)
-[comment]:# (*The end result after coding may vary from the prototype depicted above, as there is always rooms for improvement*)
+##### *NOTE: Choice of language for coding is Python , framework: Dash*
+##### *The end result after coding may vary from the prototype depicted above, as there is always rooms for improvement*
