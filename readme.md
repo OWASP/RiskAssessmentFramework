@@ -3,7 +3,10 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7bb78cc6ec4a4951a96e8c712758e030)](https://app.codacy.com/app/adeyosemanputra/RiskAssessmentFramework?utm_source=github.com&utm_medium=referral&utm_content=OWASP/RiskAssessmentFramework&utm_campaign=Badge_Grade_Settings)
 ![GSOC 2019][GSOC-2019-badge]
 ![Repo Size](https://img.shields.io/github/repo-size/OWASP/RiskAssessmentFramework.svg)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/OWASP/RiskAssessmentFramework/issues)
 ![Last commit](https://img.shields.io/github/last-commit/OWASP/RiskAssessmentFramework.svg)
+[![OWASP Incubator](https://img.shields.io/badge/owasp-tool-blue.svg)](https://www.owasp.org/index.php/Risk_Assessment_Framework)
+
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 ____
 The OWASP Risk Asessement Framework is SAS(Source Code Analysis), VAPT(Vulnerability Assessment & Penetration Testing) and Risk Assesment tool.
