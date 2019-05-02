@@ -9,7 +9,7 @@
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 ____
-The OWASP Risk Asessement Framework is SAS(Source Code Analysis), VAPT(Vulnerability Assessment & Penetration Testing) and Risk Assesment tool.
+The OWASP Risk Asessement Framework is SAS(Source Code Analysis) and Risk Assesment tool.
 
 ## features
 -   Web Deface Detection
