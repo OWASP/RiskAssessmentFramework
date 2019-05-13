@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+
+$dark-primary: mat-palette($mat-teal);
+$dark-accent:  mat-palette($mat-pink, A200, A100, A400);
+$dark-background-color: #0A0F23;
+
+
+
+// The warn palette is optional (defaults to red).
+$dark-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$background: map-get($dark-theme, background);
+$background: map_merge($background, (background: $dark-background-color));
+$dark-theme: map_merge($dark-theme, (background: $background));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($dark-theme);
