@@ -1,0 +1,32 @@
+mat-drawer-container{
+  height: 100%;
+}
+
+mat-drawer{
+  width: 25%;
+}
+
+mat-toolbar{
+  height: 8%;
+}
+
+.nav-caption{
+  display: inline-block;
+  padding-left: 12px;
+}
+
+
+
+
+
+mat-nav-list a:hover{
+  color:white ;
+  background-color: teal;
+}
+
+mat-nav-list a.activeLink{
+  color:white ;
+  background-color: teal;
+  border: 1px solid #509A9D;
+
+}

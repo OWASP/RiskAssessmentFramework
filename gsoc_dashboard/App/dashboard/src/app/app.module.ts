@@ -1,0 +1,40 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import {MaterialModule} from './material.module';
+import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './view/home/home.component';
+import { ToolsComponent } from './view/tools/tools.component';
+import { HistoryComponent } from './view/history/history.component';
+import { ResourcesComponent } from './view/resources/resources.component';
+import { SettingsComponent } from './view/settings/settings.component';
+import { ProfileComponent } from './view/profile/profile.component';
+import { SupportComponent } from './view/support/support.component';
+
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    ToolsComponent,
+    HistoryComponent,
+    ResourcesComponent,
+    SettingsComponent,
+    ProfileComponent,
+    SupportComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
