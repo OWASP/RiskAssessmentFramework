@@ -1,3 +1,30 @@
-<p>
-  resources works!
-</p>
+
+<h1>OWASP TOP 10</h1>
+<mat-divider></mat-divider>
+
+<div class="resourceListDiv"  [ngClass]="status ? 'showList' : 'resourceListDiv'">
+  <mat-list role="list">
+   <mat-list-item role="listitem" *ngFor="let item of linkList"><a target="_blank" href="{{item.url}}">{{item.title}}</a></mat-list-item>
+  </mat-list>
+</div>
+
+<mat-list-item role="listitem">
+  <span class="showMoreText" *ngIf="status!=true" (click)="status=!status"  >show more</span>
+</mat-list-item>
+
+<br>
+<h1>Other Resources</h1>
+<mat-divider></mat-divider>
+
+<div class="videosDiv">
+
+        <mat-list-item role="vlistitem"  class="videoItem" *ngFor="let iframe of iframeList">
+
+            <mat-card class="video-card">
+                <div  [innerHtml]="iframe"></div>
+            </mat-card>
+
+        </mat-list-item>
+</div>
+
+

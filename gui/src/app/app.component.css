@@ -1,14 +1,28 @@
 mat-drawer-container{
   height: 100%;
+
 }
 
 mat-drawer{
   width: 25%;
+  background-color: #070a19;
+
+
+}
+
+mat-drawer-content{
+  position: relative;
+  left: 3%;
+
 }
 
 mat-toolbar{
   height: 8%;
-}
+  background-color: #070a19;
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000}
 
 .nav-caption{
   display: inline-block;
@@ -17,7 +31,12 @@ mat-toolbar{
 
 
 
+mat-nav-list{
+  background-color: #141831;
 
+  height: 100%;
+
+}
 
 mat-nav-list a:hover{
   color:white ;
@@ -30,3 +49,6 @@ mat-nav-list a.activeLink{
   border: 1px solid #509A9D;
 
 }
+
+
+
