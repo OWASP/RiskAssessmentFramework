@@ -1,5 +1,32 @@
 # Dashboard
 
+## Status
+**IN DEVELOPMENT**
+
+## Description
+Updated resource page for the dashboard, Resources which links to [Owasp Top 10 2017 Project](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_2017_Project) and  other related sources which were found on the official [Owasp website](owasp.org)
+
+
+## Todos
+- [ ] SideNav Avatar 
+- [ ] Themeing the cards
+- [ ] Implementing FlexLayout based view
+- [ ] Documentation
+
+
+
+
+
+## Impacted Areas in Application
+General components of the application that this PR will affect:
+
+* Resource Section of the Dashboard
+* SideNav Bar
+* Top ToolBar
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
 ## Development server
