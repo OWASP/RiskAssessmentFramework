@@ -1,0 +1,46 @@
+mat-divider{
+  background-color: #3b3a54;
+  height: 2px;
+  width: 60%;
+}
+
+a{
+  text-decoration: none;
+ font-size: 125%;
+}
+
+.resourceListDiv{
+  height: 43%;
+  overflow: hidden;
+}
+
+.showList{
+  overflow: visible;
+  height: auto;
+}
+
+.showMoreText{
+  color: #313446;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 125%;
+
+  margin-left: 1%;
+
+
+}
+
+.videosDiv{
+  margin: 2%;
+}
+
+.videoItem{
+  margin: 2%;
+
+}
+
+.video-card
+{
+  width: 29%;
+  background-color: rgba(24, 28, 47, 0.7)
+}
