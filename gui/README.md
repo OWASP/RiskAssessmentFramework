@@ -8,10 +8,10 @@ Updated resource page for the dashboard, Resources which links to [Owasp Top 10 
 
 
 ## Todos
-- [ ] SideNav Avatar 
-- [ ] Themeing the cards
-- [ ] Implementing FlexLayout based view
-- [ ] Documentation
+- []   SideNav Avatar 
+- []   Themeing the cards
+- []   Implementing FlexLayout based view
+- []   Documentation
 
 
 
@@ -23,6 +23,7 @@ General components of the application that this PR will affect:
 * Resource Section of the Dashboard
 * SideNav Bar
 * Top ToolBar
+* Favicon
 
 
 

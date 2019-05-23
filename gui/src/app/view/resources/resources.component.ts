@@ -55,7 +55,7 @@ export class ResourcesComponent implements OnInit {
       url: 'https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities'
     },
     {
-      title: 'A10 Insufficient Logging&Monitoring',
+      title: 'A10 Insufficient Logging & Monitoring',
       url: 'https://www.owasp.org/index.php/Top_10-2017_A10-Insufficient_Logging%26Monitoring'
     }
 
