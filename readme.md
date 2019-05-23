@@ -8,18 +8,21 @@
 [![OWASP Incubator](https://img.shields.io/badge/owasp-tool-blue.svg)](https://www.owasp.org/index.php/Risk_Assessment_Framework)
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-____
+
 The OWASP Risk Asessement Framework is SAS(Source Code Analysis) and Risk Assesment tool.
 <br>
 Introduction to Problem: <br>
 There are hundreds of SAST tools available for a penetration tester to use from and there are frameworks to assess the risk of a security flaw. But in the OWASP Risk Assessment to testers have to manually input the the test results from each and every tool to get a relative approximation. This makes the assessment part as a separate component from all other tools<br>
+
 ## features
+
 -   Web Deface Detection
 -   Scanning Tools based on OWASP Top 10
 -   Risk Assesment Tools
 -   Static Application security Testing
 
 ## Installation
+ 
 -   `cd web_deface/`
 -   `pip install -r requirements.txt`
 -   `python web_deface.py <notif arguments>`
@@ -38,11 +41,11 @@ usage: web_deface.py [-h] [--twitter_api_key TWITTER_API_KEY]
                      [--twilio_from TWILIO_FROM] [--twilio_to TWILIO_TO]
                      [--slack_token SLACK_TOKEN]
                      [--slack_user_id SLACK_USER_ID]
-
-Risk Assessment Framework
+```                     
 
 optional arguments:
-  -h, --help            show this help message and exit
+
+```-h, --help            show this help message and exit
   --twitter_api_key TWITTER_API_KEY, -tak TWITTER_API_KEY
                         Twitter api key
   --twitter_api_secret_key TWITTER_API_SECRET_KEY, -tas TWITTER_API_SECRET_KEY
@@ -70,25 +73,29 @@ optional arguments:
 ```
 
 ## Wiki
-https://github.com/OWASP/RiskAssessmentFramework/wiki
+<https://github.com/OWASP/RiskAssessmentFramework/wiki>
 
 ## Contribute
 Want to contribute to this project? Message me on Twitter.
 My twitter handle is @johnleedik
 
-https://twitter.com/johnleedik
+<https://twitter.com/johnleedik>
 
 ## Project Lead
 
 Ade Yoseman Putra
 
-https://www.owasp.org/index.php/Ade_Yoseman_Putra
+<https://www.owasp.org/index.php/Ade_Yoseman_Putra>
 
 
 [License]:  /LICENSE
-[Version]: https://github.com/OWASP/SecureTea-Project/releases
-[Issues]: https://github.com/OWASP/RiskAssessmentFramework/issues
-[Issues-badge]: https://img.shields.io/github/issues/OWASP/SecureTea-Project.svg
-[PRs]: https://github.com/OWASP/RiskAssessmentFramework/pulls
-[PR-badge]: https://img.shields.io/github/issues-pr/OWASP/SecureTea-Project.svg
+[Version]: (https://github.com/OWASP/SecureTea-Project/releases)
+[Issues]: (https://github.com/OWASP/RiskAssessmentFramework/issues)
+[Issues-badge]: (https://img.shields.io/github/issues/OWASP/SecureTea-Project.svg)
+[PRs]: (https://github.com/OWASP/RiskAssessmentFramework/pulls)
+[PR-badge]: (https://img.shields.io/github/issues-pr/OWASP/SecureTea-Project.svg)
 [GSOC-2019-badge]: https://img.shields.io/static/v1.svg?label=GSOC&message=Google%20Summer%20of%20Code%202019&color=blue&logo=%20data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAABLFJREFUSA2tVV1sVFUQ/s45d7ulpT+63VSkQC1IIsHyAugDAWLwQSEQI/EnaGL0QWOQ6AMo+uAzJooJJJiIiQ8qkWDURIxGIlLUqEQTKz9REEpbMFhKt7ss7e49P35zb9jaqKEkTnL33jNn5ps538ycBa5D7MH8etuTX38dLlM3jQ+2rXRf1Q/LI99T9VRTMYy/rF+hUflAIeTEPkANe2Tvz9w1fuha/pMChE/RbDNRd83JWnigwzTO2Gma5+ec6eCWgnEDcMXfhl35j43cH4yiqOYSxbZX3YviVcXEDjVWR4tMRvUEegUXQzfNRtT1PJBbw7WFjocTv5DJwZgoZy7t3+N/34YwdhbKZKA0MO6i5UQ6/K8BYBC8gNsYKr8a6rZdCJePwx97EmH0e+rTxFTUDNW8FHrOs9CLD8OdeBp+6BOoKAPBuAou70knSDaYucrfA73wXbhTW+EHdqX2ypCdlNHgigjDn8Pz0R1PwSx8B+7oBuDi/n9ATgoQW+vqp8+EWrCb4C/B9xPciMnfSuVjLhlMM1sm6/vfSNZmwZvwR5YilAZdmlH6S9YmxFjMVl2bEcon08wTcO4LqEhwMHNfhm65E+BJE2GB/SCpLP8K3bUFgpFupL+1AGNfTF8ZtbbtQNt9zOo17iaV5ltDz3iErzpyTO7bH6KOBZ/xYHoSBmXl4M++ymZYh6g1v0OwaJRIEiBwcOrMlX26cV4+eAU/+l2yqTJtiLr3Qd1EMDsONNzKzMvwpaPUbYC5fS9AG5FQZBMwJ8EQLMEUvbaH2tZ6lD4kbM7pmwl0CagOQzXOh1ncg1D9E66XWTNT1byELXmaNmW4Xx6m3RAi2ohtqNLPjsCZmTyzzwmmPdS+VhvYQmBp0gaRDmNBZSG829GUFtPAAFS33AEUf0i/RUfK6E7bqiRLkWYQQ/kOJYNKQasVhR7nMmt8QJ/xA3S6EUJNGDsD++MqHvsKqXiPgaZBNTDT4hGeO6JuT0KX/elu2vZB1eUTX8EQLEtMwU5qkF1V7rUe6/zlU6eV5hzcsDxJBH4M7tjjaQEbyT8n2JdPEKiOjbAd7vgTDDKWJt26jJPMq6V08rRgCaaco9ZF2VXoDcXCJlzYwwndzP5nnwtVnH8/9JkcGf7cbiAm16TED3Go5G4QG86E7qQPfePiyCbBEnCRWgBZhAxG/JnXSRHvms4XmJ0VbRIsuTL6XuFaCE5Bkz25o27ZklDkz2yHJwYNajJpksmtDvEQaXkUZtFHiZHr28ZALKJmLuQ+AZV+5KWlDGdj7laY2c/B/byOpxvioSIaSmKpTA5AnSY1vvANPB30greg82vg+ncgFA4nbZm4ZdugWpcT+BnWowW+l+CFr9PLzkonTsjkAKSbHTDuFfkf+ZZ3yzLoWRvrzLwXdVDSkqW0EU0T3yX48+97P7CzGqoXmTl9iB2IMQGfElpbh72YhvZsR6VCVZYPP0wFM9X0prdNU+ccpziIpN+E8/zD6TsbLpcec1mcE2Mxl5/BC5XBWQ+ArZWKVOyaUjlQ1x3p+GOtQqcY+6D6rM+wFau1bvkvkCkFEOfKgcbuyMTsTTLlMquv9rms/zepHmheIs/1AP4F9DYB6+AcwCcAAAAASUVORK5CYII=
+
+## Join Our Telegram Channel
+
+<https://t.me/joinchat/IjCM_BRrcPYPC3X0DZ4Rog>
