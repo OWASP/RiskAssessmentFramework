@@ -11,6 +11,9 @@ a{
 
 
 
+
+
+
 /* Card Style for the FAQ section */
 
 .faq-card{
@@ -33,6 +36,8 @@ mat-expansion-panel{
 mat-panel-title{
   color:#007be3;
 }
+
+
 
 
 

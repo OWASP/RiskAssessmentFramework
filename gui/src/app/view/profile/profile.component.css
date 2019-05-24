@@ -1,0 +1,37 @@
+
+.content{
+  margin-top: 3%;
+}
+
+.verification-label{
+  width: 50%;
+  background-color: rgba(24, 28, 47, 0.7);
+text-align: start}
+
+.verification-label label{
+
+  margin-left: 3%;
+}
+
+mat-icon{
+  color: greenyellow;
+  margin-top: 3px;
+  line-height: 22px;
+}
+
+.detail-card
+{
+width: 50%;
+margin-top: 3%;
+background-color: rgba(24, 28, 47, 0.7);
+
+}
+
+mat-card-content label{
+  display: inline-block;
+  width: 140px;
+  text-align: left;
+}
+.field{
+  margin-left: 6%;
+}

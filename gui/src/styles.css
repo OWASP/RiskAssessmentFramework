@@ -9,4 +9,16 @@ body{
 }
 
 
+/* For all the headers of each components */
+
+
+.header mat-divider{
+  background-color: #3b3a54;
+  height: 2px;
+  width: 60%;
+}
+
+
+
+
 
