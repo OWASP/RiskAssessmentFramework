@@ -4,14 +4,17 @@
 **IN DEVELOPMENT**
 
 ## Description
-Updated resource page for the dashboard, Resources which links to [Owasp Top 10 2017 Project](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_2017_Project) and  other related sources which were found on the official [Owasp website](owasp.org)
+Implemented the support page and the profile page for the dashboard, Support from FAQ which links to [OWASP Application Security FAQ](https://www.owasp.org/index.php/OWASP_Application_Security_FAQ) and  other related sources which were found on the official [Owasp website](owasp.org)
 
 
 ## Todos
 - []   SideNav Avatar 
-- []   Themeing the cards
-- []   Implementing FlexLayout based view
-- []   Documentation
+- []   Settings Page
+- []   Home Page
+- []   Tools Page
+- []   Tools Page
+- []   Other issue fixing
+
 
 
 
@@ -20,10 +23,13 @@ Updated resource page for the dashboard, Resources which links to [Owasp Top 10 
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-* Resource Section of the Dashboard
-* SideNav Bar
+* Profile Section of the Dashboard
+* Support Section of the Dashboard
+* App routing
 * Top ToolBar
-* Favicon
+* App component
+* Global Styles
+* Material Module
 
 
 
