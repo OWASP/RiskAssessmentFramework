@@ -11,28 +11,28 @@ a{
 
 
 
+/* Card Style for the FAQ section */
 
+.faq-card{
+  background-color: rgba(24, 28, 47, 0.7);
+  margin-right: 30%;
+  margin-top: 3%;
+}
 
 
 /* Expansion Panel Styles */
 mat-expansion-panel{
   background: none;
-  width: 80%;
+
 
 }
 
-p{
-  width: 70%;
-}
 
-mat-accordion{
-}
+
 
 mat-panel-title{
   color:#007be3;
 }
 
 
-mat-expansion-panel-header{
-  width: 70%;
-}
+
