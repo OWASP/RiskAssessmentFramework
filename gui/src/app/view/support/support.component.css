@@ -1,0 +1,38 @@
+mat-divider{
+  background-color: #3b3a54;
+  height: 2px;
+  width: 60%;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+/* Expansion Panel Styles */
+mat-expansion-panel{
+  background: none;
+  width: 80%;
+
+}
+
+p{
+  width: 70%;
+}
+
+mat-accordion{
+}
+
+mat-panel-title{
+  color:#007be3;
+}
+
+
+mat-expansion-panel-header{
+  width: 70%;
+}

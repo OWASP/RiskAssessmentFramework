@@ -10,7 +10,7 @@ import { SupportComponent } from './view/support/support.component';
 import { ToolsComponent } from './view/tools/tools.component';
 
 const routes: Routes = [
-  {path : '', component:  LoginComponent},
+  {path : '', component:  HomeComponent},
   {path : 'home', component: HomeComponent},
   {path : 'history', component: HistoryComponent},
   {path : 'profile', component: ProfileComponent},

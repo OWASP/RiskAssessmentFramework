@@ -1,3 +1,53 @@
-<p>
-  support works!
-</p>
+
+<h1>F.A.Q</h1>
+<mat-divider></mat-divider>
+
+
+
+
+
+<mat-accordion>
+
+
+<mat-expansion-panel>
+<mat-expansion-panel-header>
+<mat-panel-title>
+How do we prevent SQL Injection in our applications?
+</mat-panel-title>
+</mat-expansion-panel-header>
+<p>It is quite simple to prevent SQL
+   injection while developing the application.
+    You need to check all input coming from the client before building a SQL query.
+    The best method is to remove all unwanted input and accept only expected input.
+    While server side input validation is the most effective method of preventing SQL Injection,
+     the other method of prevention is not using dynamic SQL queries.
+      This can be achieved by using stored procedures or bind variables in databases that support these features.
+       For applications written in Java, CallableStatements and PreparedStatements can be used.
+        For ASP applications, ADO Command Objects can be used.
+         You can check the following article for more on
+          SQL Injection in Oracle: <a href="http://www.integrigy.com/info/IntegrigyIntrotoSQLInjectionAttacks.pdf">IntegrigyIntrotoSQLInjectionAttacks.pdf</a></p>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+        Is there some way to prevent these proxy tools from editing the data?
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>The main threat these proxy tools pose is editing the
+      information sent from the client to the server.
+       One way to prevent it is to sign the message sent from
+        the client with a Java Applet downloaded onto the client machine.
+         Since the applet we developed will be the one validating the certificate and not the browser,
+          a proxy tool will not be able to get in between the client and
+           the server with a fake certificate.
+           The applet will reject the fake certificate.
+            The public key of this certificate can then be used to digitally sign each message sent
+            between the client and the server. An attacker would then have
+             to replace the embedded certificate in the applet with a fake certificate to succeed
+              - that raises the barrier for the attacker.</p>
+    </mat-expansion-panel>
+
+
+</mat-accordion>
