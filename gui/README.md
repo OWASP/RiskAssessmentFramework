@@ -12,7 +12,6 @@ Implemented the support page and the profile page for the dashboard, Support fro
 - []   Settings Page
 - []   Home Page
 - []   Tools Page
-- []   Tools Page
 - []   Other issue fixing
 
 
