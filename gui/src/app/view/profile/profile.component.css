@@ -13,6 +13,12 @@ text-align: start}
   margin-left: 3%;
 }
 
+.verification-label mat-icon{
+  position: relative;
+  top: 0.3vw;
+}
+
+
 mat-icon{
   color: greenyellow;
   margin-top: 3px;

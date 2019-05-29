@@ -40,7 +40,7 @@ mat-nav-list{
 
 mat-nav-list a:hover{
   color:white ;
-  background-color: teal;
+  background-color:#040611;
 }
 
 mat-nav-list a.activeLink{
@@ -48,4 +48,25 @@ mat-nav-list a.activeLink{
   background-color: teal;
   border: 1px solid #509A9D;
 
+}
+
+/* Avatar */
+.avatarDiv  {
+  text-align: left;
+  background-color:#040611;
+  position: relative;
+    top: -10px;
+
+
+
+}
+.avatarDiv mat-icon{
+  font-size: 20vw;
+  margin-left:8%;
+
+}
+
+
+.content{
+  margin-top: 3%;
 }

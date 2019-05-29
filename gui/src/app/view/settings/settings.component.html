@@ -3,3 +3,62 @@
     <mat-divider></mat-divider>
     </div>
 
+    <div class="content">
+      <mat-card class="primary-card">
+        <mat-nav-list>
+          <a mat-list-item  style="border-bottom: 1px solid #509A9D;" routerLinkActive="activeLink" active>
+            <span class="nav-caption" style="  color: rgb(11, 236, 236);">
+              USER SETTINGS</span></a>
+          <a mat-list-item routerLink="tools" routerLinkActive="activeLink">
+            <span class="nav-caption">THEMES</span></a>
+          <a mat-list-item routerLink="history" routerLinkActive="activeLink">
+            <span class="nav-caption">DASHBOARD</span></a>
+          <a mat-list-item routerLink="profile" routerLinkActive="activeLink">
+            <span class="nav-caption">TOOLS</span></a>
+          <a mat-list-item routerLink="resources" routerLinkActive="activeLink">
+            <span class="nav-caption">ACCOUNT</span></a>
+       </mat-nav-list>
+      </mat-card>
+
+      <mat-card class="secondary-card">
+        <mat-nav-list>
+            <label style="width: 30%">Email : </label>
+          <mat-form-field  mat-list-item appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="testuser@test.com" value="testuser@test.com">
+            <mat-icon matSuffix style="color: yellowgreen">check_circle</mat-icon>
+
+          </mat-form-field>
+       </mat-nav-list>
+        <mat-nav-list>
+            <label style="width: 30%">Username : </label>
+          <mat-form-field  mat-list-item appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="testuser123" value="testuser">
+          </mat-form-field>
+       </mat-nav-list>
+        <mat-nav-list>
+            <label style="width: 30%">Password : </label>
+          <mat-form-field  mat-list-item appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="password" value="password">
+          </mat-form-field>
+       </mat-nav-list>
+        <mat-nav-list>
+            <label style="width: 30%"></label>
+          <mat-form-field  mat-list-item appearance="outline">
+            <mat-label>New</mat-label>
+            <input matInput type="password" placeholder="New">
+          </mat-form-field>
+       </mat-nav-list>
+        <mat-nav-list>
+            <label style="width: 30%"></label>
+          <mat-form-field  mat-list-item appearance="outline">
+            <mat-label>Confirm</mat-label>
+            <input matInput type="password" placeholder="Confirm">
+          </mat-form-field>
+       </mat-nav-list>
+              <button mat-raised-button style="width: 100%; margin-top: 5%;" color="warn">Confirm</button>
+      </mat-card>
+    </div>
+

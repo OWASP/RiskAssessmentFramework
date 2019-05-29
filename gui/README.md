@@ -4,16 +4,16 @@
 **IN DEVELOPMENT**
 
 ## Description
-Implemented the support page and the profile page for the dashboard, Support from FAQ which links to [OWASP Application Security FAQ](https://www.owasp.org/index.php/OWASP_Application_Security_FAQ) and  other related sources which were found on the official [Owasp website](owasp.org)
+Implemented the Settings page and fixed issues in profile page for the dashboard.
 
 
-## Todos
-- []   SideNav Avatar 
-- []   Settings Page
-- []   Home Page
-- []   Tools Page
-- []   Tools Page
-- []   Other issue fixing
+## Todos 
+- [] Home Page
+- [] History Page
+- [] Tools Page
+- [] Improvements in Settings
+- [] Improvements in Profile
+- [] Other issue fixing related to theme
 
 
 
@@ -23,13 +23,13 @@ Implemented the support page and the profile page for the dashboard, Support fro
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-* Profile Section of the Dashboard
-* Support Section of the Dashboard
-* App routing
+* Profile Component
+* SideNav Avatar
+* Settings Component
 * Top ToolBar
+* Settings Page
 * App component
 * Global Styles
-* Material Module
 
 
 
