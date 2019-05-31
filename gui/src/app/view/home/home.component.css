@@ -1,0 +1,36 @@
+mat-card
+{
+  background-color: rgba(24, 28, 47, 0.7);
+
+}
+
+.main-card{
+  width: 60%;
+  height: 40vh;
+  margin-bottom: 1%;
+}
+
+.summary-card{
+  width: 19%;
+  height: 10vh;
+  margin-right: 1.5%;
+
+}
+
+
+.summary-div{
+  display: flex;
+  margin-bottom: 1%;
+}
+
+.timeline-card{
+  width: 40%;
+  height: 30vh;
+  margin-right: 1.2%;
+
+}
+
+.top10-card{
+  width: 19%;
+  height: 30vh;
+}

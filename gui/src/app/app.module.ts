@@ -17,10 +17,6 @@ import { EmbedVideo } from 'ngx-embed-video';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +36,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     HttpClientModule,
     EmbedVideo.forRoot(),
-    FlexLayoutModule
+    FlexLayoutModule,
+
+
+
 
   ],
   providers: [],
