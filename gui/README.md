@@ -4,11 +4,10 @@
 **IN DEVELOPMENT**
 
 ## Description
-Implemented the Settings page and fixed issues in profile page for the dashboard.
+Implemented the Home page and added the charts for risk assessment presentation for the dashboard.
 
 
 ## Todos 
-- [] Home Page
 - [] History Page
 - [] Tools Page
 - [] Improvements in Settings
@@ -23,13 +22,8 @@ Implemented the Settings page and fixed issues in profile page for the dashboard
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-* Profile Component
-* SideNav Avatar
-* Settings Component
-* Top ToolBar
-* Settings Page
-* App component
-* Global Styles
+* Home Component
+* Readme
 
 
 
