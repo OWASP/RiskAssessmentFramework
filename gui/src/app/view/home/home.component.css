@@ -6,26 +6,42 @@ mat-card
 
 .main-card{
   width: 60%;
-  height: 40vh;
+display: flex;
+flex-wrap: wrap;
+height: 30%;
   margin-bottom: 1%;
 }
 
 .summary-card{
   width: 19%;
-  height: 10vh;
+  height: 7vw;
   margin-right: 1.5%;
 
 }
 
-
-.summary-div{
+.summary-val-icon-div{
+  width: 100%;
   display: flex;
-  margin-bottom: 1%;
+  justify-content: space-around;
+
+
+}
+
+.card-icon{
+  position: relative;
+  top: -3vh;
+  right: 2vh;
+font-size: 5em;
+}
+.summary-div{
+
+  display: flex;
+  top: 25vw;
 }
 
 .timeline-card{
   width: 40%;
-  height: 30vh;
+  height: 28vh;
   margin-right: 1.2%;
 
 }
@@ -33,4 +49,9 @@ mat-card
 .top10-card{
   width: 19%;
   height: 30vh;
+}
+
+.content{
+  display: flex;
+  flex-direction:column;
 }

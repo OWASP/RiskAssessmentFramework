@@ -4,33 +4,39 @@
   </div>
 
   <div class="content">
-    <mat-card class="main-card">
+      <div class="chart-container" style="height:20vh; width:60vw">
+          <canvas id="lineChart"></canvas>
+      </div>
 
-<!-- Line Chart -->
-    </mat-card>
+      <div class="summary-div position-relative">
 
-<div class="summary-div">
-<mat-card class="summary-card">
-<!-- Summary of scans -->
-</mat-card>
-<mat-card class="summary-card">
-<!-- Summary of Vulnerabilities Found -->
-</mat-card>
-<mat-card class="summary-card">
-<!-- Summary of Reports -->
-</mat-card>
-</div>
+ <mat-card class="summary-card" >
+    <mat-card-subtitle>TOTAL SCANS</mat-card-subtitle>
 
-<div  fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+    <div class="summary-val-icon-div">
+        <mat-card-title class="summary-value">2000</mat-card-title>
+        <mat-icon style="color: rgb(0, 153, 255)" class="card-icon"> track_changes</mat-icon>
+    </div>
 
 
 
-<mat-card class="timeline-card">
-  <!-- Area chart -->
-</mat-card>
+      </mat-card>
+ <mat-card class="summary-card" >
+   <mat-card-subtitle>VULNERABILITIES</mat-card-subtitle>
 
-<mat-card class="top10-card">
-  <!-- Top 10 chart -->
-</mat-card>
-</div>
+   <div class="summary-val-icon-div">
+      <mat-card-title class="summary-value">400</mat-card-title>
+      <mat-icon color="warn"style="" class="card-icon"> warning</mat-icon>
+  </div>
+      </mat-card>
+ <mat-card class="summary-card" >
+   <mat-card-subtitle>REPORTS</mat-card-subtitle>
+   <div class="summary-val-icon-div">
+      <mat-card-title class="summary-value">20</mat-card-title>
+      <mat-icon style="color: yellowgreen" class="card-icon">dvr</mat-icon>
+  </div>
+      </mat-card>
+
+      </div>
+
   </div>
