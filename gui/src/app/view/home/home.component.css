@@ -1,0 +1,57 @@
+mat-card
+{
+  background-color: rgba(24, 28, 47, 0.7);
+
+}
+
+.main-card{
+  width: 60%;
+display: flex;
+flex-wrap: wrap;
+height: 30%;
+  margin-bottom: 1%;
+}
+
+.summary-card{
+  width: 19%;
+  height: 7vw;
+  margin-right: 1.5%;
+
+}
+
+.summary-val-icon-div{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+
+}
+
+.card-icon{
+  position: relative;
+  top: -3vh;
+  right: 2vh;
+font-size: 5em;
+}
+.summary-div{
+
+  display: flex;
+  top: 25vw;
+}
+
+.timeline-card{
+  width: 40%;
+  height: 28vh;
+  margin-right: 1.2%;
+
+}
+
+.top10-card{
+  width: 19%;
+  height: 30vh;
+}
+
+.content{
+  display: flex;
+  flex-direction:column;
+}
