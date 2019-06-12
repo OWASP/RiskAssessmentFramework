@@ -1,0 +1,14 @@
+.upload-wrapper{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+
+}
+.upload-button{
+  margin-right: 0.2em;
+height: 5vw;
+}

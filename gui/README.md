@@ -4,12 +4,12 @@
 **IN DEVELOPMENT**
 
 ## Description
-Implemented the Home page and added the charts for risk assessment presentation for the dashboard.
+Implemented the Tool page and added a chart onto the history page.
 
 
 ## Todos 
 - [] History Page
-- [] Tools Page
+- [] Upload Code
 - [] Improvements in Settings
 - [] Improvements in Profile
 - [] Other issue fixing related to theme
@@ -22,7 +22,9 @@ Implemented the Home page and added the charts for risk assessment presentation 
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-* Home Component
+* Tool Component
+* History Component
+* Material Module
 * Readme
 
 
