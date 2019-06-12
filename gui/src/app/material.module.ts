@@ -4,6 +4,9 @@ import {MatCardModule,
    MatListModule, MatToolbarModule,
     MatFormFieldModule, MatInputModule,
      MatSidenavModule,
+     MatProgressBarModule,
+     MatDialogModule,
+
      MatExpansionModule} from '@angular/material';
 import { AlertModule } from 'ngx-bootstrap';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -19,11 +22,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
     imports: [MatButtonModule, MatListModule,
        MatToolbarModule, MatSidenavModule,
        MatIconModule, MatFormFieldModule,
-        MatCardModule, MatInputModule, AlertModule, MatGridListModule,MatExpansionModule ],
+        MatCardModule, MatInputModule,
+         AlertModule, MatGridListModule, MatExpansionModule,
+         MatDialogModule, MatProgressBarModule  ],
     exports: [MatButtonModule, MatListModule,MatExpansionModule,
        MatToolbarModule, MatSidenavModule,
        MatIconModule, MatFormFieldModule,
-       MatCardModule, MatInputModule, AlertModule, MatGridListModule ]
+       MatCardModule, MatInputModule, AlertModule, MatGridListModule,
+       MatDialogModule, MatProgressBarModule ]
 
 })
 
