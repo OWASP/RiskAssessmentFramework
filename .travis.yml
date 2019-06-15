@@ -4,7 +4,7 @@ node_js:
 
 before_install:
    - "cd gui"
-   - “npm install -g @angular/cli”
+   - npm install -g @angular/cli
 
 install:
   - npm install
