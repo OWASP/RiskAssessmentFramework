@@ -5,5 +5,5 @@ before_install:
    - "cd gui"
 install:
   - npm install
-  - ng serve
+  
 
