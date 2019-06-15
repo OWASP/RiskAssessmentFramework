@@ -7,12 +7,12 @@
 Added Charts to the History Page and Added table for downloading reports.
 
 
-## Todos 
-- [] Report Table Dynamic Fetching
-- [] Upload Code
-- [] Improvements in Settings
-- [] Improvements in Profile
-- [] Other issue fixing related to theme
+# Todos 
+- Report Table Dynamic Fetching
+- Upload Code
+- Improvements in Settings
+- Improvements in Profile
+- Other issue fixing related to theme
 
 
 
