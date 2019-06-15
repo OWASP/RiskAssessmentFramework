@@ -4,15 +4,15 @@
 **IN DEVELOPMENT**
 
 ## Description
-Implemented the Tool page and added a chart onto the history page.
+Added Charts to the History Page and Added table for downloading reports.
 
 
-## Todos 
-- [] History Page
-- [] Upload Code
-- [] Improvements in Settings
-- [] Improvements in Profile
-- [] Other issue fixing related to theme
+# Todos 
+- Report Table Dynamic Fetching
+- Upload Code
+- Improvements in Settings
+- Improvements in Profile
+- Other issue fixing related to theme
 
 
 
@@ -23,7 +23,6 @@ Implemented the Tool page and added a chart onto the history page.
 General components of the application that this PR will affect:
 
 * Tool Component
-* History Component
 * Material Module
 * Readme
 
