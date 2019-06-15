@@ -1,5 +1,6 @@
 # The OWASP Risk Assessment Framework
 
+[![Build Status](https://travis-ci.org/OWASP/RiskAssessmentFramework.svg?branch=master)](https://travis-ci.org/OWASP/RiskAssessmentFramework)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7bb78cc6ec4a4951a96e8c712758e030)](https://app.codacy.com/app/adeyosemanputra/RiskAssessmentFramework?utm_source=github.com&utm_medium=referral&utm_content=OWASP/RiskAssessmentFramework&utm_campaign=Badge_Grade_Settings)
 ![GSOC 2019][GSOC-2019-badge]
 ![Repo Size](https://img.shields.io/github/repo-size/OWASP/RiskAssessmentFramework.svg)
