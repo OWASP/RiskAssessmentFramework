@@ -11,4 +11,4 @@ script:
 - (cd gui && ng lint)
 - (cd gui && ng test --watch=false)
 - (cd gui && ng serve &)
-- (cd gui && ng e2e)
+
