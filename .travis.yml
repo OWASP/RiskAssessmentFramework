@@ -4,9 +4,11 @@ node_js:
   - 10
   - 9
   - 8
-  - 7
-  - 6
 install:
-  - cd gui && npm install && cd ..
+- npm install -g angular-cli
+- (cd gui && npm install)
 script:
-  - cd gui && npm test
+- (cd gui && ng lint)
+- (cd gui && ng test --watch=false)
+- (cd gui && ng serve &)
+- (cd gui && ng e2e)
