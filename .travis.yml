@@ -13,4 +13,5 @@ script:
 - npm start
 env:
   - YARN_GPG=no
-
+after_success:
+  - cd ..
