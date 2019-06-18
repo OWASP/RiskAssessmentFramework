@@ -1,14 +1,15 @@
 language: node_js
-sudo: false
+os:
+  - windows
+  - linux
+  - osx
 node_js:
   - 10
   - 9
   - 8
 install:
-- npm install -g angular-cli
-- (cd gui && npm install)
-script:
-- (cd gui && ng lint)
-- (cd gui && ng test --watch=false)
-- (cd gui && npm start &)
+- node -v
+- cd gui && npm install
+- npm start
+
 
