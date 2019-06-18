@@ -9,7 +9,7 @@ install:
 - node -v
 - cd gui && npm install
 script:
-- npm start
+- npm run build
 env:
   - YARN_GPG=no
 after_success:
