@@ -10,5 +10,6 @@ install:
 - node -v
 - cd gui && npm install
 - npm start
-
+env:
+  - YARN_GPG=no
 
