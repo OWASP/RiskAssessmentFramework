@@ -14,3 +14,5 @@ env:
   - YARN_GPG=no
 after_success:
   - cd ..
+after_script:
+- bash ./.teleNotify.sh  
