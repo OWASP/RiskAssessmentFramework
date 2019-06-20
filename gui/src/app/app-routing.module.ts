@@ -12,6 +12,7 @@ import { Top10Component } from './view/tools/top10/top10.component';
 
 const routes: Routes = [
   {path : '', component:  HomeComponent},
+  {path : 'login', component:  LoginComponent},
   {path : 'home', component: HomeComponent},
   {path : 'history', component: HistoryComponent},
   {path : 'profile', component: ProfileComponent},

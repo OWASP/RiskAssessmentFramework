@@ -157,7 +157,7 @@ this.radarChart = new Chart('radarChart', {
   data: {
     labels: ['Injection', 'XSS', 'BAC', 'XXE', 'SOE', 'Misconfig'],
     datasets: [{
-        label: 'vulnerabilities',
+        label: 'Risk',
         data: [30, 20, 30, 50, 20, 30],
         backgroundColor: [
             'rgba(33, 255, 199, 0.2)',
