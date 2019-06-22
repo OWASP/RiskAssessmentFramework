@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmbedVideo } from 'ngx-embed-video';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Top10Component } from './view/tools/top10/top10.component';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { Top10Component } from './view/tools/top10/top10.component';
 
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
