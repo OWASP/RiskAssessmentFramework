@@ -4,11 +4,11 @@
 **IN DEVELOPMENT**
 
 ## Description
-Added initial Authentication for the dashboard.
+Redesign of the resource component with dialog popup.
 
 
 # Todos 
-- Report Table Dynamic Fetching
+- Dynamic Fetching of the Resources
 - Upload Code
 - Improvements in Authentication
 - Improvements in Profile
@@ -24,11 +24,15 @@ Added initial Authentication for the dashboard.
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-* Login Component
+* app Component
 * app routing Module
+* login Component
 * User Model
+* Navigation Component
 * app Module
-* History Module
+* dialog Component
+* auth Services
+* Resource Component
 * Readme
 
 
