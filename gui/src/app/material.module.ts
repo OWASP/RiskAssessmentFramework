@@ -10,6 +10,7 @@ import {MatCardModule,
      MatExpansionModule} from '@angular/material';
 import { AlertModule } from 'ngx-bootstrap';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ModalModule, WavesModule, InputsModule, ButtonsModule } from 'angular-bootstrap-md'
 import {MatTableModule} from '@angular/material/table';
 
 
@@ -25,12 +26,13 @@ import {MatTableModule} from '@angular/material/table';
        MatIconModule, MatFormFieldModule,
         MatCardModule, MatInputModule,
          AlertModule, MatTableModule, MatGridListModule, MatExpansionModule,
-         MatDialogModule, MatProgressBarModule  ],
+         MatDialogModule, MatProgressBarModule, ModalModule, WavesModule, InputsModule, ButtonsModule,
+         ModalModule.forRoot()],
     exports: [MatButtonModule, MatListModule, MatExpansionModule,
        MatToolbarModule, MatSidenavModule,
        MatIconModule, MatFormFieldModule,
        MatCardModule, MatTableModule, MatInputModule, AlertModule, MatGridListModule,
-       MatDialogModule, MatProgressBarModule ]
+       MatDialogModule, MatProgressBarModule, ModalModule, WavesModule, InputsModule, ButtonsModule,  ]
 
 })
 

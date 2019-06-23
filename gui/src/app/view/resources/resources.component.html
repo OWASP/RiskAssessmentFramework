@@ -2,15 +2,26 @@
 <h1>OWASP TOP 10</h1>
 <mat-divider></mat-divider>
 
-<div class="resourceListDiv"  [ngClass]="status ? 'showList' : 'resourceListDiv'">
-  <mat-list role="list">
-   <mat-list-item role="listitem" *ngFor="let item of linkList"><a target="_blank" href="{{item.url}}">{{item.title}}</a></mat-list-item>
-  </mat-list>
-</div>
+    <mat-card class="faq-card">
 
-<mat-list-item role="listitem">
-  <span class="showMoreText" *ngIf="status!=true" (click)="status=!status"  >show more</span>
-</mat-list-item>
+
+
+    <mat-accordion>
+
+    <mat-expansion-panel *ngFor="let content of data">
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+{{content.title}}  </mat-panel-title>
+    </mat-expansion-panel-header>
+<p>    {{content.subtitle}}</p>
+    <br>
+    <a (click)="openDialog(1, content)" style="cursor:pointer"><div><h3>Is Your Application Vulnerable to {{content.title}}</h3></div></a>
+    <a (click)="openDialog(2, content)" style="cursor:pointer"><div><h3>How to prevent</h3></div></a>
+    <a (click)="openDialog(3, content)" style="cursor:pointer"><div><h3>Examples</h3></div></a>
+
+    </mat-expansion-panel>
+    </mat-accordion>
+    </mat-card>
 
 <br>
 <h1>Other Resources</h1>
@@ -26,5 +37,3 @@
 
         </mat-list-item>
 </div>
-
-

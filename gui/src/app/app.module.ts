@@ -17,6 +17,10 @@ import { EmbedVideo } from 'ngx-embed-video';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Top10Component } from './view/tools/top10/top10.component';
 import { AuthService } from './auth/auth.service';
+import { NavigationComponent } from './view/navigation/navigation.component';
+import { DialogComponentComponent } from './view/resources/dialog-component/dialog-component.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -30,7 +34,10 @@ import { AuthService } from './auth/auth.service';
     SettingsComponent,
     ProfileComponent,
     SupportComponent,
-    Top10Component
+    Top10Component,
+    NavigationComponent,
+    DialogComponentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,12 +47,13 @@ import { AuthService } from './auth/auth.service';
     HttpClientModule,
     EmbedVideo.forRoot(),
     FlexLayoutModule,
-
+   FormsModule
 
 
 
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponentComponent]
 })
 export class AppModule { }

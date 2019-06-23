@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <div>{{data.subtitle}}</div>
+  <div>{{data.isVulnerablePara}}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.isVulnerablePara" cdkFocusInitial>Ok</button>
+</div>

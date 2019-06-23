@@ -4,15 +4,17 @@
 **IN DEVELOPMENT**
 
 ## Description
-Added Charts to the History Page and Added table for downloading reports.
+Added initial Authentication for the dashboard.
 
 
 # Todos 
 - Report Table Dynamic Fetching
 - Upload Code
-- Improvements in Settings
+- Improvements in Authentication
 - Improvements in Profile
+- Improvements in Settings
 - Other issue fixing related to theme
+- Auth Guard
 
 
 
@@ -22,8 +24,11 @@ Added Charts to the History Page and Added table for downloading reports.
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-* Tool Component
-* Material Module
+* Login Component
+* app routing Module
+* User Model
+* app Module
+* History Module
 * Readme
 
 
