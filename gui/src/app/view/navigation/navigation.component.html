@@ -1,0 +1,35 @@
+<mat-drawer-container *ngIf="!isAuth" hasBackdrop="false">
+    <mat-drawer  opened="true" mode="push" true >
+        <mat-nav-list>
+
+            <div mat-list-item class="avatarDiv">
+              <mat-icon>security</mat-icon>
+            </div>
+            <a mat-list-item routerLink="home"  routerLinkActive="activeLink">
+              <mat-icon>dashboard</mat-icon>
+              <span class="nav-caption">Home</span></a>
+            <a mat-list-item routerLink="tools" routerLinkActive="activeLink">
+              <mat-icon>build</mat-icon>
+              <span class="nav-caption">Tools</span></a>
+            <a mat-list-item routerLink="history" routerLinkActive="activeLink">
+              <mat-icon>access_time</mat-icon>
+              <span class="nav-caption">History</span></a>
+            <a mat-list-item routerLink="profile" routerLinkActive="activeLink">
+              <mat-icon>person</mat-icon>
+              <span class="nav-caption">Profile</span></a>
+            <a mat-list-item routerLink="resources" routerLinkActive="activeLink">
+              <mat-icon>all_inbox</mat-icon>
+              <span class="nav-caption">Resources</span></a>
+            <a mat-list-item routerLink="settings" routerLinkActive="activeLink">
+              <mat-icon>settings</mat-icon>
+              <span class="nav-caption">Settings</span></a>
+            <a mat-list-item routerLink="support" routerLinkActive="activeLink">
+              <mat-icon>help</mat-icon>
+              <span class="nav-caption">Support</span></a>
+         </mat-nav-list>
+
+    </mat-drawer>
+    <mat-drawer-content>
+              <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>

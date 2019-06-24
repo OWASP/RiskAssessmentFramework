@@ -46,3 +46,49 @@ a{
   width: 29%;
   background-color: rgba(24, 28, 47, 0.7)
 }
+
+
+
+mat-divider{
+  background-color: #3b3a54;
+  height: 2px;
+  width: 60%;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+/* Card Style for the FAQ section */
+
+.faq-card{
+  background-color: rgba(24, 28, 47, 0.7);
+  margin-right: 30%;
+  margin-top: 3%;
+}
+
+
+/* Expansion Panel Styles */
+mat-expansion-panel{
+  background: none;
+
+
+}
+
+
+
+
+mat-panel-title{
+  color:#007be3;
+}
+
+
+
+
+

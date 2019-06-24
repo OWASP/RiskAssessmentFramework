@@ -4,7 +4,7 @@
 <mat-card class = "login-card">
 
 <h2>Login</h2>
-<form  (ngSubmit)="onSubmit()">
+<form (onsubmit)="onSubmit($event)"  >
     <div class="form-group">
         <label for="username">Username</label>
         <mat-form-field appearance="outline">
@@ -12,8 +12,8 @@
                 <input matInput placeholder="Placeholder">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint>Hint</mat-hint>
-              </mat-form-field>        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
+              </mat-form-field>        <div  class="invalid-feedback">
+            <div>Username is required</div>
         </div>
     </div>
     <div class="form-group">
@@ -23,13 +23,13 @@
                 <input type = "password" matInput placeholder="">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint>Hint</mat-hint>
-              </mat-form-field>        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
+              </mat-form-field>        <div class="invalid-feedback">
+            <div>Password is required</div>
         </div>
     </div>
     <div class="form-group">
-        <button mat-raised-button [disabled]="loading" color="accent">Login</button>
-        <a routerLink="/register" class="btn btn-link">Register</a>
+        <button mat-raised-button onClick="onSubmit($event)"color="accent">Login</button>
+        <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
     </div>
 </form>
 

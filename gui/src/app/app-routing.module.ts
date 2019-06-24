@@ -8,6 +8,7 @@ import { ResourcesComponent } from './view/resources/resources.component';
 import { SettingsComponent } from './view/settings/settings.component';
 import { SupportComponent } from './view/support/support.component';
 import { ToolsComponent } from './view/tools/tools.component';
+
 import { Top10Component } from './view/tools/top10/top10.component';
 
 const routes: Routes = [
