@@ -20,6 +20,9 @@ import { AuthService } from './auth/auth.service';
 import { NavigationComponent } from './view/navigation/navigation.component';
 import { DialogComponentComponent } from './view/resources/dialog-component/dialog-component.component';
 import { FormsModule } from '@angular/forms';
+import { RegistrationComponent } from './view/registration/registration.component';
+import {  ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -36,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     SupportComponent,
     Top10Component,
     NavigationComponent,
-    DialogComponentComponent
+    DialogComponentComponent,
+    RegistrationComponent
 
   ],
   imports: [
@@ -47,7 +51,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     EmbedVideo.forRoot(),
     FlexLayoutModule,
-   FormsModule
+   FormsModule,
+   ReactiveFormsModule
 
 
 
