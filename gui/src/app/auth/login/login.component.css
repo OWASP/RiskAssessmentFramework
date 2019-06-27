@@ -1,7 +1,9 @@
 .login-card {    
 
- height: 40vh;
- width: 40vh;
+  width: fit-content;
+  padding: 15%;
+  align-items: center;
+  background-color: rgba(24, 28, 47, 0.7);
   }
 
   .body-div{
@@ -9,5 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+position: absolute;
+left: 35%;
   }
   

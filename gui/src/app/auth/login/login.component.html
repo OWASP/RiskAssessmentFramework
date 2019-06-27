@@ -3,33 +3,34 @@
 
 <mat-card class = "login-card">
 
-<h2>Login</h2>
+        <h1 style="text-align: center">Login</h1>
+
+  <div style="width:100%;">
+
+    <img src="/assets/img/OWASP-Logo-White.png" width="240" style="position:relative;; " alt="OWASP LOGO">
+  </div>
 <form (onsubmit)="onSubmit($event)"  >
     <div class="form-group">
-        <label for="username">Username</label>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" style="width:100%">
                 <mat-label>Username</mat-label>
                 <input matInput placeholder="Placeholder">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                <mat-hint>Hint</mat-hint>
               </mat-form-field>        <div  class="invalid-feedback">
             <div>Username is required</div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <mat-form-field appearance="outline">
+    <div class="form-group" >
+        <mat-form-field appearance="outline" style="width:100%" >
                 <mat-label>Password</mat-label>
                 <input type = "password" matInput placeholder="">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                <mat-hint>Hint</mat-hint>
               </mat-form-field>        <div class="invalid-feedback">
             <div>Password is required</div>
         </div>
     </div>
     <div class="form-group">
-        <button mat-raised-button onClick="onSubmit($event)"color="accent">Login</button>
-        <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
+        <button style="width:100%" mat-raised-button onClick="onSubmit($event)"color="primary">Login</button>
+        <button mat-raised-button color="warn" style="width: 100%; margin-top: 1%" [routerLink]="['/register']" class="btn btn-link">Register</button>
     </div>
 </form>
 
