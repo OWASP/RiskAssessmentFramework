@@ -9,12 +9,12 @@
 
     <img src="/assets/img/OWASP-Logo-White.png" width="240" style="position:relative;; " alt="OWASP LOGO">
   </div>
-<form (onsubmit)="onSubmit($event)"  >
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()"   >
     <div class="form-group">
         <mat-form-field appearance="outline" style="width:100%">
                 <mat-label>Username</mat-label>
-                <input matInput placeholder="Placeholder">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <input  matInput placeholder="username"  formControlName="username"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>        <div  class="invalid-feedback">
             <div>Username is required</div>
         </div>
@@ -22,8 +22,8 @@
     <div class="form-group" >
         <mat-form-field appearance="outline" style="width:100%" >
                 <mat-label>Password</mat-label>
-                <input type = "password" matInput placeholder="">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <input type = "password" matInput placeholder="password" formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"> 
+                <mat-icon  matSuffix>lock</mat-icon>
               </mat-form-field>        <div class="invalid-feedback">
             <div>Password is required</div>
         </div>
