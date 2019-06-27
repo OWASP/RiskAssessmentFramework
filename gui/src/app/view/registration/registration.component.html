@@ -1,14 +1,15 @@
 <h2>Register</h2>
+<mat-card class="detail-card">
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <mat-label for="firstName">First Name</mat-label>
+    <div class="form-group" width="100%">
+        <mat-label for="firstName"   style="padding: 7em">First Name</mat-label>
         <mat-form-field appearance="outline">
-          <mat-label>First Name</mat-label>
+          <mat-label width="100%" >First Name</mat-label>
           <input matInput placeholder="First Name"  formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
         </mat-form-field>
     </div>
         <div class="form-group">
-            <mat-label for="lastName">Last Name</mat-label>
+            <mat-label for="lastName" style="padding: 7em">Last Name</mat-label>
 
         <mat-form-field appearance="outline">
           <mat-label>Last Name</mat-label>
@@ -17,14 +18,14 @@
 
     </div>
     <div class="form-group">
-        <mat-label for="username">username</mat-label>
+        <mat-label for="username" style="padding: 7em">username</mat-label>
         <mat-form-field appearance="outline">
           <mat-label>username</mat-label>
           <input matInput placeholder="username"  formControlName="username"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
         </mat-form-field>
     </div>
         <div class="form-group">
-            <mat-label for="password">password</mat-label>
+            <mat-label for="password" style="padding: 7em">password</mat-label>
 
         <mat-form-field appearance="outline">
           <mat-label>password</mat-label>
@@ -32,41 +33,20 @@
         </mat-form-field>
 
     </div>
-        <div class="form-group">
-            <mat-label for="confirm-password">confirm password</mat-label>
+        <div class="form-group" width = "100%">
+            <mat-label for="confirm-password"  style="padding: 5em">confirm password</mat-label>
 
         <mat-form-field appearance="outline">
           <mat-label>password</mat-label>
-          <input matInput type="password" placeholder="confirm-password"  formControlName="confirm-password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+          <input width="100px" matInput type="password" placeholder="confirm-password"  formControlName="confirm-password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
         </mat-form-field>
 
     </div>
 
-
     <div class="form-group">
-        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">Register</button>
+        <button mat-raised-button [disabled]="loading" class="btn btn-primary">Register</button>
         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
     </div>
 </form>
+</mat-card>

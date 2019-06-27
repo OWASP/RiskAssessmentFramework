@@ -1,0 +1,9 @@
+
+.detail-card
+{
+width: fit-content;
+padding: 2%;
+align-items: center;
+margin-top: 3%;
+background-color: rgba(24, 28, 47, 0.7);
+}
