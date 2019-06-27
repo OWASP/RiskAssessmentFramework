@@ -10,11 +10,11 @@ import { SupportComponent } from './view/support/support.component';
 import { ToolsComponent } from './view/tools/tools.component';
 
 import { Top10Component } from './view/tools/top10/top10.component';
-
+import { RegistrationComponent } from './view/registration/registration.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 const routes: Routes = [
-  {path : '', component:  HomeComponent},
   {path : 'login', component:  LoginComponent},
-  {path : 'home', component: HomeComponent},
+  {path : 'home', component: HomeComponent, canActivate: [AuthGuardService]},
   {path : 'history', component: HistoryComponent},
   {path : 'profile', component: ProfileComponent},
   {path : 'resources', component : ResourcesComponent},
@@ -22,6 +22,8 @@ const routes: Routes = [
   {path : 'support', component : SupportComponent},
   {path : 'tools', component : ToolsComponent},
   {path : 'tools/top10', component : Top10Component},
+  {path : 'register', component : RegistrationComponent},
+  {path: '**', redirectTo: 'login'}
 
 ];
 

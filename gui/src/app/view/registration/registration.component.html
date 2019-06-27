@@ -1,0 +1,59 @@
+<h2 style="position: relative; left: 32%; margin-top: 5%">Register for Risk Assessment Framework</h2>
+<div width="100%" style="position: relative; left: 30%" >
+<mat-card class="detail-card">
+    <div style="width:100%;">
+
+        <img src="/assets/img/OWASP-Logo-White.png" width="240" style="position:relative; left:20%;" alt="OWASP LOGO">
+      </div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group" width="100%">
+        <mat-label for="firstName"   style="padding: 7em">First Name</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-label width="100%" >First Name</mat-label>
+          <input matInput placeholder="First Name"  formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+        </mat-form-field>
+    </div>
+        <div class="form-group">
+            <mat-label for="lastName" style="padding: 7em">Last Name</mat-label>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="First Name"  formControlName="lastName"  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+        </mat-form-field>
+
+    </div>
+    <div class="form-group">
+        <mat-label for="username" style="padding: 7em">username</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-label>username</mat-label>
+          <input matInput placeholder="username"  formControlName="username"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+        </mat-form-field>
+    </div>
+        <div class="form-group">
+            <mat-label for="password" style="padding: 7em">password</mat-label>
+
+        <mat-form-field appearance="outline">
+          <mat-label>password</mat-label>
+          <input matInput type="password" placeholder="password"  formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        </mat-form-field>
+
+    </div>
+        <div class="form-group" width = "100%">
+            <mat-label for="confirm-password"  style="padding: 5em">confirm password</mat-label>
+
+        <mat-form-field appearance="outline">
+          <mat-label>password</mat-label>
+          <input width="100px" matInput type="password" placeholder="confirm-password"  formControlName="confirm-password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        </mat-form-field>
+
+    </div>
+
+    <div class="form-group">
+        <button mat-raised-button [disabled]="loading" style="width: 100%" color="primary" class="btn primary">Register</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <button mat-raised-button color="warn" style="width: 100%; margin-top: 1%" [routerLink]="['/login']" class="btn btn-link">Login</button>
+    </div>
+</form>
+</mat-card>
+</div>
