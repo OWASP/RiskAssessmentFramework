@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { User } from '../user.model';
+import { HomeComponent } from 'src/app/view/home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -10,19 +12,54 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public  email  =  '';
-  public  password  =  '';
+
+  registerForm: FormGroup;
+  loading = false;
+  submitted = false;
 
 loginForm: FormGroup;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, 
+    private formBuilder: FormBuilder,
+    private router: Router) { 
+    this.registerForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      
+  });
+  }
+  get f() { return this.registerForm.controls; }
 
-onSubmit(event) {
-  event.preventDefault();
-  console.log('submit done');
-// this.authService.login({
-//   email: this.loginForm.value.email,
-//   password: this.loginForm.value.password
-// });
+onSubmit() {
+  this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+    this.loading = true;
+    var user = new User();
+    // this.userService.register(this.registerForm.value)
+    //     .pipe(first())
+    //     .subscribe(
+    //         data => {
+    //             this.alertService.success('Registration successful', true);
+    //             this.router.navigate(['/login']);
+    //         },
+    //         error => {
+    //             this.alertService.error(error);
+    //             this.loading = false;
+    //         });
+console.log(this.registerForm.get('username').value)
+
+if(this.registerForm.get('username').value=='admin' && this.registerForm.get('password').value == 'test1234'){
+  console.log('Successful login');
+  this.authService.login();
+  this.router.navigate(['home']);
+
+}else{
+console.log("invalid login");
+}
 
 }
 

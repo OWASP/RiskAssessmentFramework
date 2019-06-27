@@ -7,13 +7,12 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+ 
 authChange = new Subject<boolean>();
   private user: User;
-login(authData: AuthData) {
-  this.user = {
-    email: authData.email,
-    userId: '3'
-  };
+login() {
+this.user = new User();
+console.log(this.user);
   this.authChange.next(true);
 
 }
@@ -27,7 +26,7 @@ logout() {
 // tslint:disable-next-line: one-line
 registerUser(authData: AuthData){
 this.user = {
-  email: authData.email,
+  username: authData.username,
   userId: Math.round(Math.random() * 10000).toString()
 };
 this.authChange.next(true);
