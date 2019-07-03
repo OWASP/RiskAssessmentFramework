@@ -24,6 +24,62 @@
     </mat-card>
 
 <br>
+<h1>Resources to Help Eliminate The Top 25 Software Errors</h1>
+<mat-divider></mat-divider>
+
+    <mat-card class="faq-card">
+
+
+
+    <mat-accordion>
+
+    <mat-expansion-panel *ngFor="let content of sansData">
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+{{content.title}}  </mat-panel-title>
+    </mat-expansion-panel-header>
+<p>    {{content.subtitle}}</p>
+    <br>
+
+
+    </mat-expansion-panel>
+    <mat-expansion-panel >
+    <mat-expansion-panel-header>
+    <mat-panel-title> SANS TOP 25 ERRORS </mat-panel-title>
+    </mat-expansion-panel-header>
+<pre>  [1]  CWE- Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+  [2]  CWE- Improper Neutralization of Special Elements used in an SQL Command('SQL Injection')
+  [3]  CWE-Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')
+  [4]  CWE- Cross-Site Request Forgery (CSRF)
+  [5]  CWE- Improper Authorization
+  [6]  CWE- Reliance on Untrusted Inputs in a Security Decision
+  [7]  CWE- Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+  [8]  CWE- Unrestricted Upload of File with Dangerous Type
+  [9]  CWE- Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')
+  [10] CWE- Missing Encryption of Sensitive Data
+  [11] CWE- Use of Hard-coded Credentials
+  [12] CWE- Buffer Access with Incorrect Length Value
+  [13] CWE- Improper Control of Filename for Include/Require Statement in PHP Program ('PHP File Inclusion')
+  [14] CWE- Improper Validation of Array Index
+  [15] CWE- Improper Check for Unusual or Exceptional Conditions
+  [16] CWE- Information Exposure Through an Error Message
+  [17] CWE- Integer Overflow or Wraparound
+  [18] CWE- Incorrect Calculation of Buffer Size
+  [19] CWE- Missing Authentication for Critical Function
+  [20] CWE- Download of Code Without Integrity Check
+  [21] CWE- Incorrect Permission Assignment for Critical Resource
+  [22] CWE- Allocation of Resources Without Limits or Throttling
+  [23] CWE- URL Redirection to Untrusted Site ('Open Redirect')
+  [24] CWE- Use of a Broken or Risky Cryptographic Algorithm
+  [25] CWE- Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') Cross-site scripting and SQL injection a</pre>
+    <br>
+
+
+    </mat-expansion-panel>
+    </mat-accordion>
+    </mat-card>
+
+<br>
 <h1>Other Resources</h1>
 <mat-divider></mat-divider>
 
