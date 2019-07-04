@@ -4,8 +4,7 @@
 **IN DEVELOPMENT**
 
 ## Description
-Adding of SANS TOP 25 to the resource page and fixing issues related to routing and auth guard
-
+Updated SANS 25 resource
 
 # Todos 
 - Dynamic Fetching of the Resources
@@ -24,16 +23,9 @@ Adding of SANS TOP 25 to the resource page and fixing issues related to routing 
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-* app Component
-* app routing Module
-* login Component
-* User Model
-* Navigation Component
-* app Module
-* dialog Component
-* auth Services
+
 * Resource Component
-* Readme
+
 
 
 
