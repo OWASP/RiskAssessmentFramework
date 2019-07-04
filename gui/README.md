@@ -4,13 +4,13 @@
 **IN DEVELOPMENT**
 
 ## Description
-Redesign of the resource component with dialog popup.
+Adding of SANS TOP 25 to the resource page and fixing issues related to routing and auth guard
 
 
 # Todos 
 - Dynamic Fetching of the Resources
 - Upload Code
-- Improvements in Authentication
+- Improvements in Resources
 - Improvements in Profile
 - Improvements in Settings
 - Other issue fixing related to theme

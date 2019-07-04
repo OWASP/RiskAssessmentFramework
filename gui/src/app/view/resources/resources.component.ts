@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { EmbedVideoService } from 'ngx-embed-video';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogComponentComponent } from './dialog-component/dialog-component.component';
 
 
@@ -19,7 +19,7 @@ export class ResourcesComponent implements OnInit {
   status = false;
   iframeList: any = [];
   contents = [{
-    isVulnerablePara : `Some of the more common injections are SQL, NoSQL, OS
+    isVulnerablePara: `Some of the more common injections are SQL, NoSQL, OS
     command, Object Relational Mapping (ORM), LDAP, and
     Expression Language (EL) or Object Graph Navigation Library
     (OGNL) injection. The concept is identical among all interpreters.
@@ -78,6 +78,95 @@ export class ResourcesComponent implements OnInit {
 
   ];
 
+  sansData = [{
+    title: 'SANS Application Security Courses',
+    subtitle: `
+
+    The SANS application security curriculum seeks to
+    ingrain security into the minds of every developer in
+    the world by providing world-class educational resources to design,
+     develop, procure, deploy, and manage secure software. The application security
+      faculty are real-world practitioners with decades of application security experience.
+       The concepts covered in our courses will be applicable to your software security program
+        the day you return to work:
+
+    DEV522: Defending Web Applications Security Essentials
+    DEV534: Secure DevOps: A Practical Introduction
+    DEV540: Secure DevOps & Cloud Application Security
+    DEV541: Secure Coding in Java / JEE
+    DEV544: Secure Coding in .NET
+
+    SANS maintains an Application Security CyberTalent Assessment that
+     measures secure coding skills and allow programmers to determine gaps
+     in their knowledge of secure coding and allows buyers to ensure outsourced
+     programmers have sufficient programming skills. Organizations can learn more at
+ https://www.sans.org/cybertalent/assessment-detail?msc=top25hp#appsec.`,
+  },
+  {
+    title: 'Developer Security Awareness Training',
+    subtitle: `
+
+    The SANS Security Awareness Developer product provides pinpoint software security awareness training on demand, all from the comfort of your desk. Application security awareness training includes over 30+ modules averaging 7-10 minutes in length to maximize learner engagement and retention. The modules cover the full breadth and depth of topics for PCI Section 6.5 compliance and the items that are important for secure software development.`,
+
+  },
+  // {
+  //   title: 'The TOP 25 Errors List ',
+  //   subtitle: `1		Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
+  //   2		Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')
+  //   3		Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')
+  //   4		Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+  //   5		Missing Authentication for Critical Function
+  //   6		Missing Authorization
+  //   7		Use of Hard-coded Credentials
+  //   8		Missing Encryption of Sensitive Data
+  //   9		Unrestricted Upload of File with Dangerous Type
+  //   10		Reliance on Untrusted Inputs in a Security Decision
+  //   11		Execution with Unnecessary Privileges
+  //   12		Cross-Site Request Forgery (CSRF)
+  //   13		Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+  //   14		Download of Code Without Integrity Check
+  //   15		Incorrect Authorization
+  //   16		Inclusion of Functionality from Untrusted Control Sphere
+  //   17		Incorrect Permission Assignment for Critical Resource
+  //   18		Use of Potentially Dangerous Function
+  //   19		Use of a Broken or Risky Cryptographic Algorithm
+  //   20		Incorrect Calculation of Buffer Size
+  //   22		URL Redirection to Untrusted Site ('Open Redirect')
+  //   23		Uncontrolled Format String
+  //   24		Integer Overflow or Wraparound
+  //   25		Use of a One-Way Hash without a Salt`,
+
+  // },
+  {
+    title: 'SAFECode ',
+    subtitle: `- The Software Assurance Forum for Excellence in Code (members include EMC, Juniper, Microsoft, Nokia, SAP and Symantec) has produced two excellent publications outlining industry best practices for software assurance and providing practical advice for implementing proven methods for secure software development.
+    Fundamental Practices for Secure Software Development 2nd Edition
+    http://www.safecode.org/publications/SAFECode_Dev_Practices0211.pdf
+
+    Overview of Software Integrity Controls
+    http://www.safecode.org/publications/SAFECode_Software_Integrity_Controls0610.pdf
+
+    Framework for Software Supply Chain Integrity
+    http://www.safecode.org/publications/SAFECode_Supply_Chain0709.pdf
+
+    Fundamental Practices for Secure Software Development
+    http://www.safecode.org/publications/SAFECode_Dev_Practices1108.pdf
+
+    Software Assurance: An Overview of Current Industry Best Practices
+    http://www.safecode.org/publications/SAFECode_BestPractices0208.pdf`,
+
+  },
+  {
+    title: 'Software Assurance Community Resources Site and DHS web sites',
+    subtitle: `
+    As part of DHS risk mitigation efforts to enable greater resilience of cyber assets, the Software Assurance Program seeks to reduce software vulnerabilities, minimize exploitation, and address ways to routinely acquire, develop and deploy reliable and trustworthy software products with predictable execution, and to improve diagnostic capabilities to analyze systems for exploitable weaknesses.`,
+
+
+  },
+
+
+  ];
+
   data = [{
     title: 'A1 : Injection',
     subtitle: `Injection flaws
@@ -89,7 +178,7 @@ export class ResourcesComponent implements OnInit {
     Injection flaws are easy to discover when examining
     code. Scanners and fuzzers can help attackers find
     injection flaws.`,
-    isVulnerablePara : `An application is vulnerable to attack when:
+    isVulnerablePara: `An application is vulnerable to attack when:
     • User supplied data is not validated, filtered, or sanitized by the
     application.
     • Dynamic queries or non parameterized calls without context
@@ -156,9 +245,9 @@ export class ResourcesComponent implements OnInit {
     modify or delete data, or even invoke stored procedures.`,
 
   },
-{
-  title: 'A2 : Broken Authentication',
-  subtitle: `Attackers have access to hundreds of
+  {
+    title: 'A2 : Broken Authentication',
+    subtitle: `Attackers have access to hundreds of
   millions of valid username and
   password combinations for credential
   stuffing, default administrative
@@ -167,7 +256,7 @@ export class ResourcesComponent implements OnInit {
   management attacks are well
   understood, particularly in relation to
   unexpired session tokens.`,
-  isVulnerablePara : `Confirmation of the user's identity, authentication, and session
+    isVulnerablePara: `Confirmation of the user's identity, authentication, and session
   management are critical to protect against authentication related
   attacks.
   There may be authentication weaknesses if the application:
@@ -196,7 +285,7 @@ export class ResourcesComponent implements OnInit {
   Does not properly invalidate Session IDs. User sessions or
   authentication tokens (particularly single sign on (SSO) tokens)
   aren’t properly invalidated during logout or a period of inactivity.`,
-  prevention: `•
+    prevention: `•
   Where possible, implement multi factor authentication to
   prevent automated, credential stuffing, brute force, and stolen
   credential re use attacks.
@@ -225,7 +314,7 @@ export class ResourcesComponent implements OnInit {
   login. Session IDs should not be in the URL, be securely stored
   and invalidated after logout, idle, and absolute timeouts`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : Credential stuffing , the use of lists of known
   passwords , is a common attack. If an application does not
   implement automated threat or credential stuffing protections, the
@@ -245,10 +334,10 @@ export class ResourcesComponent implements OnInit {
   walks away. An attacker uses the same browser an hour later,
   and the user is still authenticated.`,
 
-},
-{
-  title: 'A3 : Sensitive Data Exposure',
-  subtitle: `Rather than directly attacking crypto,
+  },
+  {
+    title: 'A3 : Sensitive Data Exposure',
+    subtitle: `Rather than directly attacking crypto,
   attackers steal keys, execute man in
   the middle attacks, or steal clear text
   data off the server, while in transit, or
@@ -257,7 +346,7 @@ export class ResourcesComponent implements OnInit {
   Previously retrieved password
   databases could be brute forced by
   Graphics Processing Units (GPUs).`,
-  isVulnerablePara : `The first thing is to determine the protection needs of data in
+    isVulnerablePara: `The first thing is to determine the protection needs of data in
   transit and at rest. For example, passwords, credit card numbers,
   health records, personal information and business secrets
   require extra protection, particularly if that data falls under
@@ -285,7 +374,7 @@ export class ResourcesComponent implements OnInit {
   received server certificate is valid?
   See ASVS
   Crypto (V7) V7), Data Prot (V9) and SSL/TLS (V10)`,
-  prevention: `Do the following, at a minimum, and consult the references:
+    prevention: `Do the following, at a minimum, and consult the references:
   •
   Classify data processed, stored, or transmitted by an
   application. Identify which data is sensitive according to privacy
@@ -316,7 +405,7 @@ export class ResourcesComponent implements OnInit {
   Verify independently the effectiveness of configuration and
   settings.`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : An application encrypts credit card numbers in a
   database using automatic database encryption. However, this
   data is automatically decrypted when retrieved, allowing an SQL
@@ -338,15 +427,15 @@ export class ResourcesComponent implements OnInit {
   hashes. Hashes generated by simple or fast hash functions may
   be cracked by GPUs, even if they were salted.`,
 
-},
-{
-  title: 'A4 : XML External Entities (XXE)',
-  subtitle: `Attackers can exploit vulnerable XML
+  },
+  {
+    title: 'A4 : XML External Entities (XXE)',
+    subtitle: `Attackers can exploit vulnerable XML
   processors if they can upload XML or
   include hostile content in an XML
   document, exploiting vulnerable code,
   dependencies or integrations .`,
-  isVulnerablePara : `Applications and in particular XML
+    isVulnerablePara: `Applications and in particular XML
   based web services or
   downstream integrations might be vulnerable to attack if:
   •
@@ -371,7 +460,7 @@ export class ResourcesComponent implements OnInit {
   Being vulnerable to XXE attacks likely means that the
   application is vulnerable to denial of service attacks including
   the Billion Laughs attack.`,
-  prevention: `Developer training is essential to identify and mitigate XXE.
+    prevention: `Developer training is essential to identify and mitigate XXE.
   Besides that, preventing XXE requires:
   •
   Whenever possible, use less complex data formats such as
@@ -399,7 +488,7 @@ export class ResourcesComponent implements OnInit {
   patching, API security gateways, or Web Application Firewalls
   (WAFs) to detect, monitor, and block XXE`,
 
-  example: `Numerous public XXE issues have been discovered, including
+    example: `Numerous public XXE issues have been discovered, including
   attacking embedded devices. XXE occurs in a lot of unexpected
   places, including deeply nested dependencies. The easiest way
   is to upload a malicious XML file, if accepted:
@@ -423,10 +512,10 @@ export class ResourcesComponent implements OnInit {
   <!ENTITY
   xxe SYSTEM "file:///dev/random" >]>`,
 
-},
-{
-  title: 'A5 : Broken Access Control',
-  subtitle: `Exploitation of access control is a
+  },
+  {
+    title: 'A5 : Broken Access Control',
+    subtitle: `Exploitation of access control is a
   core skill of attackers. SAST and
   DAST tools can detect the absence of
   access control but cannot verify if it is
@@ -435,7 +524,7 @@ export class ResourcesComponent implements OnInit {
   means, or possibly through
   automation for the absence of access
   controls in certain frameworks.`,
-  isVulnerablePara : `Access control enforces policy such that users cannot act
+    isVulnerablePara: `Access control enforces policy such that users cannot act
   outside of their intended permissions. Failures typically lead to
   unauthorized information disclosure, modification or destruction
   of all data, or performing a business function outside of the limits
@@ -461,7 +550,7 @@ export class ResourcesComponent implements OnInit {
   Force browsing to authenticated pages as an unauthenticated
   user or to privileged pages as a standard user. Accessing API
   with missing access controls for POST, PUT and DELETE.`,
-  prevention: `Access control is only effective if enforced in trusted server
+    prevention: `Access control is only effective if enforced in trusted server
   side
   code or server less API, where the attacker cannot modify the
   access control check or metadata.
@@ -491,7 +580,7 @@ export class ResourcesComponent implements OnInit {
   Developers and QA staff should include functional access control
   unit and integration tests.`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : The application uses unverified data in a SQL call
   that is accessing account information:
   pstmt.setString
@@ -512,10 +601,10 @@ export class ResourcesComponent implements OnInit {
   If an unauthenticated user can access either page, it’s a flaw. If a
   non admin can access the admin page, this is a flaw.`,
 
-},
-{
-  title: 'A6 : Security Misconfiguration',
-  subtitle: `Exploitation of access control is a
+  },
+  {
+    title: 'A6 : Security Misconfiguration',
+    subtitle: `Exploitation of access control is a
   core skill of attackers. SAST and
   DAST tools can detect the absence of
   access control but cannot verify if it is
@@ -524,7 +613,7 @@ export class ResourcesComponent implements OnInit {
   means, or possibly through
   automation for the absence of access
   controls in certain frameworks.`,
-  isVulnerablePara : `Access control enforces policy such that users cannot act
+    isVulnerablePara: `Access control enforces policy such that users cannot act
   outside of their intended permissions. Failures typically lead to
   unauthorized information disclosure, modification or destruction
   of all data, or performing a business function outside of the limits
@@ -550,7 +639,7 @@ export class ResourcesComponent implements OnInit {
   Force browsing to authenticated pages as an unauthenticated
   user or to privileged pages as a standard user. Accessing API
   with missing access controls for POST, PUT and DELETE.`,
-  prevention: `Access control is only effective if enforced in trusted server
+    prevention: `Access control is only effective if enforced in trusted server
   side
   code or server less API, where the attacker cannot modify the
   access control check or metadata.
@@ -580,7 +669,7 @@ export class ResourcesComponent implements OnInit {
   Developers and QA staff should include functional access control
   unit and integration tests.`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : The application uses unverified data in a SQL call
   that is accessing account information:
   pstmt.setString
@@ -601,10 +690,10 @@ export class ResourcesComponent implements OnInit {
   If an unauthenticated user can access either page, it’s a flaw. If a
   non admin can access the admin page, this is a flaw.`,
 
-},
-{
-  title: 'A7 : Cross-Site Scripting (XSS)',
-  subtitle: `Exploitation of access control is a
+  },
+  {
+    title: 'A7 : Cross-Site Scripting (XSS)',
+    subtitle: `Exploitation of access control is a
   core skill of attackers. SAST and
   DAST tools can detect the absence of
   access control but cannot verify if it is
@@ -613,7 +702,7 @@ export class ResourcesComponent implements OnInit {
   means, or possibly through
   automation for the absence of access
   controls in certain frameworks.`,
-  isVulnerablePara : `Access control enforces policy such that users cannot act
+    isVulnerablePara: `Access control enforces policy such that users cannot act
   outside of their intended permissions. Failures typically lead to
   unauthorized information disclosure, modification or destruction
   of all data, or performing a business function outside of the limits
@@ -639,7 +728,7 @@ export class ResourcesComponent implements OnInit {
   Force browsing to authenticated pages as an unauthenticated
   user or to privileged pages as a standard user. Accessing API
   with missing access controls for POST, PUT and DELETE.`,
-  prevention: `Access control is only effective if enforced in trusted server
+    prevention: `Access control is only effective if enforced in trusted server
   side
   code or server less API, where the attacker cannot modify the
   access control check or metadata.
@@ -669,7 +758,7 @@ export class ResourcesComponent implements OnInit {
   Developers and QA staff should include functional access control
   unit and integration tests.`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : The application uses unverified data in a SQL call
   that is accessing account information:
   pstmt.setString
@@ -690,10 +779,10 @@ export class ResourcesComponent implements OnInit {
   If an unauthenticated user can access either page, it’s a flaw. If a
   non admin can access the admin page, this is a flaw.`,
 
-},
-{
-  title: 'A8 : Insecure Deserialization',
-  subtitle: `Exploitation of access control is a
+  },
+  {
+    title: 'A8 : Insecure Deserialization',
+    subtitle: `Exploitation of access control is a
   core skill of attackers. SAST and
   DAST tools can detect the absence of
   access control but cannot verify if it is
@@ -702,7 +791,7 @@ export class ResourcesComponent implements OnInit {
   means, or possibly through
   automation for the absence of access
   controls in certain frameworks.`,
-  isVulnerablePara : `Access control enforces policy such that users cannot act
+    isVulnerablePara: `Access control enforces policy such that users cannot act
   outside of their intended permissions. Failures typically lead to
   unauthorized information disclosure, modification or destruction
   of all data, or performing a business function outside of the limits
@@ -728,7 +817,7 @@ export class ResourcesComponent implements OnInit {
   Force browsing to authenticated pages as an unauthenticated
   user or to privileged pages as a standard user. Accessing API
   with missing access controls for POST, PUT and DELETE.`,
-  prevention: `Access control is only effective if enforced in trusted server
+    prevention: `Access control is only effective if enforced in trusted server
   side
   code or server less API, where the attacker cannot modify the
   access control check or metadata.
@@ -758,7 +847,7 @@ export class ResourcesComponent implements OnInit {
   Developers and QA staff should include functional access control
   unit and integration tests.`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : The application uses unverified data in a SQL call
   that is accessing account information:
   pstmt.setString
@@ -779,10 +868,10 @@ export class ResourcesComponent implements OnInit {
   If an unauthenticated user can access either page, it’s a flaw. If a
   non admin can access the admin page, this is a flaw.`,
 
-},
-{
-  title: 'A9 : Using Components with Known Vulnerabilities',
-  subtitle: `Exploitation of access control is a
+  },
+  {
+    title: 'A9 : Using Components with Known Vulnerabilities',
+    subtitle: `Exploitation of access control is a
   core skill of attackers. SAST and
   DAST tools can detect the absence of
   access control but cannot verify if it is
@@ -791,7 +880,7 @@ export class ResourcesComponent implements OnInit {
   means, or possibly through
   automation for the absence of access
   controls in certain frameworks.`,
-  isVulnerablePara : `Access control enforces policy such that users cannot act
+    isVulnerablePara: `Access control enforces policy such that users cannot act
   outside of their intended permissions. Failures typically lead to
   unauthorized information disclosure, modification or destruction
   of all data, or performing a business function outside of the limits
@@ -817,7 +906,7 @@ export class ResourcesComponent implements OnInit {
   Force browsing to authenticated pages as an unauthenticated
   user or to privileged pages as a standard user. Accessing API
   with missing access controls for POST, PUT and DELETE.`,
-  prevention: `Access control is only effective if enforced in trusted server
+    prevention: `Access control is only effective if enforced in trusted server
   side
   code or server less API, where the attacker cannot modify the
   access control check or metadata.
@@ -847,7 +936,7 @@ export class ResourcesComponent implements OnInit {
   Developers and QA staff should include functional access control
   unit and integration tests.`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : The application uses unverified data in a SQL call
   that is accessing account information:
   pstmt.setString
@@ -868,10 +957,10 @@ export class ResourcesComponent implements OnInit {
   If an unauthenticated user can access either page, it’s a flaw. If a
   non admin can access the admin page, this is a flaw.`,
 
-},
-{
-  title: 'A10 : Insufficient Logging & Monitoring',
-  subtitle: `Exploitation of access control is a
+  },
+  {
+    title: 'A10 : Insufficient Logging & Monitoring',
+    subtitle: `Exploitation of access control is a
   core skill of attackers. SAST and
   DAST tools can detect the absence of
   access control but cannot verify if it is
@@ -880,7 +969,7 @@ export class ResourcesComponent implements OnInit {
   means, or possibly through
   automation for the absence of access
   controls in certain frameworks.`,
-  isVulnerablePara : `Access control enforces policy such that users cannot act
+    isVulnerablePara: `Access control enforces policy such that users cannot act
   outside of their intended permissions. Failures typically lead to
   unauthorized information disclosure, modification or destruction
   of all data, or performing a business function outside of the limits
@@ -906,7 +995,7 @@ export class ResourcesComponent implements OnInit {
   Force browsing to authenticated pages as an unauthenticated
   user or to privileged pages as a standard user. Accessing API
   with missing access controls for POST, PUT and DELETE.`,
-  prevention: `Access control is only effective if enforced in trusted server
+    prevention: `Access control is only effective if enforced in trusted server
   side
   code or server less API, where the attacker cannot modify the
   access control check or metadata.
@@ -936,7 +1025,7 @@ export class ResourcesComponent implements OnInit {
   Developers and QA staff should include functional access control
   unit and integration tests.`,
 
-  example: `Scenario #1
+    example: `Scenario #1
   : The application uses unverified data in a SQL call
   that is accessing account information:
   pstmt.setString
@@ -957,9 +1046,9 @@ export class ResourcesComponent implements OnInit {
   If an unauthenticated user can access either page, it’s a flaw. If a
   non admin can access the admin page, this is a flaw.`,
 
-},
+  },
 
-];
+  ];
   constructor(
     private embedService: EmbedVideoService,
     public dialog: MatDialog
@@ -978,13 +1067,14 @@ export class ResourcesComponent implements OnInit {
       const dialogRef = this.dialog.open(DialogComponentComponent, {
         width: '70em',
         height: 'auto',
-        data: {title: content.title,
-           isVulnerablePara: content.isVulnerablePara,
-           prevention: content.prevention,
-           subtitle: content.subtitle,
+        data: {
+          title: content.title,
+          isVulnerablePara: content.isVulnerablePara,
+          prevention: content.prevention,
+          subtitle: content.subtitle,
 
-           example: content.example,
-          }
+          example: content.example,
+        }
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -994,12 +1084,13 @@ export class ResourcesComponent implements OnInit {
       const dialogRef = this.dialog.open(DialogComponentComponent, {
         width: '70em',
         height: 'auto',
-        data: {title: content.title,
-           isVulnerablePara: content.prevention,
-           subtitle: '',
-           prevention: content.prevention,
-           example: content.example,
-          }
+        data: {
+          title: content.title,
+          isVulnerablePara: content.prevention,
+          subtitle: '',
+          prevention: content.prevention,
+          example: content.example,
+        }
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -1010,12 +1101,13 @@ export class ResourcesComponent implements OnInit {
       const dialogRef = this.dialog.open(DialogComponentComponent, {
         width: '70em',
         height: 'auto',
-        data: {title: content.title,
+        data: {
+          title: content.title,
           subtitle: '',
-           isVulnerablePara: content.example,
-           prevention: content.prevention,
-           example: content.example,
-          }
+          isVulnerablePara: content.example,
+          prevention: content.prevention,
+          example: content.example,
+        }
       });
 
       dialogRef.afterClosed().subscribe(result => {
