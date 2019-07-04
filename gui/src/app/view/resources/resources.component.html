@@ -40,7 +40,9 @@
     </mat-expansion-panel-header>
 <p>    {{content.subtitle}}</p>
     <br>
-
+    <a (click)="openDialog(1, content)" style="cursor:pointer"><div><h3>Is Your Application Vulnerable ?</h3></div></a>
+    <a (click)="openDialog(2, content)" style="cursor:pointer"><div><h3>How to prevent</h3></div></a>
+    <a (click)="openDialog(3, content)" style="cursor:pointer"><div><h3>Examples</h3></div></a>
 
     </mat-expansion-panel>
     <mat-expansion-panel >
