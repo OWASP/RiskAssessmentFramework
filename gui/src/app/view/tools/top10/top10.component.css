@@ -1,14 +1,22 @@
+
 .upload-wrapper{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-  display: flex;
-  align-items: center;
+  position: absolute ;
+}
+vaadin-upload{
+  position: relative;
+ background-color:#c2c2c2;
+ padding-left: 20vw;
+ padding-right: 20vw;
+ padding-top: 5vw;
+ padding-bottom: 5vw;
+text-align: center;
 
 }
-.upload-button{
-  margin-right: 0.2em;
-height: 5vw;
+
+.divider{
+  margin: 1%
 }
+
+
+
+
