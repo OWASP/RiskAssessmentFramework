@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,14 +20,14 @@ export class AppComponent implements OnInit, OnDestroy {
   isAuth = false;
   authSubscription: Subscription;
   constructor(private authService: AuthService, private router: Router) {
-    if(this.router.url === 'register' || this.router.url =='login'){
+    if (this.router.url === 'register' || this.router.url === 'login') {
       this.isShowNav =  false;
-    }else {
+    } else {
       this.isShowNav = true;
     }
 
   }
- 
+
 ngOnDestroy() {
   this.authSubscription.unsubscribe();
 }

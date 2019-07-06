@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './view/registration/registration.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -60,6 +61,8 @@ import { AuthGuardService } from './guards/auth-guard.service';
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponentComponent]
+  entryComponents: [DialogComponentComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class AppModule { }

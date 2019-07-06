@@ -4,16 +4,14 @@
 **IN DEVELOPMENT**
 
 ## Description
-Updated SANS 25 resource
+Adding the upload feature to OWASP top 10 test. using vaadin upload component
 
 # Todos 
+
 - Dynamic Fetching of the Resources
-- Upload Code
-- Improvements in Resources
 - Improvements in Profile
 - Improvements in Settings
 - Other issue fixing related to theme
-- Auth Guard
 
 
 
@@ -24,7 +22,12 @@ Updated SANS 25 resource
 General components of the application that this PR will affect:
 
 
-* Resource Component
+* Tools Component
+* top10 Component
+* app module Component
+* app Component
+* tsconfig
+
 
 
 
