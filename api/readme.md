@@ -6,33 +6,23 @@
 ## Description
 Initial Development of the API with endpoints using in memory database of mongodb.
 
+## Todo 
 
-
-
-# Todo 
-
-- Create Schemas for USER
-- File Upload Endpoint
-- Test Result Endpoint
-- Authentication
-- User Registration
-- Report Generation
-- User Details Endpoint
-
-
-
-
-
+-   Create Schemas for USER
+-   File Upload Endpoint
+-   Test Result Endpoint
+-   Authentication
+-   User Registration
+-   Report Generation
+-   User Details Endpoint
 
 ## Impacted Areas in Application
 General components of the application that this PR will affect:
 
-
-* Source
-* Package.json
-* index.js
-* Database component
-
+-   Source
+-   Package.json
+-   index.js
+-   Database component
 
 
 **Risk Assessment Framework API**

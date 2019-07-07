@@ -1,6 +1,6 @@
 // ./src/database/mongo.js
-const {MongoMemoryServer} = require('mongodb-memory-server');
-const {MongoClient} = require('mongodb');
+const {MongoMemoryServer} = require("mongodb-memory-server");
+const {MongoClient} = require("mongodb");
 
 let database = null;
 
@@ -12,7 +12,9 @@ async function startDatabase() {
 }
 
 async function getDatabase() {
-  if (!database) await startDatabase();
+  if (!database) {
+    await startDatabase();
+  }
   return database;
 }
 

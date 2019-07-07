@@ -1,8 +1,8 @@
 // ./src/database/user.js
-const {getDatabase} = require('./mongo');
-const {ObjectID} = require('mongodb');
+const {getDatabase} = require("./mongo");
+const {ObjectID} = require("mongodb");
 
-const collectionName = 'users';
+const collectionName = "users";
 
 async function addUser(user) {
   const database = await getDatabase();
@@ -27,7 +27,7 @@ async function deleteUser(id) {
     const database = await getDatabase();
     delete user._id;
     await database.collection(collectionName).updateOne(
-      { _id: ObjectID(id), },
+      { _id: new ObjectID(id), },
       {
         $set: {
           ...user,
