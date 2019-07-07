@@ -16,7 +16,7 @@ const ads = [
   {title: 'Hello, world (again)!'}
 ];
 
-// adding Helmet to enhance your API's security
+// adding Helmet to enhance your API security
 app.use(helmet());
 
 // using bodyParser to parse JSON bodies into JS objects
