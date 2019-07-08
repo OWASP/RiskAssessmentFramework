@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Risk Assessment Framework REST API",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azharanees/RiskAssessmentFramework.git"
+  },
+  "author": "Azhar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azharanees/RiskAssessmentFramework/issues"
+  },
+  "homepage": "https://github.com/azharanees/RiskAssessmentFramework#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "mongodb": "^3.2.7",
+    "mongodb-memory-server": "^5.1.5",
+    "morgan": "^1.9.1"
+  }
+}
