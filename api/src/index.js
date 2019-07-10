@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+var path = require('path');
 const helmet = require("helmet");
 const morgan = require("morgan");
 const {startDatabase} = require("./database/mongo");
@@ -9,18 +10,36 @@ const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
 var multer  =   require('multer');
 
 var upload2 = multer({ dest: 'uploads/'});
-
+const _file = 'adfa';
 var storage =   multer.diskStorage({
   // file upload destination
   destination: function (req, file, callback) {
     callback(null, './uploads');
   },
   filename: function (req, file, callback) {
-    callback(null, file.fieldname + '-' + Date.now());
-  }
+    _file = file.fieldname + '-' + Date.now()
+    
+    callback(null, _file);
+    
+    
+  },
 });
 var upload = multer({ storage : storage}).single('code');
+
 var type = upload2.single('code');
+
+var unzip = require('unzip');
+var fs = require('fs');
+
+
+var inputFileName = path.join(__dirname, '..', 'uploads',_file);
+var extractToDirectory = path.join(__dirname, '..', 'extracted', _file);
+
+
+
+
+
+
 
 const app = express();
 
@@ -30,6 +49,9 @@ app.post('/upload/code',type,function(req,res){
     upload(req,res,function(err) {
       if(req.file.mimetype === 'application/zip'){
         console.log("THIS IS A ZIPFILE");
+
+    
+
         
       }else{
         console.log("THIS IS NOT A ZIPFILE");
@@ -44,11 +66,19 @@ app.post('/upload/code',type,function(req,res){
         if(err) {
             return res.end("Error uploading file.");
         }
-   
-        res.end("File is uploaded");
 
-    });
-});
+        
+        res.end("File is uploaded");
+        
+
+    }
+    
+    
+    );
+
+    
+})
+
 
 
 // defining the Express app
@@ -96,6 +126,16 @@ app.post("/", async (req, res) => {
 app.get("/", async (req, res) => {
   res.send(await getUser());
 });
+
+
+// app.get("/extract", async (req, res) => {
+     
+//     fs.createReadStream(inputFileName)
+//     .pipe(unzip.Extract({
+//       path: extractToDirectory 
+//     }))
+
+// });
 
 // start the in-memory MongoDB instance
 startDatabase().then(async () => {
