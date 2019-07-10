@@ -33,6 +33,8 @@ app.post('/upload/code',type,function(req,res){
         
       }else{
         console.log("THIS IS NOT A ZIPFILE");
+        res.end("Please upload a ZIP file")
+
 
       }
 
