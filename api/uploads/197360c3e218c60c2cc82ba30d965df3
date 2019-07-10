@@ -1,0 +1,3 @@
+{
+	"payload": "[{\"type\":\"@@router/LOCATION_CHANGE\",\"payload\":{\"location\":{\"pathname\":\"/host/preferences\",\"search\":\"\",\"hash\":\"\"},\"action\":\"POP\",\"isFirstRendering\":true}},{\"type\":\"@@router/LOCATION_CHANGE\",\"payload\":{\"location\":{\"pathname\":\"/host/tellus\",\"search\":\"\",\"hash\":\"\",\"key\":\"2vo13p\"},\"action\":\"REPLACE\",\"isFirstRendering\":false}},{\"type\":\"@@router/LOCATION_CHANGE\",\"payload\":{\"location\":{\"pathname\":\"/host/preferences\",\"search\":\"\",\"hash\":\"\",\"key\":\"w60qxw\"},\"action\":\"REPLACE\",\"isFirstRendering\":false}}]"
+}

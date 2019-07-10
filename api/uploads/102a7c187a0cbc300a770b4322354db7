@@ -1,0 +1,61 @@
+
+-- Booking count for the month of june(USE DISTINCT) 
+Select  count( distinct b.id)
+from booking b left outer join (select bp.booking,p.promo_code
+from booking_has_promotion bp,promo_details p where bp.promo_details=p.id) as promo on promo.booking=b.id,
+   booking_slots bs,space s,space_additional_details sad,user u,booking_history bh,
+  (select b.id as bookingId,r.booking_id as reviewed
+from booking b  left outer join reviews r on r.booking_id=b.id) as rd ,
+  (select b.id as bookingId,IF(b.booking_charge=0,IF(b.space = 1602,"BANK","FREE"),IF(ph.booking is null,"BANK","IPG")) as method
+   from booking b  left outer join payment_history ph on b.id=ph.booking and ph.response=1) as pm,
+  event_type et
+where b.id=bs.booking and s.id=b.space  and u.id=b.user and s.id=sad.space
+      and bh.booking=b.id  and rd.bookingId=b.id and b.id=pm.bookingId and et.id=b.event_type
+      and bh.reservation_status=3  and b.reservation_status in(3,5,9)
+      and DATE(bh.created_at) >= '2019-06-01';
+      
+-- Booking details --
+
+Select b.order_id as REF_ID,
+  DATE(bs.from_date) as Event_Date,
+  s.name as Space_Name,
+  s.address_line_2 as Organization_Name,
+  u.name as Guest_Name,
+  u.phone as Guest_Moble,
+  u.email as Guest_Email,
+  et.name as Event_Type,
+  IF(b.advance is null,b.booking_charge,b.advance) as Cash_Flow_After_Discount,
+  IF(b.advance is null,"NO","YES") as Is_Advance ,
+  IF(b.booking_charge = 0,0, b.original_charge -( b.booking_charge + IF(b.discount is null,0,b.discount))) as MS_Contributed_Discount,
+  b.original_charge as 'Space Fee',
+  promo.promo_code as Promo_Code_Applied,
+  sad.commission_percentage as Commision,
+  DATE(bh.created_at) as Booking_Received_Date,
+  IF(rd.reviewed is null,"NO","YES") as Review_Received,
+  pm.method as Payment_Method,
+  sad.commission_percentage as Commission,
+  IF(pm.method like 'FREE', 0 , (b.original_charge*sad.commission_percentage/100))
+from booking b left outer join (select bp.booking,p.promo_code
+from booking_has_promotion bp,promo_details p where bp.promo_details=p.id) as promo on promo.booking=b.id,
+   booking_slots bs,space s,space_additional_details sad,user u,booking_history bh,
+  (select b.id as bookingId,r.booking_id as reviewed
+from booking b  left outer join reviews r on r.booking_id=b.id) as rd ,
+  (select b.id as bookingId,IF(b.booking_charge=0,IF(b.space = 1602,"BANK","FREE"),IF(ph.booking is null,"BANK","IPG")) as method
+   from booking b  left outer join payment_history ph on b.id=ph.booking and ph.response=1) as pm,
+  event_type et
+where b.id=bs.booking and s.id=b.space  and u.id=b.user and s.id=sad.space
+      and bh.booking=b.id  and rd.bookingId=b.id and b.id=pm.bookingId and et.id=b.event_type
+      and bh.reservation_status=3  and b.reservation_status in(3,5,9)
+      and DATE(bh.created_at) >= '2019-06-20'
+group by b.id;
+
+-- Promocodes which were used in between 01/06 - 28/06
+
+Select pd.promo_code,
+ sum(HOUR(bs.to_date)-HOUR(bs.from_date))
+
+from booking b,booking_has_promotion bp,promo_details pd,booking_slots bs,space s,user u
+where b.id=bs.booking and s.id=b.space and bp.booking=b.id and bp.promo_details=pd.id
+     and b.reservation_status in(3,5)
+     and DATE(to_date) between '2019-06-01' and '2019-06-28'
+    group by bp.promo_details;

@@ -6,10 +6,50 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const {startDatabase} = require("./database/mongo");
 const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
+var multer  =   require('multer');
+
+var upload2 = multer({ dest: 'uploads/'});
+
+var storage =   multer.diskStorage({
+  // file upload destination
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now());
+  }
+});
+var upload = multer({ storage : storage}).single('code');
+var type = upload2.single('code');
+
+const app = express();
+
+
+app.post('/upload/code',type,function(req,res){
+
+    upload(req,res,function(err) {
+      if(req.file.mimetype === 'application/zip'){
+        console.log("THIS IS A ZIPFILE");
+        
+      }else{
+        console.log("THIS IS NOT A ZIPFILE");
+
+      }
+
+
+      // req.file is the `avatar` file
+      // req.body will hold the text fields, if there were any
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+   
+        res.end("File is uploaded");
+
+    });
+});
 
 
 // defining the Express app
-const app = express();
 
 // defining an array to work as the database (temporary solution)
 const ads = [
