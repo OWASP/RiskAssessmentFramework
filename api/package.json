@@ -23,6 +23,7 @@
     "helmet": "^3.18.0",
     "mongodb": "^3.2.7",
     "mongodb-memory-server": "^5.1.5",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1"
   }
 }
