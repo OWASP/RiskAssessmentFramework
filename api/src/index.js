@@ -2,40 +2,57 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+var path = require("path");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const {startDatabase} = require("./database/mongo");
 const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
-var multer  =   require('multer');
+var multer  =   require("multer");
 
-var upload2 = multer({ dest: 'uploads/'});
-
+var upload2 = multer({ dest: "uploads/"});
+var _file = "";
 var storage =   multer.diskStorage({
   // file upload destination
   destination: function (req, file, callback) {
-    callback(null, './uploads');
+    callback(null, "./uploads");
   },
   filename: function (req, file, callback) {
-    callback(null, file.fieldname + '-' + Date.now());
-  }
+    _file = file.fieldname + "-" + Date.now();
+    
+    callback(null, _file);
+    
+    
+  },
 });
-var upload = multer({ storage : storage}).single('code');
-var type = upload2.single('code');
+var upload = multer({ storage : storage}).single("code");
+
+var type = upload2.single("code");
+
+var unzip = require("unzip");
+var fs = require("fs");
+
+
+
 
 const app = express();
 
 
-app.post('/upload/code',type,function(req,res){
+
+
+function extractFiles(Inputfile, extractToDirectory){
+  fs.createReadStream(Inputfile)
+  .pipe(unzip.Extract({
+    path: extractToDirectory 
+  }));
+}
+
+app.post("/upload/code",type,function(req,res){
 
     upload(req,res,function(err) {
-      if(req.file.mimetype === 'application/zip'){
-        console.log("THIS IS A ZIPFILE");
-        
-      }else{
-        console.log("THIS IS NOT A ZIPFILE");
+
+      if(req.file.mimetype != "application/zip"){
         res.end("Please upload a ZIP file")
-
-
+        
       }
 
 
@@ -44,11 +61,24 @@ app.post('/upload/code',type,function(req,res){
         if(err) {
             return res.end("Error uploading file.");
         }
-   
-        res.end("File is uploaded");
+        var extractToDirectory = path.join(__dirname, "..", "extracted", req.file.filename);
+        var inputFileName = path.join(__dirname, "..", "uploads");
 
-    });
+        extractFiles(inputFileName +"/" +req.file.filename, extractToDirectory);
+        res.end(JSON.stringify({"STATUS" : "SUCCESS",
+                "FILE_NAME" : req.file.filename
+          } ));
+
+        
+
+    }
+    
+    
+    );
+
+    
 });
+
 
 
 // defining the Express app
@@ -96,6 +126,9 @@ app.post("/", async (req, res) => {
 app.get("/", async (req, res) => {
   res.send(await getUser());
 });
+
+
+
 
 // start the in-memory MongoDB instance
 startDatabase().then(async () => {
