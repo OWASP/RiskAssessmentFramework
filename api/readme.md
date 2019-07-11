@@ -4,8 +4,7 @@
 **IN DEVELOPMENT**
 
 ## Description
-Initial Development of the API with endpoints using in memory database of mongodb.
-
+Adding the file extraction feature
 ## Todo 
 
 -   Create Schemas for USER
@@ -22,11 +21,50 @@ General components of the application that this PR will affect:
 -   Source
 -   Package.json
 -   index.js
--   Database component
+
 
 
 **Risk Assessment Framework API**
 ----
+*POST CODE*
+
+* **URL**
+
+  <http://localhost:3000/upload/code>
+
+* **Method:**
+  
+  `POST`
+  
+*  **URL Params**
+
+   No Params 
+
+   **Required:**
+ 
+   code field of type file
+
+   **Optional:**
+ 
+   No Optional fields
+
+* **Data Params**
+
+`code` param of `File` Type 
+
+* **Success Response:**
+  
+
+  * **Code:** 200 <br />
+    **Content:** `[
+    File is uploaded
+]`
+ 
+
+* **Sample Call:**
+$ curl -F ‘data=@path/to/local/file’ UPLOAD_ADDRESS
+
+
 *GET USERS*
 
 * **URL**
