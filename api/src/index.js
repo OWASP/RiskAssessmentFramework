@@ -10,7 +10,7 @@ const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
 var multer  =   require('multer');
 
 var upload2 = multer({ dest: 'uploads/'});
-const _file = 'adfa';
+var _file = '';
 var storage =   multer.diskStorage({
   // file upload destination
   destination: function (req, file, callback) {
@@ -32,26 +32,28 @@ var unzip = require('unzip');
 var fs = require('fs');
 
 
-var inputFileName = path.join(__dirname, '..', 'uploads',_file);
-var extractToDirectory = path.join(__dirname, '..', 'extracted', _file);
-
-
-
-
-
 
 
 const app = express();
 
 
+
+
+function extractFiles(Inputfile, extractToDirectory){
+  fs.createReadStream(Inputfile)
+  .pipe(unzip.Extract({
+    path: extractToDirectory 
+  }))
+}
+
 app.post('/upload/code',type,function(req,res){
 
     upload(req,res,function(err) {
+
       if(req.file.mimetype === 'application/zip'){
         console.log("THIS IS A ZIPFILE");
-
-    
-
+        console.log("FILE NAME IS = " + req.file.filename);
+        
         
       }else{
         console.log("THIS IS NOT A ZIPFILE");
@@ -66,9 +68,12 @@ app.post('/upload/code',type,function(req,res){
         if(err) {
             return res.end("Error uploading file.");
         }
+        var extractToDirectory = path.join(__dirname, '..', 'extracted', req.file.filename);
+        var inputFileName = path.join(__dirname, '..', 'uploads');
 
-        
+        extractFiles(inputFileName +"/" +req.file.filename, extractToDirectory);
         res.end("File is uploaded");
+
         
 
     }
@@ -128,14 +133,7 @@ app.get("/", async (req, res) => {
 });
 
 
-// app.get("/extract", async (req, res) => {
-     
-//     fs.createReadStream(inputFileName)
-//     .pipe(unzip.Extract({
-//       path: extractToDirectory 
-//     }))
 
-// });
 
 // start the in-memory MongoDB instance
 startDatabase().then(async () => {
