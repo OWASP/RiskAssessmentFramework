@@ -72,7 +72,9 @@ app.post('/upload/code',type,function(req,res){
         var inputFileName = path.join(__dirname, '..', 'uploads');
 
         extractFiles(inputFileName +"/" +req.file.filename, extractToDirectory);
-        res.end("File is uploaded");
+        res.end(JSON.stringify({"STATUS" : "SUCCESS",
+                "FILE_NAME" : req.file.filename
+          } ));
 
         
 
