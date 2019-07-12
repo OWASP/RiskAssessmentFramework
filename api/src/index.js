@@ -8,7 +8,7 @@ const morgan = require("morgan");
 const {startDatabase} = require("./database/mongo");
 const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
 var multer  =   require("multer");
-
+var project = require('./sonarqube/callAPI');
 var upload2 = multer({ dest: "uploads/"});
 var _file = "";
 var storage =   multer.diskStorage({
@@ -39,12 +39,16 @@ const app = express();
 
 
 
-function extractFiles(Inputfile, extractToDirectory){
-  fs.createReadStream(Inputfile)
+function extractFiles(Inputfile, extractToDirectory,filename){
+ fs.createReadStream(Inputfile)
   .pipe(unzip.Extract({
     path: extractToDirectory 
   }));
+
+  //writeSonarProp(filename);
 }
+
+
 
 app.post("/upload/code",type,function(req,res){
 
@@ -64,10 +68,28 @@ app.post("/upload/code",type,function(req,res){
         var extractToDirectory = path.join(__dirname, "..", "extracted", req.file.filename);
         var inputFileName = path.join(__dirname, "..", "uploads");
 
-        extractFiles(inputFileName +"/" +req.file.filename, extractToDirectory);
+        //Extracting the file from the uploaded zip
+        extractFiles(inputFileName +"/" +req.file.filename, extractToDirectory,req.file.filename);
+
+       // project.runScan(req.file.filename);
+
+
+
+        //Writing the sonar properties file 
+        
+      
+        // fs.writeFile("./files/sonar-project.properties", sonarscanner_config, (err) => {
+        //   console.log(extractToDirectory +"/sonar-project.properties")
+        //   if (err) console.log(err);
+        //   console.log("Successfully Written Sonar Qube project properties.");
+        // });
+        
+      
         res.end(JSON.stringify({"STATUS" : "SUCCESS",
                 "FILE_NAME" : req.file.filename
           } ));
+          project.createProject(req.file.filename, req.file.filename);
+
 
         
 
@@ -75,9 +97,23 @@ app.post("/upload/code",type,function(req,res){
     
     
     );
-
     
 });
+
+
+function writeSonarProp(filename){
+  var sonarscanner_config = "sonar.projectKey="+filename;
+
+  fs.open("./extracted/"+filename+"/sonar-project.properties", 'wx', (err, desc) => {
+    if(!err && desc) {
+       fs.writeFile(desc, sonarscanner_config, (err) => {
+         // Rest of your code
+         if (err) throw err;               
+         console.log('Results Received');
+       })
+    }
+  });
+}
 
 
 
@@ -128,6 +164,13 @@ app.get("/", async (req, res) => {
 });
 
 
+app.get("/scan/:id",(req,res)=>{
+  
+  writeSonarProp(req.params.id)
+  project.runScan(req.params.id);
+  res.send("Scan Started on " + req.params.id);
+  
+})
 
 
 // start the in-memory MongoDB instance
