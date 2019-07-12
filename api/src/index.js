@@ -174,16 +174,16 @@ app.get("/scan/:id",(req,res)=>{
 })
 
 
-app.get("/getResults/:id", async  (req,res)=>{
+app.get("/getResults/:id", async  (req,res) => {
 
-res.setHeader('Content-Type', 'application/json');
+res.setHeader("Content-Type", "application/json");
   var _this = this;
 
   var result = "NOTHING";
 result =  await  project.fetchResults(req.params.id);
-console.log('====================================');
-console.log(result);
-console.log('====================================');
+// console.log("====================================");
+// console.log(result);
+// console.log("====================================");
 res.end((JSON.stringify(result)));
    
  // res.send("Result for projectKey -  " + req.params.id+ "/n" + JSON.stringify(project.fetchResults(req.params.id)));

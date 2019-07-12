@@ -32,7 +32,7 @@ const fetch = require("node-fetch");
  async function fetchResults(projectKey){
     
       try {
-        const thatThing = await axios.get('http://localhost:9000/api/issues/search', {
+        const thatThing = await axios.get("http://localhost:9000/api/issues/search", {
             params: {
                 componentKeys: projectKey
             }
@@ -66,15 +66,15 @@ function runScan(fileName){
       }
     
       // the *entire* stdout and stderr (buffered)
-      console.log(`stdout: ${stdout}`);
-      console.log(`stderr: ${stderr}`);
+    //   console.log(`stdout: ${stdout}`);
+    //   console.log(`stderr: ${stderr}`);
     });
 }
 
   module.exports = {
     createProject: createProject,
     runScan : runScan,
-    fetchResults : fetchResults,
+    fetchResults,
     bar: function () {
       // whatever
     }
