@@ -1,23 +1,8 @@
 const axios = require("axios");
-var FormData = require('form-data');
+var FormData = require("form-data");
 const BASE_URL = "http://localhost:9000/api/";
 
 const fetch = require("node-fetch");
-
-// axios.post(BASE_URL + "projects/create",{
-    
-// }, function(req, res){
-
-// })
-//   .then(response => {
-//     console.log(response.data.url);
-//     console.log(response.data.explanation);
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-
-
 
 
 
@@ -25,27 +10,11 @@ const fetch = require("node-fetch");
 
   async function createProject(projectName, projectKey){
     var bodyFormData = new FormData();
-    bodyFormData.append('name', projectName);
-    bodyFormData.append('project', projectKey);
-
-// axios.post(BASE_URL + "projects/create",
-//     bodyFormData
-// , function(req, res){
-
-// })
-//   .then(response => {
-//     console.log(response.data.url);
-//     console.log(response.data.explanation);
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-
-
-
+    bodyFormData.append("name", projectName);
+    bodyFormData.append("project", projectKey);
 
     
-     var response =   await fetch('http://localhost:9000/api/projects/create', {
+     var response =   await fetch("http://localhost:9000/api/projects/create", {
             method: "post",
             body:bodyFormData // or "public" to immediately publish
    });
@@ -60,10 +29,36 @@ const fetch = require("node-fetch");
 
 
   }
+ async function fetchResults(projectKey){
+    
+      try {
+        const thatThing = await axios.get("http://localhost:9000/api/issues/search", {
+            params: {
+                componentKeys: projectKey
+            }
+          });
+         
+        return ((thatThing.data));
+    } catch(err){
+        console.error(err);
+    }
+    //   .then(function (response) {
+    //     console.log(response);
+    //     return response;
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //     return response;
+    //   })
+    //   .then(function () {
+    //     // always executed
+    //   });  
+    
+  }
   
 
 function runScan(fileName){
-    const { exec } = require('child_process');
+    const { exec } = require("child_process");
     exec("cd extracted/" +fileName +" && sonar-scanner", (err, stdout, stderr) => {
       if (err) {
         console.log(`stdout: ${err}`);
@@ -71,17 +66,15 @@ function runScan(fileName){
       }
     
       // the *entire* stdout and stderr (buffered)
-      console.log(`stdout: ${stdout}`);
-      console.log(`stderr: ${stderr}`);
+    //   console.log(`stdout: ${stdout}`);
+    //   console.log(`stderr: ${stderr}`);
     });
-
-
-
 }
 
   module.exports = {
     createProject: createProject,
     runScan : runScan,
+    fetchResults,
     bar: function () {
       // whatever
     }

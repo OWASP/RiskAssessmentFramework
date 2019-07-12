@@ -8,7 +8,7 @@ const morgan = require("morgan");
 const {startDatabase} = require("./database/mongo");
 const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
 var multer  =   require("multer");
-var project = require('./sonarqube/callAPI');
+var project = require("./sonarqube/callAPI");
 var upload2 = multer({ dest: "uploads/"});
 var _file = "";
 var storage =   multer.diskStorage({
@@ -104,12 +104,12 @@ app.post("/upload/code",type,function(req,res){
 function writeSonarProp(filename){
   var sonarscanner_config = "sonar.projectKey="+filename;
 
-  fs.open("./extracted/"+filename+"/sonar-project.properties", 'wx', (err, desc) => {
+  fs.open("./extracted/"+filename+"/sonar-project.properties", "wx", (err, desc) => {
     if(!err && desc) {
        fs.writeFile(desc, sonarscanner_config, (err) => {
          // Rest of your code
          if (err) throw err;               
-         console.log('Results Received');
+         console.log("Results Received");
        })
     }
   });
@@ -164,8 +164,9 @@ app.get("/", async (req, res) => {
 });
 
 
+
 app.get("/scan/:id",(req,res)=>{
-  
+
   writeSonarProp(req.params.id)
   project.runScan(req.params.id);
   res.send("Scan Started on " + req.params.id);
@@ -173,9 +174,26 @@ app.get("/scan/:id",(req,res)=>{
 })
 
 
+app.get("/getResults/:id", async  (req,res) => {
+
+res.setHeader("Content-Type", "application/json");
+  var _this = this;
+
+  var result = "NOTHING";
+result =  await  project.fetchResults(req.params.id);
+// console.log("====================================");
+// console.log(result);
+// console.log("====================================");
+res.end((JSON.stringify(result)));
+   
+ // res.send("Result for projectKey -  " + req.params.id+ "/n" + JSON.stringify(project.fetchResults(req.params.id)));
+  
+})
+
+
 // start the in-memory MongoDB instance
 startDatabase().then(async () => {
-  await addUser({title: "Hello, now from database!"});
+  await addUser({message: "WELCOME TO OWASP RISK ASSESSMENT FRAMEWORK API"});
 
 
 // starting the server
