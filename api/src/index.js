@@ -9,7 +9,6 @@ const {startDatabase} = require("./database/mongo");
 const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
 var multer  =   require("multer");
 var project = require("./sonarqube/callAPI");
-var stringify = require("./stringyfy")
 var upload2 = multer({ dest: "uploads/"});
 var _file = "";
 var storage =   multer.diskStorage({
