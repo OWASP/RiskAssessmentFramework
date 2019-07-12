@@ -65,6 +65,45 @@ General components of the application that this PR will affect:
 $ curl -F ‘data=@path/to/local/file’ UPLOAD_ADDRESS
 
 
+*SCAN*
+
+* **URL**
+
+  http://localhost:3000/scan/:id
+
+* **Method:**
+  
+  `GET`
+  
+*  **URL Params**
+
+        [id]
+
+   **Required:**
+ 
+        [id]
+
+   **Optional:**
+ 
+   No Optional fields
+
+* **Data Params**
+
+  No Data Params
+
+* **Success Response:**
+  
+
+  * **Code:** 200 <br />
+    **Content:** `[
+   Scan Started on xxxx000xxx00xx
+]`
+ 
+
+* **Sample Call:**
+
+    curl http://localhost:3000/scan/xxxx000xxx00xx
+
 *GET USERS*
 
 * **URL**
