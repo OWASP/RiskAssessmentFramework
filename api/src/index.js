@@ -177,8 +177,6 @@ app.get("/scan/:id",(req,res)=>{
 app.get("/getResults/:id", async  (req,res) => {
 
 res.setHeader("Content-Type", "application/json");
-  var _this = this;
-
   var result = "NOTHING";
 result =  await  project.fetchResults(req.params.id);
 // console.log("====================================");

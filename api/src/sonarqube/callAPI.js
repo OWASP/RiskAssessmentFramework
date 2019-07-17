@@ -1,6 +1,8 @@
 const axios = require("axios");
 var FormData = require("form-data");
 const BASE_URL = "http://localhost:9000/api/";
+var _ = require("underscore");
+
 
 const fetch = require("node-fetch");
 
@@ -29,6 +31,30 @@ const fetch = require("node-fetch");
 
 
   }
+
+
+  function classifyResult(arr) {
+      var a = [], b = [], prev;
+      var clasObj;
+      
+      arr.sort();
+      for ( var i = 0; i < arr.length; i++ ) {
+          if ( arr[i] !== prev ) {
+              a.push(arr[i]);
+              b.push(1);
+          } else {
+              b[b.length-1]++;
+          }
+          prev = arr[i];
+      }
+      
+clasObj = a.map( function(x, i){
+  return {"type": x, "issues": b[i]}        
+}.bind(this));
+      return clasObj;
+  }
+  
+
  async function fetchResults(projectKey){
     
       try {
@@ -37,8 +63,16 @@ const fetch = require("node-fetch");
                 componentKeys: projectKey
             }
           });
-         
-        return ((thatThing.data));
+          var filteredIssues = _.where(thatThing.data.issues,{"tags" : ""});
+          var tags = [];
+          var onlyTag = [];
+       for(issue in thatThing.data.issues){
+          tags.push(thatThing.data.issues[issue].tags);
+             }
+
+       var merged = _.flatten(tags);
+    
+        return (classifyResult(merged));
     } catch(err){
         console.error(err);
     }
