@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/azharanees/RiskAssessmentFramework.git"
+    "url": "git+https://github.com/OWASP/RiskAssessmentFramework"
   },
   "author": "Azhar",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/azharanees/RiskAssessmentFramework/issues"
   },
-  "homepage": "https://github.com/azharanees/RiskAssessmentFramework#readme",
+  "homepage": "https://www.owasp.org/index.php/Main_Page",
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
