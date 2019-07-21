@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 module.exports = {
   create: function(req, res, next) {
+    console.log(req.body);
+    
     userModel.create(
       {
         name: req.body.name,
