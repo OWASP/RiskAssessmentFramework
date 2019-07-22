@@ -9,7 +9,11 @@ module.exports = {
       {
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        isVerified : false,
+        country : req.body.country,
+        field : req.body.field
+
       },
       function(err, result) {
         if (err) next(err);
@@ -17,7 +21,7 @@ module.exports = {
           res.json({
             status: "success",
             message: "User added successfully!!!",
-            data: null
+            data: result
           });
       }
     );

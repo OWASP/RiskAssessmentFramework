@@ -8,7 +8,6 @@ const cors = require("cors");
 var path = require("path");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const {startDatabase} = require("./database/mongo");
 const {addUser, getUser, deleteUser, updateUser} = require("./database/users");
 var multer  =   require("multer");
 var project = require("./sonarqube/callAPI");
@@ -41,23 +40,23 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-const projects = require('../routes/projects') ;
-const users = require('../routes/users'); 
-const mongoose = require('../config/database'); //database configuration
-var jwt = require('jsonwebtoken');
-app.set('secretKey', 'nodeRestApi'); // jwt secret token
+const projects = require("../routes/projects") ;
+const users = require("../routes/users"); 
+const mongoose = require("../config/database"); //database configuration
+var jwt = require("jsonwebtoken");
+app.set("secretKey", "nodeRestApi"); // jwt secret token
 // connection to mongodb
-mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connection.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // public route
-app.use('/users', users);
+app.use("/users", users);
 // private route
-app.use('/projects', validateUser, projects);
-app.get('/favicon.ico', function(req, res) {
+app.use("/projects", validateUser, projects);
+app.get("/favicon.ico", function(req, res) {
     res.sendStatus(204);
 });
 function validateUser(req, res, next) {
-  jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function(err, decoded) {
+  jwt.verify(req.headers["x-access-token"], req.app.get("secretKey"), function(err, decoded) {
     if (err) {
       res.json({status:"error", message: err.message, data:null});
     }else{
@@ -68,10 +67,55 @@ function validateUser(req, res, next) {
   });
   
 }
-// express doesn't consider not found 404 as an error so we need to handle 404 explicitly
+
+app.post("/upload/code",type,function(req,res){
+
+  upload(req,res,function(err) {
+
+    if(req.file.mimetype != "application/zip"){
+      res.end("Please upload a ZIP file");
+      
+    }
+
+    var fileName = req.file.filename.toString();
+
+    // req.file is the `avatar` file
+    // req.body will hold the text fields, if there were any
+      if(err) {
+          return res.end("Error uploading file.");
+      }
+      var extractToDirectory = path.join(__dirname, "..", "extracted", fileName);
+      var inputFileName = path.join(__dirname, "..", "uploads");
+
+      //Extracting the file from the uploaded zip
+      extractFiles(inputFileName +"/" +fileName, extractToDirectory,fileName);
+
+     // project.runScan(req.file.filename);
+
+
+
+      //Writing the sonar properties file 
+      
+    
+      // fs.writeFile("./files/sonar-project.properties", sonarscanner_config, (err) => {
+      //   console.log(extractToDirectory +"/sonar-project.properties")
+      //   if (err) console.log(err);
+      //   console.log("Successfully Written Sonar Qube project properties.");
+      // });
+      
+    
+      res.end(JSON.stringify({"STATUS" : "SUCCESS",
+              "FILE_NAME" : req.file.filename
+        } ));
+        project.createProject(req.file.filename, req.file.filename);
+
+
+  });
+});
+// express doesn"t consider not found 404 as an error so we need to handle 404 explicitly
 // handle 404 error
 app.use(function(req, res, next) {
- let err = new Error('Not Found');
+ let err = new Error("Not Found");
     err.status = 404;
     next(err);
 });
@@ -96,6 +140,7 @@ app.use(function(err, req, res, next) {
 
 
 function extractFiles(Inputfile, extractToDirectory,filename){
+  
  fs.createReadStream(Inputfile)
   .pipe(unzip.Extract({
     path: extractToDirectory 
@@ -109,19 +154,7 @@ function extractFiles(Inputfile, extractToDirectory,filename){
 
 
 
-function writeSonarProp(filename){
-  var sonarscanner_config = "sonar.projectKey="+filename;
 
-  fs.open("./extracted/"+filename+"/sonar-project.properties", "wx", (err, desc) => {
-    if(!err && desc) {
-       fs.writeFile(desc, sonarscanner_config, (err) => {
-         // Rest of your code
-         if (err) throw err;               
-         console.log("Results Received");
-       })
-    }
-  });
-}
 
 
 
@@ -171,61 +204,31 @@ app.get("/", async (req, res) => {
   res.send(await getUser());
 });
 
-app.post("/upload/code",type,function(req,res){
 
-  upload(req,res,function(err) {
 
-    if(req.file.mimetype != "application/zip"){
-      res.end("Please upload a ZIP file")
-      
+
+function writeSonarProp(filename){
+  
+  var sonarscanner_config = "sonar.projectKey="+filename;
+  fs.open("./extracted/"+filename+"/sonar-project.properties", "wx", (err, desc) => {
+    if(!err && desc) {
+       fs.writeFile(desc, sonarscanner_config, (err) => {
+         // Rest of your code
+         if (err) throw err;               
+         console.log("Results Received");
+       })
     }
-
-
-    // req.file is the `avatar` file
-    // req.body will hold the text fields, if there were any
-      if(err) {
-          return res.end("Error uploading file.");
-      }
-      var extractToDirectory = path.join(__dirname, "..", "extracted", req.file.filename);
-      var inputFileName = path.join(__dirname, "..", "uploads");
-
-      //Extracting the file from the uploaded zip
-      extractFiles(inputFileName +"/" +req.file.filename, extractToDirectory,req.file.filename);
-
-     // project.runScan(req.file.filename);
-
-
-
-      //Writing the sonar properties file 
-      
-    
-      // fs.writeFile("./files/sonar-project.properties", sonarscanner_config, (err) => {
-      //   console.log(extractToDirectory +"/sonar-project.properties")
-      //   if (err) console.log(err);
-      //   console.log("Successfully Written Sonar Qube project properties.");
-      // });
-      
-    
-      res.end(JSON.stringify({"STATUS" : "SUCCESS",
-              "FILE_NAME" : req.file.filename
-        } ));
-        project.createProject(req.file.filename, req.file.filename);
-
-
-      
-
-  }
-  
-  
-  );
-  
-});
+  });
+}
 
 app.get("/scan/:id",(req,res)=>{
+  
+  var fileName = req.params.id.toString();
 
-  writeSonarProp(req.params.id)
-  project.runScan(req.params.id);
-  res.send("Scan Started on " + req.params.id);
+  res.send("Scan Started on " + fileName);
+  writeSonarProp(fileName);
+  project.runScan(fileName);
+  res.end("Scan Complete on ", fileName);
   
 })
 

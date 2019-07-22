@@ -18,7 +18,22 @@ const UserSchema = new Schema({
   type: String,
   trim: true,
   required: true
+ },
+ country : {
+     type : String,
+     trim : true,
+     required: false
+
+ },
+ field : {
+     type : String,
+     required : false
+ },
+ isVerified : {
+     type : Boolean,
+     required : true
  }
+
 });
 // hash user password before saving into database
 UserSchema.pre('save', function(next){
