@@ -1,7 +1,7 @@
 //Set up mongoose connection
     const mongoose = require('mongoose');
     const MongoClient = require("mongodb").MongoClient;
-    const mongoDB = 'mongodb+srv://azhar001:azhar001@raf-ejf62.gcp.mongodb.net/test?retryWrites=true&w=majority';
+    const mongoDB = 'mongodb://localhost:27017';
     var database, collection;
     mongoose.connect(mongoDB, {useNewUrlParser: true, dbName: "RAF"});
     MongoClient.connect(mongoDB, {useNewUrlParser: true},function (err,client){
