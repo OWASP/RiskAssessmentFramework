@@ -66,9 +66,12 @@ clasObj = a.map( function(x, i){
           var filteredIssues = _.where(thatThing.data.issues,{"tags" : ""});
           var tags = [];
           var onlyTag = [];
-       for(issue in thatThing.data.issues){
-          tags.push(thatThing.data.issues[issue].tags);
-             }
+          if(thatThing.data){
+            for(var issue in thatThing.data.issues){
+              tags.push(thatThing.data.issues[issue].tags);
+                 }
+          }
+    
 
        var merged = _.flatten(tags);
     
