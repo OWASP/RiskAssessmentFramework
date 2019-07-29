@@ -26,17 +26,18 @@ var storage =   multer.diskStorage({
     
   },
 });
-var upload = multer({ storage : storage}).single("code");
+var upload = multer({ storage : storage}).single("file");
 
-var type = upload2.single("code");
+var type = upload2.single("file"); 
 
 var unzip = require("unzip");
-var fs = require("fs");
+var fs = require("fs"); 
 
 
 
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -116,6 +117,7 @@ app.post("/upload/code",type,function(req,res){
 // handle 404 error
 app.use(function(req, res, next) {
  let err = new Error("Not Found");
+ console.log(req);
     err.status = 404;
     next(err);
 });
@@ -172,7 +174,6 @@ app.use(helmet());
 // using bodyParser to parse JSON bodies into JS objects
 
 // enabling CORS for all requests
-app.use(cors());
 
 // adding morgan to log HTTP requests
 app.use(morgan("dev"));
