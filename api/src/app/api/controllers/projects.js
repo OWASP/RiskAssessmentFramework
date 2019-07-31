@@ -1,7 +1,7 @@
 const projectModel = require('../models/projects');
 module.exports = {
  getById: function(req, res, next) {
-  console.log(req.body);
+ // console.log(req.body);
   projectModel.findById(req.params.projectId, function(err, projectInfo){
    if (err) {
     next(err);
@@ -13,7 +13,7 @@ module.exports = {
 getAll: function(req, res, next) {
   let projectList = [];
   projectModel.find({}, function(err, projects){
-   if (err){
+   if (err){ 
     next(err);
    } else{
     for (let project of projects) {
@@ -22,7 +22,7 @@ getAll: function(req, res, next) {
     res.json({status:"success", message: "projects list found!!!", data:{projects: projectList}});
        
    }
-});
+}); 
  },
 updateById: function(req, res, next) {
     projectModel.findByIdAndUpdate(req.params.projectId,{name:req.body.name}, function(err, projectInfo){

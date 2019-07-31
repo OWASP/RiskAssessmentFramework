@@ -55,7 +55,7 @@ app.use("/users", users);
 app.use("/projects", validateUser, projects);
 app.get("/favicon.ico", function(req, res) {
     res.sendStatus(204);
-});
+}); 
 function validateUser(req, res, next) {
   jwt.verify(req.headers["x-access-token"], req.app.get("secretKey"), function(err, decoded) {
     if (err) {
@@ -117,7 +117,7 @@ app.post("/upload/code",type,function(req,res){
 // handle 404 error
 app.use(function(req, res, next) {
  let err = new Error("Not Found");
- console.log(req);
+ //console.log(req);
     err.status = 404;
     next(err);
 });

@@ -27,7 +27,12 @@ logout() {
 registerUser(authData: AuthData){
 this.user = {
   username: authData.username,
-  userId: Math.round(Math.random() * 10000).toString()
+  userId: Math.round(Math.random() * 10000).toString(),
+  email : "",
+password : "",
+isVerified : false,
+country : "",
+field : "",
 };
 this.authChange.next(true);
 }
