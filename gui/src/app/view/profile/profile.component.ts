@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from "../../shared/rest-api.service";
+import { User } from 'src/app/auth/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -9,13 +10,21 @@ import { RestApiService } from "../../shared/rest-api.service";
 export class ProfileComponent implements OnInit {
   verified = true;
   constructor( public restApi: RestApiService) { }
-  User: any;
+  User: User = {
+    userId : "123",
+    username : "test1",
+    email : "test@test1.com",
+    password : "password",
+    isVerified : false,
+    country : "wakanda",
+  field : "N/A"
+  };
   ngOnInit() {
     this.getUserDetails();
   }
 
   getUserDetails() {
-    return this.restApi.getUser("5d418136694d144200fe2909").subscribe((data : any) => {
+    return this.restApi.getUser("5d418136694d144200fe2909").subscribe((data: any) => {
       this.User = data.data.user;
     console.log("USERDETAILS" ,  this.User);
     })
