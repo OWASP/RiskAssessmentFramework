@@ -20,26 +20,26 @@
           <mat-card-content>
               <label for="username">Username</label>
               <mat-form-field  id="username" class="field">
-                  <input matInput disabled value="User001">
+                  <input matInput disabled [value]=User.name>
                 </mat-form-field>
           </mat-card-content>
           <mat-card-content>
               <label for="email">Email</label>
               <mat-form-field id="email"  class="field">
-                  <input matInput disabled value="User001@email.com">
+                  <input matInput disabled [value]=User.email>
                 </mat-form-field>
           </mat-card-content>
 
           <mat-card-content>
               <label for="country">Country</label>
               <mat-form-field id="country"  class="field">
-                  <input matInput disabled value="England">
+                  <input matInput disabled [value]=User.country>
                 </mat-form-field>
           </mat-card-content>
           <mat-card-content>
               <label for="field">Field</label>
               <mat-form-field id="field"  class="field">
-                  <input matInput disabled value="Security">
+                  <input matInput disabled [value]=User.field>
                 </mat-form-field>
           </mat-card-content>
           <mat-card-content>
