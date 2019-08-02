@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart} from 'chart.js';
+import { Project } from 'src/app/models/project.model';
+import { RestApiService } from 'src/app/shared/rest-api.service';
 
 
 
@@ -29,23 +31,63 @@ export class HistoryComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
-  constructor() { }
+
+
+  verified = true;
+  constructor( public restApi: RestApiService) { }
+  Project: Project = {
+    projectId : "1",
+    results : "N/A",
+    date : "11/11/2011"
+  };
+  reList = [];
+  fetchProjectResults() {
+    return this.restApi.getResults("4e0679f4f907bea2d278b3f24d4c8254").subscribe((data: any) => {
+      this.Project = data;
+    console.log("PROJECTDETAILS" ,  this.Project);
+    this.reList = [];
+   let x = data.map(d=>this.reList.push(d.type));
+console.log(x);
+console.log("RELIST",this.reList);
+
+    });
+  } 
 
   ngOnInit() {
+   // this.fetchProjectResults();
+
+    this.restApi.getResults("4e0679f4f907bea2d278b3f24d4c8254").subscribe((data: any) => {
+      this.Project = data;
+    console.log("PROJECTDETAILS" ,  this.Project);
+    let reList2 = [];
+    let vals = [];
+   let x = data.map(d=>reList2.push(d.type));
+   let y = data.map(d=>vals.push(d.issues));
+console.log(x); 
+console.log(y); 
+console.log("RELIST",vals);
+
+    
+   // this.doughnutChart.data.labels  = this.Project
+
+
+
     this.LineChart = new Chart('lineChart', {
       type: 'line',
       data: {
-          labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
+          labels: reList2,
           datasets: [{
               label: 'vulnerabilities',
-              data: [30, 20, 30, 50, 20, 30],
-              backgroundColor: [
+              data: vals,
+              backgroundColor: [ 
                   'rgba(33, 255, 199, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
                   'rgba(255, 206, 86, 0.2)',
                   'rgba(75, 192, 192, 0.2)',
                   'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
               ],
               borderColor: [
                   'rgba(33, 255, 199, 1)',
@@ -53,7 +95,9 @@ export class HistoryComponent implements OnInit {
                   'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
                   'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(255, 159, 64, 1)',
               ],
               borderWidth: 1
           }]
@@ -72,7 +116,7 @@ export class HistoryComponent implements OnInit {
   this.barChart = new Chart('barChart', {
     type: 'bar',
     data: {
-        labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
+        labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August'],
         datasets: [{
             label: 'vulnerabilities',
             data: [30, 20, 30, 50, 20, 30],
@@ -82,7 +126,9 @@ export class HistoryComponent implements OnInit {
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
             ],
             borderColor: [
                 'rgba(33, 255, 199, 1)',
@@ -90,7 +136,9 @@ export class HistoryComponent implements OnInit {
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 159, 64, 1)',
             ],
             borderWidth: 1
         }]
@@ -111,21 +159,19 @@ this.doughnutChart = new Chart('doughnutChart', {
   type: 'doughnut',
   data: {
     datasets: [{
-      data: [30, 20, 30, 50, 20, 30],
+      data: vals,
       borderColor : 'rgba(0,0,0,0)',
-      backgroundColor: [
-          'rgba(33, 255, 199,0.8)',
-          'rgba(54, 162, 235,0.4)',
-          'rgba(255, 206, 86,0.4)',
-          'rgba(75, 192, 192,0.4)',
-          'rgba(153, 102, 255,0.4)',
-          'rgba(255, 159, 64,0.4)'
-      ],
-      label: 'Dataset 1'
+      label: 'Dataset 1',
+      backgroundColor :   ['rgba(33, 255, 199, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 159, 64, 0.2)',] 
     }],
-    labels: [
-      'Injection', 'XSS', 'BAC', 'XXE', 'SOE', 'Misconfig'
-    ]
+    labels: reList2
   },
   options: {
     responsive: true,
@@ -173,7 +219,9 @@ this.radarChart = new Chart('radarChart', {
             'rgba(255, 206, 86, 1)',
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 159, 64, 1)',
         ],
         borderWidth: 1
     }]
@@ -198,7 +246,7 @@ options: {
 }
 
 });
-
+});
 
   }
 

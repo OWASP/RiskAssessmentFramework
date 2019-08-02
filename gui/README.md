@@ -4,8 +4,7 @@
 **IN DEVELOPMENT**
 
 ## Description
-Connecting the upload file to the api
-
+Connecting the profile component with the rest-api service
 
 # Todos 
 

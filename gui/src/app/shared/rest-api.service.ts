@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../auth/user.model';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Project } from '../models/project.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,16 @@ export class RestApiService {
     .pipe(
       retry(1),
       catchError(this.handleError)
-    )
+    );
+  }
+
+  getResults(id): Observable<Project>{
+    return this.http.get<Project>(this.apiURL + '/getResults/' + id)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+
   }
 
   // HttpClient API post() method => Create User
