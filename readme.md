@@ -22,7 +22,7 @@ There are hundreds of SAST tools available for a penetration tester to use from 
 -   Risk Assesment Tools
 -   Static Application security Testing
 
-## Installation
+## Web Deface Detection Installation
 -   `cd web_deface/`
 -   `pip install -r requirements.txt`
 -   `python web_deface.py <notif arguments>`
@@ -69,6 +69,11 @@ optional arguments:
   --slack_user_id SLACK_USER_ID, -suid SLACK_USER_ID
                         Slack user id
 ```
+
+we have update related web deface detection please see video below
+[![](http://img.youtube.com/vi/1vFaGxvzMh4/0.jpg)](http://www.youtube.com/watch?v=1vFaGxvzMh4 "Web Deface Detection ")
+##   Static Application security Testing (Under Develoment)
+-   `cd gui/`
 
 ## Wiki
 https://github.com/OWASP/RiskAssessmentFramework/wiki
