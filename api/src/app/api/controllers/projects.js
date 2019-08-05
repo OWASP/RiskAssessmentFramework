@@ -1,4 +1,18 @@
 const projectModel = require('../models/projects');
+
+
+
+function extractFiles(Inputfile, extractToDirectory,filename){
+  
+    fs.createReadStream(Inputfile)
+     .pipe(unzip.Extract({
+       path: extractToDirectory 
+     }));
+   
+     //writeSonarProp(filename);
+   }
+
+   
 module.exports = {
  getById: function(req, res, next) {
  // console.log(req.body);
@@ -43,6 +57,57 @@ deleteById: function(req, res, next) {
   });
  },
 create: function(req, res, next) {
+    projectModel.create({ name: req.body.name, created_on: req.body.created_on }, function (err, result) {
+      if (err) 
+       next(err);
+      else
+       res.json({status: "success", message: "Project added successfully!!!", data: null});
+      
+    });
+ },
+uploadCode: function(req, res, next) {
+        upload(req,res,function(err) {
+      
+          if(req.file.mimetype != "application/zip"){
+            res.end("Please upload a ZIP file");
+            
+          }
+          var fileName = req.file.filename.toString();
+      
+          // req.file is the `avatar` file
+          // req.body will hold the text fields, if there were any
+            if(err) {
+                return res.end("Error uploading file.");
+            }
+            var extractToDirectory = path.join(__dirname, "..", "extracted", fileName);
+            var inputFileName = path.join(__dirname, "..", "uploads");
+      
+            //Extracting the file from the uploaded zip
+            extractFiles(inputFileName +"/" +fileName, extractToDirectory,fileName);
+      
+           // project.runScan(req.file.filename);
+      
+      
+      
+            //Writing the sonar properties file 
+            
+          
+            // fs.writeFile("./files/sonar-project.properties", sonarscanner_config, (err) => {
+            //   console.log(extractToDirectory +"/sonar-project.properties")
+            //   if (err) console.log(err);
+            //   console.log("Successfully Written Sonar Qube project properties.");
+            // });
+            
+        
+            res.end(JSON.stringify({"STATUS" : "SUCCESS",
+                    "FILE_NAME" : req.file.filename
+              } ));
+              project.createProject(req.file.filename, req.file.filename);
+      
+      
+        });
+   
+
     projectModel.create({ name: req.body.name, created_on: req.body.created_on }, function (err, result) {
       if (err) 
        next(err);
