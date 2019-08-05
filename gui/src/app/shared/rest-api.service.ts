@@ -41,6 +41,13 @@ export class RestApiService {
       catchError(this.handleError)
     );
   }
+  runScan(id): Observable<any> {
+    return this.http.get<any>(this.apiURL + '/scan/' + id)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
 
   getResults(id): Observable<Project>{
     return this.http.get<Project>(this.apiURL + '/getResults/' + id)

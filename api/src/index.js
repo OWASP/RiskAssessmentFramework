@@ -1,7 +1,5 @@
 // importing the dependencies
 
-
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -21,7 +19,7 @@ var storage =   multer.diskStorage({
   filename: function (req, file, callback) {
     _file = file.fieldname + "-" + Date.now();
     
-    callback(null, _file);
+    callback(null, _file); 
     
     
   },
@@ -46,6 +44,7 @@ const users = require("../routes/users");
 const mongoose = require("../config/database"); //database configuration
 var jwt = require("jsonwebtoken");
 app.set("secretKey", "nodeRestApi"); // jwt secret token
+
 // connection to mongodb
 mongoose.connection.on("error", console.error.bind(console, "MongoDB connection error:"));
 
@@ -73,10 +72,6 @@ app.post("/upload/code",type,function(req,res){
 
   upload(req,res,function(err) {
 
-    if(req.file.mimetype != "application/zip"){
-      res.end("Please upload a ZIP file");
-      
-    }
 
     var fileName = req.file.filename.toString();
 
@@ -91,7 +86,7 @@ app.post("/upload/code",type,function(req,res){
       //Extracting the file from the uploaded zip
       extractFiles(inputFileName +"/" +fileName, extractToDirectory,fileName);
 
-     // project.runScan(req.file.filename);
+     //project.runScan(req.file.filename);
 
 
 
@@ -104,41 +99,20 @@ app.post("/upload/code",type,function(req,res){
       //   console.log("Successfully Written Sonar Qube project properties.");
       // });
       
-    
-      res.end(JSON.stringify({"STATUS" : "SUCCESS",
-              "FILE_NAME" : req.file.filename
-        } ));
+    console.log("FILE UPLOAD SUCCESS");
+    res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify({STATUS : "SUCCESS",
+              FILE_NAME : req.file.filename
+        }));
         project.createProject(req.file.filename, req.file.filename);
+        console.log("PROJECT CREATED SUCCESSFULLY");
+        
 
-
+ 
   });
 });
 // express doesn"t consider not found 404 as an error so we need to handle 404 explicitly
 // handle 404 error
-app.use(function(req, res, next) {
- let err = new Error("Not Found");
- //console.log(req);
-    err.status = 404;
-    next(err);
-});
-// handle errors
-app.use(function(err, req, res, next) {
- console.log(err);
- 
-  if(err.status === 404)
-   res.status(404).json({message: "Not found"});
-  else 
-    res.status(500).json({message: "Something looks wrong :( !!!"});
-});
-
-
-
-
-
-
-
-
-
 
 
 function extractFiles(Inputfile, extractToDirectory,filename){
@@ -147,17 +121,10 @@ function extractFiles(Inputfile, extractToDirectory,filename){
   .pipe(unzip.Extract({
     path: extractToDirectory 
   }));
+console.log("FILE EXTRACTED SUCCESSFULLY");
 
   //writeSonarProp(filename);
 }
-
-
-
-
-
-
-
-
 
 
 // defining the Express app
@@ -220,7 +187,7 @@ function writeSonarProp(filename){
        })
     }
   });
-}
+} 
 
 app.get("/scan/:id",(req,res)=>{
   
@@ -229,7 +196,7 @@ app.get("/scan/:id",(req,res)=>{
   res.send("Scan Started on " + fileName);
   writeSonarProp(fileName);
   project.runScan(fileName);
-  res.end("Scan Complete on ", fileName);
+  res.end("Scan Complete on ", fileName); 
   
 })
 
@@ -253,7 +220,22 @@ res.end((JSON.stringify(result)));
 // startDatabase().then(async () => {
 //   await addUser({message: "WELCOME TO OWASP RISK ASSESSMENT FRAMEWORK API"});
 
-
+app.use(function(req, res, next) {
+  let err = new Error("Not Found");
+  //console.log(req);
+     err.status = 404;
+     next(err);
+ });
+ // handle errors
+ app.use(function(err, req, res, next) {
+  console.log(err);
+  
+   if(err.status === 404)
+    res.status(404).json({message: "Not found"});
+   else 
+     res.status(500).json({message: "Something looks wrong :( !!!"});
+ });
+ 
 // starting the server
 app.listen(3000, () => {
   console.log("listening on port 3000");

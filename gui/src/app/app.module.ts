@@ -15,7 +15,7 @@ import { SupportComponent } from './view/support/support.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmbedVideo } from 'ngx-embed-video';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { Top10Component } from './view/tools/top10/top10.component';
+import { Top10Component, BottomSheetOverviewExampleSheet } from './view/tools/top10/top10.component';
 import { AuthService } from './auth/auth.service';
 import { NavigationComponent } from './view/navigation/navigation.component';
 import { DialogComponentComponent } from './view/resources/dialog-component/dialog-component.component';
@@ -42,7 +42,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     Top10Component,
     NavigationComponent,
     DialogComponentComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    BottomSheetOverviewExampleSheet
 
   ],
   imports: [
@@ -59,9 +60,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService, Top10Component],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponentComponent],
+  entryComponents: [DialogComponentComponent, BottomSheetOverviewExampleSheet],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })

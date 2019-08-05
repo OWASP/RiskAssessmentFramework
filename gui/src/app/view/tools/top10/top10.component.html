@@ -1,32 +1,27 @@
+
+
 <div class="upload-wrapper">
+    <form (ngSubmit)="uploadFiles()">
     <h1 style="text-align: center; margin-top: 10%">Drag and Drop your Code</h1>
     <mat-divider class="divider"></mat-divider>
 
-<vaadin-upload target="http://localhost:3000/upload/code" accept=".zip" ></vaadin-upload>
+<vaadin-upload no-auto id="manualUpload" max-files="1" target="http://localhost:3000/upload/code" method="post" accept=".zip" ></vaadin-upload>
 
-
+<button class="uploadFileButton"  id="uploadButton"  type="submit" color="primary" mat-raised-button>Upload File</button>
+</form>
     <h1 style="text-align: center; margin-top: 15%">Enter repository URL</h1>
     <mat-divider class="divider"></mat-divider>
 
     <form class="example-form">
         <mat-form-field style="width: 80%; margin-top : 4%" class="example-full-width">
-          <input  matInput placeholder="URL" [formControl]="emailFormControl">
-          <mat-error *ngIf="emailFormControl.hasError(reg)">
+          <input  matInput placeholder="URL" [formControl]="uploadFormControl">
+          <mat-error *ngIf="uploadFormControl.hasError(reg)">
             Please enter a valid url address
           </mat-error>
         </mat-form-field>
-        <button color="primary" mat-raised-button>Upload Repository</button>
+        <button color="primary" type="submit" mat-raised-button>Upload Repository</button>
       </form>
 
-  <!-- <button  color="primary"   mat-raised-button class="upload-button">
-    Upload Code
-    <mat-icon inline=true style="font-size: 5vw; margin-left: 0.4em">cloud_upload</mat-icon>
-  </button>
-
-  <button color="primary" mat-raised-button class="upload-button">
-      Upload from Repository
-      <mat-icon inline=true style="font-size: 5vw; margin-left: 0.4em">public</mat-icon>
-    </button> -->
 
 </div>
 

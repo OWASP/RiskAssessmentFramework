@@ -4,7 +4,7 @@
 **IN DEVELOPMENT**
 
 ## Description
-Connecting the profile component with the rest-api service
+Connecting the History component charts with the rest-api service
 
 # Todos 
 
