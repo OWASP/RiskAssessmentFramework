@@ -94,18 +94,25 @@ clasObj = a.map( function(x, i){
   }
   
 
-function runScan(fileName){
-    const { exec } = require("child_process");
-    exec("cd extracted/" +fileName +" && sonar-scanner", (err, stdout, stderr) => {
-      if (err) {
-        console.log(`stdout: ${err}`);
-        return;
-      }
-    
-      // the *entire* stdout and stderr (buffered)
-    //   console.log(`stdout: ${stdout}`);
-    //   console.log(`stderr: ${stderr}`);
-    });
+function runScan(fileName, callback){
+
+  var child_process = require("child_process").exec("cd extracted/" +fileName +" && sonar-scanner", (err, stdout, stderr) => {
+    if (err) {
+      console.log(`stdout: ${err}`);
+      return;
+    }
+
+  });
+
+  child_process.stdout.pipe(process.stdout);
+  child_process.on("exit", (exitCode)=>{
+    if(parseInt(exitCode) === 0){
+      callback("SCAN COMPLETED SUCCESSFULLY");
+    }else {
+     callback(-1);
+    }
+  })
+  
 }
 
   module.exports = {

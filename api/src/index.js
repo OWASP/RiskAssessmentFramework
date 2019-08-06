@@ -100,8 +100,8 @@ app.post("/upload/code",type,function(req,res){
       // });
       
     console.log("FILE UPLOAD SUCCESS");
-    res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify({STATUS : "SUCCESS",
+    //res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify({STATUS : "SUCCESS",
               FILE_NAME : req.file.filename
         }));
         project.createProject(req.file.filename, req.file.filename);
@@ -191,14 +191,16 @@ function writeSonarProp(filename){
 
 app.get("/scan/:id",(req,res)=>{
   
-  var fileName = req.params.id.toString();
-
-  res.send("Scan Started on " + fileName);
-  writeSonarProp(fileName);
-  project.runScan(fileName);
-  res.end("Scan Complete on ", fileName); 
+  var fileName = (req.params.id).trim().toString();
   
-})
+ // res.send("Scan Started on " + fileName);
+  writeSonarProp(fileName);
+project.runScan(fileName, (resp)=>{
+  console.log("REEEE", resp);
+  res.status(200).send({status : 200, data : resp});
+});
+  
+}) 
 
 
 app.get("/getResults/:id", async  (req,res) => {

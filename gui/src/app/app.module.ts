@@ -62,7 +62,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   ],
   providers: [AuthGuardService, Top10Component],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponentComponent, BottomSheetOverviewExampleSheet],
+  entryComponents: [DialogComponentComponent, BottomSheetOverviewExampleSheet, HistoryComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })
