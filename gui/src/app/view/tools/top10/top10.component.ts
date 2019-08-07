@@ -4,7 +4,10 @@ import { FormControl, Validators } from '@angular/forms';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
 import { HttpClient } from '@angular/common/http';
-import {RestApiService} from '../../../shared/rest-api.service'
+import {RestApiService} from '../../../shared/rest-api.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { HistoryComponent } from '../../history/history.component';
+
   
 
 @Component({
@@ -80,7 +83,7 @@ _this.openBottomSheet(this.projectId);
 })
 
 export class BottomSheetOverviewExampleSheet {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any, public restApi: RestApiService) {}
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any, public restApi: RestApiService, public dialog: MatDialog) {}
   projectId : any = this.data.projectId ;
 
   openLink(event: MouseEvent): void { 
@@ -90,16 +93,36 @@ export class BottomSheetOverviewExampleSheet {
     this._bottomSheetRef.dismiss();
     event.preventDefault();
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(HistoryComponent, {
+      width: '100%',
+      height : "100%",
+      maxHeight : "100%",
+      maxWidth : "100%"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
   
   scanProject():void{
     console.log("scanning", this.projectId);
 
+    this.restApi.runScan(this.projectId).subscribe((data) => {
 
+        this.displayReport(data);
 
-    this.restApi.runScan(this.projectId).subscribe((data: any) => {
-console.log(data);
 
   });
 }
 
-} 
+displayReport(data){
+
+console.log("GOT THE DATA", data);
+
+
+}
+
+}  

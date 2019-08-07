@@ -42,7 +42,7 @@ export class HistoryComponent implements OnInit {
   };
   reList = [];
   fetchProjectResults() {
-    return this.restApi.getResults("4e0679f4f907bea2d278b3f24d4c8254").subscribe((data: any) => {
+    return this.restApi.getResults("37ac199fb8fad70e1c68d672a44d4af2").subscribe((data: any) => {
       this.Project = data;
     console.log("PROJECTDETAILS" ,  this.Project);
     this.reList = [];
@@ -56,7 +56,7 @@ console.log("RELIST",this.reList);
   ngOnInit() {
    // this.fetchProjectResults();
 
-    this.restApi.getResults("4e0679f4f907bea2d278b3f24d4c8254").subscribe((data: any) => {
+    this.restApi.getResults("37ac199fb8fad70e1c68d672a44d4af2").subscribe((data: any) => {
       this.Project = data;
     console.log("PROJECTDETAILS" ,  this.Project);
     let reList2 = [];

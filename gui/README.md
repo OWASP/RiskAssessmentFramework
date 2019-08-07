@@ -4,7 +4,7 @@
 **IN DEVELOPMENT**
 
 ## Description
-Connecting the History component charts with the rest-api service
+Creating A Bottom sheet to perform scan and process the response from the rest api and triggering sonar-qube scan.
 
 # Todos 
 
@@ -25,7 +25,9 @@ General components of the application that this PR will affect:
 * Tools Component
 * top10 Component
 * app module Component
+* Material module Component
 * app Component
+* rest-api-service Component
 * tsconfig
 
 

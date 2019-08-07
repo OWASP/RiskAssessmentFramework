@@ -19,9 +19,9 @@ export class RestApiService {
 
   // Http Options
   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+    // headers: new HttpHeaders({
+    //   'Content-Type': 'application/json'
+    // })
   }
 
   // HttpClient API get() method => Fetch Users list
@@ -45,7 +45,7 @@ export class RestApiService {
     return this.http.get<any>(this.apiURL + '/scan/' + id)
     .pipe(
       retry(1),
-      catchError(this.handleError)
+     // catchError(this.handleError)
     );
   }
 
@@ -55,7 +55,7 @@ export class RestApiService {
       retry(1),
       catchError(this.handleError)
     );
-
+ 
   }
 
   // HttpClient API post() method => Create User
@@ -99,5 +99,5 @@ export class RestApiService {
      return throwError(errorMessage);
   }
 
-
+ 
 }
