@@ -1,62 +1,63 @@
-# Dashboard
+    # Dashboard
 
-## Status
-**IN DEVELOPMENT**
+    ## Status
+    **IN DEVELOPMENT**
 
-## Description
-Creating A Bottom sheet to perform scan and process the response from the rest api and triggering sonar-qube scan.
-
-# Todos 
-
-- Dynamic Fetching of the Resources
-- Improvements in Profile
-- Improvements in Settings
-- Other issue fixing related to theme
+    ## Description
+    Dialog to display results of the scanned project.
 
 
+    # Todos 
 
-
-
-
-## Impacted Areas in Application
-General components of the application that this PR will affect:
-
-
-* Tools Component
-* top10 Component
-* app module Component
-* Material module Component
-* app Component
-* rest-api-service Component
-* tsconfig
+    - Dynamic Fetching of the Resources
+    - Improvements in Profile
+    - Improvements in Settings
+    - Other issue fixing related to theme
 
 
 
 
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
+    ## Impacted Areas in Application
+    General components of the application that this PR will affect:
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    * Tools Component
+    * top10 Component
+    * app module Component
+    * Material module Component
+    * app Component
+    * rest-api-service Component
+    * tsconfig
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
-## Running end-to-end tests
+    ## Development server
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Further help
+    ## Code scaffolding
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+    ## Build
+
+    Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+    ## Running unit tests  
+
+    Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+    ## Running end-to-end tests
+
+    Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+    ## Further help
+
+    To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

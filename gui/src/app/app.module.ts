@@ -24,6 +24,9 @@ import { RegistrationComponent } from './view/registration/registration.componen
 import {  ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ReportComponent } from './view/history/report/report.component';
+import { ChartsComponent } from './view/history/charts/charts.component';
+import { AnalysisReportComponent } from './view/tools/top10/analysis-report/analysis-report.component';
 
 
 
@@ -43,7 +46,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     NavigationComponent,
     DialogComponentComponent,
     RegistrationComponent,
-    BottomSheetOverviewExampleSheet
+    BottomSheetOverviewExampleSheet,
+    ReportComponent,
+    ChartsComponent,
+    ReportComponent,
+    AnalysisReportComponent,
+    
 
   ],
   imports: [
@@ -62,7 +70,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   ],
   providers: [AuthGuardService, Top10Component],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponentComponent, BottomSheetOverviewExampleSheet, HistoryComponent],
+  entryComponents: [DialogComponentComponent, BottomSheetOverviewExampleSheet, AnalysisReportComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })
