@@ -6,7 +6,8 @@ import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import {RestApiService} from '../../../shared/rest-api.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { HistoryComponent } from '../../history/history.component';
+import { AnalysisReportComponent } from './analysis-report/analysis-report.component';
+
 
   
 
@@ -95,7 +96,7 @@ export class BottomSheetOverviewExampleSheet {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(HistoryComponent, {
+    const dialogRef = this.dialog.open(AnalysisReportComponent, {
       width: '100%',
       height : "100%",
       maxHeight : "100%",

@@ -34,7 +34,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
        MatToolbarModule, MatSidenavModule,
        MatIconModule, MatFormFieldModule, MatBottomSheetModule,
        MatCardModule, MatTableModule, MatInputModule, AlertModule, MatGridListModule,
-       MatDialogModule, MatProgressBarModule, ModalModule, WavesModule, InputsModule, ButtonsModule,  ]
+       MatDialogModule, MatProgressBarModule, ModalModule, WavesModule, InputsModule, ButtonsModule,  ],
+    declarations: []
 
 })
 

@@ -1,0 +1,13 @@
+.content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  table {
+    width: 60%;
+    background-color: rgba(24, 28, 47, 0.7);
+
+  }
