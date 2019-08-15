@@ -22,9 +22,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getUserDetails();
   }
-
+ 
   getUserDetails() {
-    return this.restApi.getUser("5d418136694d144200fe2909").subscribe((data: any) => {
+    return this.restApi.getUser("5d544b025efa2644347284ba").subscribe((data: any) => {
       this.User = data.data.user;
     console.log("USERDETAILS" ,  this.User);
     })
