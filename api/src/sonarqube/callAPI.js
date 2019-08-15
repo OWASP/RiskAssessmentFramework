@@ -58,17 +58,22 @@ clasObj = a.map( function(x, i){
  async function fetchResults(projectKey){
     
       try {
-        const thatThing = await axios.get("http://localhost:9000/api/issues/search", {
+        const issues = await axios.get("http://localhost:9000/api/issues/search", {
             params: {
                 componentKeys: projectKey
             }
           });
-          var filteredIssues = _.where(thatThing.data.issues,{"tags" : ""});
+          //TODO : Project status from sonarQube
+          // const project_status = await axios.get("http://localhost:9000/api/qualitygates/project_status", {
+          //     params: {
+          //       projectKey: projectKey
+          //     }
+          //   });
+        
           var tags = [];
-          var onlyTag = [];
-          if(thatThing.data){
-            for(var issue in thatThing.data.issues){
-              tags.push(thatThing.data.issues[issue].tags);
+          if(issues.data){
+            for(var issue in issues.data.issues){
+              tags.push(issues.data.issues[issue].tags);
                  }
           }
     
@@ -96,7 +101,7 @@ clasObj = a.map( function(x, i){
 
 function runScan(fileName, callback){
 
-  var child_process = require("child_process").exec("cd extracted/" +fileName +" && sonar-scanner", (err, stdout, stderr) => {
+  var child_process = require("child_process").exec("cd projects/" +fileName +" && sonar-scanner", (err, stdout, stderr) => {
     if (err) {
       console.log(`stdout: ${err}`);
       return;
