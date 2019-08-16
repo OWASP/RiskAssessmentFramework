@@ -1,16 +1,13 @@
-<p>
-  analysis-report
-</p>
 <div>
 
-  <app-charts></app-charts><span>
+  <app-charts [data]="fetchProjectResults(data2.projectId)"></app-charts><span>
       <mat-card class="primary-card">
-          <h1>SONARQUBE SCORE - A</h1>
-      
+          <h1>SONARQUBE SCORE - A - {{data2.projectId}}</h1>
+
       </mat-card>
-      
+
       <mat-card class="secondary-card">
-      
+
       </mat-card>
 
   </span>

@@ -80,7 +80,7 @@ app.post("/upload/code",type,function(req,res){
       if(err) {
           return res.end("Error uploading file.");
       }
-      var extractToDirectory = path.join(__dirname, "..", "extracted", fileName);
+      var extractToDirectory = path.join(__dirname, "..", "projects", fileName);
       var inputFileName = path.join(__dirname, "..", "uploads");
 
       //Extracting the file from the uploaded zip
@@ -171,14 +171,14 @@ app.post("/", async (req, res) => {
 app.get("/", async (req, res) => {
   res.send(await getUser());
 });
-
+ 
 
 
 
 function writeSonarProp(filename){
   
   var sonarscanner_config = "sonar.projectKey="+filename;
-  fs.open("./extracted/"+filename+"/sonar-project.properties", "wx", (err, desc) => {
+  fs.open("./projects/"+filename+"/sonar-project.properties", "wx", (err, desc) => {
     if(!err && desc) {
        fs.writeFile(desc, sonarscanner_config, (err) => {
          // Rest of your code
@@ -188,11 +188,11 @@ function writeSonarProp(filename){
     }
   });
 } 
-
+ 
 app.get("/scan/:id",(req,res)=>{
   
   var fileName = (req.params.id).trim().toString();
-  
+   
  // res.send("Scan Started on " + fileName);
   writeSonarProp(fileName);
 project.runScan(fileName, (resp)=>{
@@ -216,6 +216,19 @@ res.end((JSON.stringify(result)));
  // res.send("Result for projectKey -  " + req.params.id+ "/n" + JSON.stringify(project.fetchResults(req.params.id)));
   
 })
+app.get("/getResults", async  (req,res) => {
+
+res.setHeader("Content-Type", "application/json");
+  var result = "NOTHING";
+result =  await  project.fetchResults(" ");
+// console.log("====================================");
+// console.log(result);
+// console.log("====================================");
+res.end((JSON.stringify(result)));
+   
+ // res.send("Result for projectKey -  " + req.params.id+ "/n" + JSON.stringify(project.fetchResults(req.params.id)));
+  
+})
 
 
 // start the in-memory MongoDB instance
@@ -229,7 +242,7 @@ app.use(function(req, res, next) {
      next(err);
  });
  // handle errors
- app.use(function(err, req, res, next) {
+ app.use(function(err, req, res, next) { 
   console.log(err);
   
    if(err.status === 404)

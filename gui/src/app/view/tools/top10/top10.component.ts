@@ -9,7 +9,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AnalysisReportComponent } from './analysis-report/analysis-report.component';
 
 
-  
+
 
 @Component({
   selector: 'app-top10',
@@ -36,17 +36,17 @@ projectId : String;
 
  uploadFiles() {
     this.upload.uploadFiles();
-    this.openBottomSheet("23232");
+    this.openBottomSheet("test");
     console.log("upload complete");
 
-     
+
   }
 
 
   openBottomSheet(projectId): void {
     this._bottomSheet.open(BottomSheetOverviewExampleSheet, {
       data: { projectId : projectId} },);
-   
+
   }
 
 
@@ -57,16 +57,16 @@ projectId : String;
       console.log('upload xhr after server response: ', event.detail.xhr);
 console.log("STATUS",event.detail.xhr.status);
 var response = JSON.parse(event.detail.xhr.response);
-this.projectId = response.FILE_NAME; 
+this.projectId = response.FILE_NAME;
 _this.openBottomSheet(this.projectId);
      if(event.detail.xhr.response.status!=200){
          event.detail.file.error = event.detail.xhr.response.error;
 
 
 }
-    });   
-                          
-  } 
+    });
+
+  }
 
   getProjectId(): String{
     return this.projectId;
@@ -87,7 +87,7 @@ export class BottomSheetOverviewExampleSheet {
   constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any, public restApi: RestApiService, public dialog: MatDialog) {}
   projectId : any = this.data.projectId ;
 
-  openLink(event: MouseEvent): void { 
+  openLink(event: MouseEvent): void {
     // var projectId = this.Top10Component.getProjectId();
      console.log("PROJECT ID" ,this.data.projectId);
 
@@ -96,18 +96,22 @@ export class BottomSheetOverviewExampleSheet {
   }
 
   openDialog(): void {
+    const _this = this;
     const dialogRef = this.dialog.open(AnalysisReportComponent, {
       width: '100%',
       height : "100%",
       maxHeight : "100%",
-      maxWidth : "100%"
+      maxWidth : "100%",
+      data : {
+          projectId : _this.data.projectId
+      }
     });
-
+    console.log('The dialog ID', _this.data.projectId);
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
-  
+
   scanProject():void{
     console.log("scanning", this.projectId);
 
@@ -126,4 +130,4 @@ console.log("GOT THE DATA", data);
 
 }
 
-}  
+}

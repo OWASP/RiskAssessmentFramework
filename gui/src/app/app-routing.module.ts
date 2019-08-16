@@ -13,17 +13,17 @@ import { Top10Component } from './view/tools/top10/top10.component';
 import { RegistrationComponent } from './view/registration/registration.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 const routes: Routes = [
-  {path : 'login', component:  LoginComponent},
-  {path : 'home', component: HomeComponent, },
-  {path : 'history', component: HistoryComponent,},
-  {path : 'profile', component: ProfileComponent, },
-  {path : 'resources', component : ResourcesComponent,},
-  {path : 'settings', component : SettingsComponent,},
-  {path : 'support', component : SupportComponent,},
-  {path : 'tools', component : ToolsComponent,},
-  {path : 'tools/top10', component : Top10Component,},
-  {path : 'register', component : RegistrationComponent,},
-  {path: '**', redirectTo: 'home'}
+  { path: 'login', component: LoginComponent, },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'history', component: HistoryComponent, canActivate: [AuthGuardService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'resources', component: ResourcesComponent, canActivate: [AuthGuardService] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuardService] },
+  { path: 'support', component: SupportComponent, canActivate: [AuthGuardService] },
+  { path: 'tools', component: ToolsComponent, canActivate: [AuthGuardService] },
+  { path: 'tools/top10', component: Top10Component, canActivate: [AuthGuardService] },
+  { path: 'register', component: RegistrationComponent },
+  { path: '**', redirectTo: 'home' }
 
 ];
 

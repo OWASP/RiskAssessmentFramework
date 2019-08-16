@@ -42,32 +42,24 @@ export class HistoryComponent implements OnInit {
   };
   reList = [];
   fetchProjectResults() {
-    return this.restApi.getResults("37ac199fb8fad70e1c68d672a44d4af2").subscribe((data: any) => {
-      this.Project = data;
-    console.log("PROJECTDETAILS" ,  this.Project);
-    this.reList = [];
-   let x = data.map(d=>this.reList.push(d.type));
-console.log(x);
-console.log("RELIST",this.reList);
-
-    });
-  } 
+    return this.restApi.getResults("");
+  }
 
   ngOnInit() {
    // this.fetchProjectResults();
 
-    this.restApi.getResults("37ac199fb8fad70e1c68d672a44d4af2").subscribe((data: any) => {
+    this.restApi.getResults("").subscribe((data: any) => {
       this.Project = data;
     console.log("PROJECTDETAILS" ,  this.Project);
     let reList2 = [];
     let vals = [];
    let x = data.map(d=>reList2.push(d.type));
    let y = data.map(d=>vals.push(d.issues));
-console.log(x); 
-console.log(y); 
+console.log(x);
+console.log(y);
 console.log("RELIST",vals);
 
-    
+
    // this.doughnutChart.data.labels  = this.Project
 
 
@@ -79,7 +71,7 @@ console.log("RELIST",vals);
           datasets: [{
               label: 'vulnerabilities',
               data: vals,
-              backgroundColor: [ 
+              backgroundColor: [
                   'rgba(33, 255, 199, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
                   'rgba(255, 206, 86, 0.2)',
@@ -116,10 +108,10 @@ console.log("RELIST",vals);
   this.barChart = new Chart('barChart', {
     type: 'bar',
     data: {
-        labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August'],
+        labels: reList2,
         datasets: [{
             label: 'vulnerabilities',
-            data: [30, 20, 30, 50, 20, 30],
+            data: vals,
             backgroundColor: [
                 'rgba(33, 255, 199, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -169,7 +161,7 @@ this.doughnutChart = new Chart('doughnutChart', {
       'rgba(153, 102, 255, 0.2)',
       'rgba(255, 159, 64, 0.2)',
       'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 159, 64, 0.2)',] 
+      'rgba(255, 159, 64, 0.2)',]
     }],
     labels: reList2
   },
@@ -201,10 +193,10 @@ this.doughnutChart = new Chart('doughnutChart', {
 this.radarChart = new Chart('radarChart', {
   type: 'radar',
   data: {
-    labels: ['Injection', 'XSS', 'BAC', 'XXE', 'SOE', 'Misconfig'],
+    labels: reList2,
     datasets: [{
         label: 'Risk',
-        data: [30, 20, 30, 50, 20, 30],
+        data: vals,
         backgroundColor: [
             'rgba(33, 255, 199, 0.2)',
             'rgba(54, 162, 235, 0.2)',
