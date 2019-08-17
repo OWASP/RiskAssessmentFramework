@@ -18,11 +18,13 @@ module.exports = {
       function(err, result) {
         if (err) next(err);
         else
+        console.log("User successfully created");
+        
           res.json({
             status: "success",
             message: "User added successfully!!!",
             data: result
-          });
+          }); 
       }
     );
   },

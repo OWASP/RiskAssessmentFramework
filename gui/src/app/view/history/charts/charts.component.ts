@@ -43,15 +43,13 @@ export class ChartsComponent implements OnInit {
    // this.fetchProjectResults();
     this.data.subscribe((data: any) => {
 
-      this.Project = data;
-    console.log("PROJECTDETAILS" ,  this.Project);
+      this.Project = data.tags;
+      const dataArray = data.tags;
     let reList2 = [];
     let vals = [];
-   let x = data.map(d=>reList2.push(d.type));
-   let y = data.map(d=>vals.push(d.issues));
-console.log(x);
-console.log(y);
-console.log("RELIST",vals);
+   dataArray.map(d=>reList2.push(d.type));
+   dataArray.map(d=>vals.push(d.issues));
+
 
 
    // this.doughnutChart.data.labels  = this.Project

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from '../auth/user.model';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
@@ -55,12 +55,24 @@ export class RestApiService {
       retry(1),
       catchError(this.handleError)
     );
- 
+
   }
 
   // HttpClient API post() method => Create User
   createUser(User): Observable<User> {
-    return this.http.post<User>(this.apiURL + '/users', JSON.stringify(User), this.httpOptions)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+      const body = new HttpParams()
+      .set('username', User.username)
+      .set('password', User.password)
+      .set('email', User.email)
+      .set('name', User.name);
+
+
+    console.log("USER IS", body);
+    return this.http.post<User>(this.apiURL + '/users/register',body, httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -85,7 +97,7 @@ export class RestApiService {
     )
   }
 
-  // Error handling 
+  // Error handling
   handleError(error) {
      let errorMessage = '';
      if(error.error instanceof ErrorEvent) {
@@ -99,5 +111,5 @@ export class RestApiService {
      return throwError(errorMessage);
   }
 
- 
+
 }

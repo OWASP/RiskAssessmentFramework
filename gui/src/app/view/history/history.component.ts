@@ -49,16 +49,13 @@ export class HistoryComponent implements OnInit {
    // this.fetchProjectResults();
 
     this.restApi.getResults("").subscribe((data: any) => {
-      this.Project = data;
+      this.Project = data.tags;
+      const dataArray = data.tags;
     console.log("PROJECTDETAILS" ,  this.Project);
     let reList2 = [];
     let vals = [];
-   let x = data.map(d=>reList2.push(d.type));
-   let y = data.map(d=>vals.push(d.issues));
-console.log(x);
-console.log(y);
-console.log("RELIST",vals);
-
+  dataArray.map(d=>reList2.push(d.type));
+    dataArray.map(d=>vals.push(d.issues));
 
    // this.doughnutChart.data.labels  = this.Project
 

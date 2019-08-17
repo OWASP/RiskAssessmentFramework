@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
 loginForm: FormGroup;
-  constructor(private authService: AuthService, 
+  constructor(private authService: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router) { 
+    private router: Router) {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      
+
   });
   }
   get f() { return this.registerForm.controls; }

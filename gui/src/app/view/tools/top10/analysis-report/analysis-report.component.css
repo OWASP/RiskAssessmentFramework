@@ -3,9 +3,11 @@
     box-sizing: border-box;
     margin-right: 1%;
     margin-bottom: 1%;
+    width: 40%;
 
 
   }
+
 
   .secondary-card{
     background-color: rgba(24, 28, 47, 0.7);
@@ -13,6 +15,6 @@
     box-sizing: border-box;
   }
 
-  body{
+  .dialog{
     background-color: rgba(24, 28, 47, 0.7);
   }

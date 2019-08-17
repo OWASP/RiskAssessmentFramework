@@ -51,7 +51,7 @@ import { AnalysisReportComponent } from './view/tools/top10/analysis-report/anal
     ChartsComponent,
     ReportComponent,
     AnalysisReportComponent,
-    
+
 
   ],
   imports: [

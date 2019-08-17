@@ -63,38 +63,31 @@ clasObj = a.map( function(x, i){
                 componentKeys: projectKey
             }
           });
-          //TODO : Project status from sonarQube
-          // const project_status = await axios.get("http://localhost:9000/api/qualitygates/project_status", {
-          //     params: {
-          //       projectKey: projectKey
-          //     }
-          //   });
         
           var tags = [];
+          var issueMessage = [];
+        
           if(issues.data){
             for(var issue in issues.data.issues){
               tags.push(issues.data.issues[issue].tags);
+              let file = issues.data.issues[issue].component.toString().split(":",2);
+              let line = issues.data.issues[issue].line;
+              issueMessage.push({"file" : file[1], "message" : issues.data.issues[issue].message, "end-line":line});
+
                  }
           }
-    
-
+          
+          
+          
        var merged = _.flatten(tags);
-    
-        return (classifyResult(merged));
+       var finalResponse = {
+        tags : classifyResult(merged),
+        issues : issueMessage
+      }
+        return finalResponse;
     } catch(err){
         console.error(err);
     }
-    //   .then(function (response) {
-    //     console.log(response);
-    //     return response;
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //     return response;
-    //   })
-    //   .then(function () {
-    //     // always executed
-    //   });  
     
   }
   
