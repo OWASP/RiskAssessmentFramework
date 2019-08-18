@@ -3,28 +3,24 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 module.exports = {
   create: function(req, res, next) {
-    //console.log(req.body);
-    
     userModel.create(
       {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        isVerified : false,
-        country : req.body.country,
-        field : req.body.field
-
+        isVerified: false,
+        country: req.body.country,
+        field: req.body.field
       },
       function(err, result) {
         if (err) next(err);
-        else
-        console.log("User successfully created");
-        
-          res.json({
-            status: "success",
-            message: "User added successfully!!!",
-            data: result
-          }); 
+        else console.log("User successfully created");
+
+        res.json({
+          status: "success",
+          message: "User added successfully!!!",
+          data: result
+        });
       }
     );
   },
@@ -56,19 +52,15 @@ module.exports = {
     });
   },
   getUserById: function(req, res, next) {
-        console.log("adsfasdfadfasdfasfd",req.params.id);
     userModel.findOne({ _id: req.params.id }, function(err, userInfo) {
-      console.log('====================================');
-  
-      console.log('====================================');
       if (err) {
         next(err);
       } else {
-          res.json({
-            status: "success",
-            message: "user found!!!",
-            data: { user: userInfo }
-          });
+        res.json({
+          status: "success",
+          message: "user found!!!",
+          data: { user: userInfo }
+        });
       }
     });
   }
