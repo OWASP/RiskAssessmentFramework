@@ -16,9 +16,9 @@ export class RegistrationComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  constructor( private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private router: Router,
-    private restApi: RestApiService,) { }
+    private restApi: RestApiService, ) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -28,32 +28,29 @@ export class RegistrationComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       'confirm-password': ['', [Validators.required, Validators.minLength(6)]],
 
-  });
+    });
   }
 
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    console.log("Form submitted");
-
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
-        return;
+      return;
     }
 
     this.loading = true;
     this.restApi.createUser(this.registerForm.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-                console.log('Registration successful', true);
-                 this.router.navigate(['/login']);
-            },
-            error => {
-                console.log(error);
-                this.loading = false;
-            });
-}
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log('Registration successful', true);
+          this.router.navigate(['/login']);
+        },
+        error => {
+          console.log(error);
+          this.loading = false;
+        });
+  }
 
 }

@@ -1,27 +1,21 @@
-
-.upload-wrapper{
-  position: absolute ;
+.upload-wrapper {
+  position: absolute;
 }
-vaadin-upload{
+vaadin-upload {
   position: relative;
- background-color:#c2c2c2;
- padding-left: 20vw;
- padding-right: 20vw;
- padding-top: 5vw;
- padding-bottom: 5vw;
-text-align: center;
-
+  background-color: #c2c2c2;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  text-align: center;
 }
 
-.divider{
-  margin: 1%
+.divider {
+  margin: 1%;
 }
 
-.uploadFileButton{
-margin : 2% 30% 2% 0%;
-padding: 1% 45% 1% 46%;
-  
+.uploadFileButton {
+  margin: 2% 30% 2% 0%;
+  padding: 1% 45% 1% 46%;
 }
-
-
-

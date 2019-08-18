@@ -1,30 +1,26 @@
-  .primary-card{
-    background-color: rgba(24, 28, 47, 0.7);
-    width: 40%;
-    box-sizing: border-box;
-    margin-right: 1%;
-    margin-bottom: 1%;
+.primary-card {
+  background-color: rgba(24, 28, 47, 0.7);
+  width: 40%;
+  box-sizing: border-box;
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
 
+.secondary-card {
+  background-color: rgba(24, 28, 47, 0.7);
+  width: 30%;
+  box-sizing: border-box;
+}
 
-  }
-
-  .secondary-card{
-    background-color: rgba(24, 28, 47, 0.7);
-    width: 30%;
-    box-sizing: border-box;
-
-  }
-
-  .content{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-  table {
-    width: 60%;
-    background-color: rgba(24, 28, 47, 0.7);
-
-  }
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+table {
+  width: 60%;
+  background-color: rgba(24, 28, 47, 0.7);
+}

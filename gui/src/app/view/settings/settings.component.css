@@ -1,35 +1,29 @@
-.primary-card{
+.primary-card {
   background-color: rgba(24, 28, 47, 0.7);
   width: 26%;
   margin-right: 3%;
   max-height: fit-content;
 }
-.secondary-card{
+.secondary-card {
   background-color: rgba(24, 28, 47, 0.7);
   width: 36%;
   margin-right: 3%;
 }
 
-
-
-mat-nav-list a:hover{
-  color:white ;
-  background-color:#040611;
+mat-nav-list a:hover {
+  color: white;
+  background-color: #040611;
 }
 
-mat-nav-list a.activeLink{
+mat-nav-list a.activeLink {
   color: teal;
-  border-bottom: 1px solid #509A9D;
-
+  border-bottom: 1px solid #509a9d;
 }
 
-mat-nav-list a{
+mat-nav-list a {
   border-bottom: 1px solid white;
-
 }
 
-.content{
+.content {
   display: flex;
-  
-
 }

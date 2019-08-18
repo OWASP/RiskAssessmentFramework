@@ -1,20 +1,18 @@
 <div style="text-align: center">
-
-    <h2 style="text-align: center">Project Created Successfully</h2>
-    <h4>Project ID  - {{projectId}}</h4>
+  <h2 style="text-align: center">Project Created Successfully</h2>
+  <h4>Project ID - {{ projectId }}</h4>
 </div>
 
 <mat-nav-list>
-        <a  mat-list-item (click)="scanProject()">
-          <span mat-line>Scan Project</span>
-        </a>
+  <a mat-list-item (click)="scanProject()">
+    <span mat-line>Scan Project</span>
+  </a>
 
-        <a  mat-list-item (click)="openDialog()">
-          <span mat-line>View Results</span>
-        </a>
+  <a mat-list-item (click)="openDialog()">
+    <span mat-line>View Results</span>
+  </a>
 
-        <a mat-list-item (click)="openLink($event)">
-          <span mat-line>Remove Project</span>
-        </a>
-
-      </mat-nav-list>
+  <a mat-list-item (click)="openLink($event)">
+    <span mat-line>Remove Project</span>
+  </a>
+</mat-nav-list>

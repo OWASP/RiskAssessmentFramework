@@ -1,38 +1,66 @@
-
 <div class="body-div">
+  <mat-card class="login-card">
+    <h1 style="text-align: center">Login</h1>
 
-<mat-card class = "login-card">
-
-        <h1 style="text-align: center">Login</h1>
-
-  <div style="width:100%;">
-
-    <img src="/assets/img/OWASP-Logo-White.png" width="240" style="position:relative;; " alt="OWASP LOGO">
-  </div>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()"   >
-    <div class="form-group">
+    <div style="width:100%;">
+      <img
+        src="/assets/img/OWASP-Logo-White.png"
+        width="240"
+        style="position:relative;; "
+        alt="OWASP"
+      />
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
         <mat-form-field appearance="outline" style="width:100%">
-                <mat-label>Username</mat-label>
-                <input  matInput placeholder="username"  formControlName="username"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
-                <mat-icon matSuffix>person</mat-icon>
-              </mat-form-field>        <div  class="invalid-feedback">
-            <div>Username is required</div>
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            placeholder="username"
+            formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+          />
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <div class="invalid-feedback">
+          <div>Username is required</div>
         </div>
-    </div>
-    <div class="form-group" >
-        <mat-form-field appearance="outline" style="width:100%" >
-                <mat-label>Password</mat-label>
-                <input type = "password" matInput placeholder="password" formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                <mat-icon  matSuffix>lock</mat-icon>
-              </mat-form-field>        <div class="invalid-feedback">
-            <div>Password is required</div>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="outline" style="width:100%">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          />
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+        <div class="invalid-feedback">
+          <div>Password is required</div>
         </div>
-    </div>
-    <div class="form-group">
-        <button style="width:100%" mat-raised-button onClick="onSubmit($event)"color="primary">Login</button>
-        <button mat-raised-button color="warn" style="width: 100%; margin-top: 1%" [routerLink]="['/register']" class="btn btn-link">Register</button>
-    </div>
-</form>
-
-</mat-card>
+      </div>
+      <div class="form-group">
+        <button
+          style="width:100%"
+          mat-raised-button
+          onClick="onSubmit($event)"
+          color="primary"
+        >
+          Login
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          style="width: 100%; margin-top: 1%"
+          [routerLink]="['/register']"
+          class="btn btn-link"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </mat-card>
 </div>

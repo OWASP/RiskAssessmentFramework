@@ -7,43 +7,42 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
- 
-authChange = new Subject<boolean>();
+
+  authChange = new Subject<boolean>();
   private user: User;
-login() {
-this.user = new User();
-console.log(this.user);
-  this.authChange.next(true);
+  login() {
+    this.user = new User();
+    console.log(this.user);
+    this.authChange.next(true);
 
-}
+  }
 
-logout() {
-  this.user = null;
-  this.authChange.next(false);
+  logout() {
+    this.user = null;
+    this.authChange.next(false);
 
-}
+  }
 
-// tslint:disable-next-line: one-line
-registerUser(authData: AuthData){
-this.user = {
-  username: authData.username,
-  userId: Math.round(Math.random() * 10000).toString(),
-  email : "",
-password : "",
-isVerified : false,
-country : "",
-field : "",
-};
-this.authChange.next(true);
-}
+  registerUser(authData: AuthData) {
+    this.user = {
+      username: authData.username,
+      userId: Math.round(Math.random() * 10000).toString(),
+      email: "",
+      password: "",
+      isVerified: false,
+      country: "",
+      field: "",
+    };
+    this.authChange.next(true);
+  }
 
-getUser() {
-  return{...this.user};
-}
+  getUser() {
+    return { ...this.user };
+  }
 
-isAuth() {
-  return this.user != null;
-}
-constructor() { }
+  isAuth() {
+    return this.user != null;
+  }
+  constructor() { }
 
 }

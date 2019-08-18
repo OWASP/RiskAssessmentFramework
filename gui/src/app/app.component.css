@@ -1,72 +1,60 @@
-mat-drawer-container{
+mat-drawer-container {
   height: 100%;
-
 }
 
-mat-drawer{
+mat-drawer {
   width: 25%;
   background-color: #070a19;
-
-
 }
 
-mat-drawer-content{
+mat-drawer-content {
   position: relative;
   left: 3%;
-
 }
 
-mat-toolbar{
+mat-toolbar {
   height: 8%;
   background-color: #070a19;
   position: sticky;
   position: -webkit-sticky; /* For macOS/iOS Safari */
   top: 0; /* Sets the sticky toolbar to be on top */
-  z-index: 1000}
+  z-index: 1000;
+}
 
-.nav-caption{
+.nav-caption {
   display: inline-block;
   padding-left: 12px;
 }
 
-
-
-mat-nav-list{
+mat-nav-list {
   background-color: #141831;
 
   height: 100%;
-
 }
 
-mat-nav-list a:hover{
-  color:white ;
-  background-color:#040611;
+mat-nav-list a:hover {
+  color: white;
+  background-color: #040611;
 }
 
-mat-nav-list a.activeLink{
-  color:white ;
+mat-nav-list a.activeLink {
+  color: white;
   background-color: teal;
-  border: 1px solid #509A9D;
-
+  border: 1px solid #509a9d;
 }
 
 /* Avatar */
-.avatarDiv  {
+.avatarDiv {
   text-align: left;
-  background-color:#040611;
+  background-color: #040611;
   position: relative;
-    top: -10px;
-
-
-
+  top: -10px;
 }
-.avatarDiv mat-icon{
+.avatarDiv mat-icon {
   font-size: 20vw;
-  margin-left:8%;
-
+  margin-left: 8%;
 }
 
-
-.content{
+.content {
   margin-top: 3%;
 }

@@ -1,20 +1,17 @@
-.primary-card{
-    background-color: rgba(24, 28, 47, 0.7);
-    box-sizing: border-box;
-    margin-right: 1%;
-    margin-bottom: 1%;
-    width: 40%;
+.primary-card {
+  background-color: rgba(24, 28, 47, 0.7);
+  box-sizing: border-box;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  width: 40%;
+}
 
+.secondary-card {
+  background-color: rgba(24, 28, 47, 0.7);
 
-  }
+  box-sizing: border-box;
+}
 
-
-  .secondary-card{
-    background-color: rgba(24, 28, 47, 0.7);
-
-    box-sizing: border-box;
-  }
-
-  .dialog{
-    background-color: rgba(24, 28, 47, 0.7);
-  }
+.dialog {
+  background-color: rgba(24, 28, 47, 0.7);
+}
