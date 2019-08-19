@@ -33,10 +33,9 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-/projects
 /uploads
-
-
+/projects
+ 
 # System Files
 .DS_Store
 Thumbs.db

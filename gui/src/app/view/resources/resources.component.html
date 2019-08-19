@@ -1,61 +1,66 @@
-
 <h1>OWASP TOP 10</h1>
 <mat-divider></mat-divider>
 
-    <mat-card class="faq-card">
-    <mat-accordion>
-
+<mat-card class="faq-card">
+  <mat-accordion>
     <mat-expansion-panel *ngFor="let content of data">
-    <mat-expansion-panel-header>
-    <mat-panel-title>
-{{content.title}}  </mat-panel-title>
-    </mat-expansion-panel-header>
-<p>    {{content.subtitle}}</p>
-    <br>
-    <a (click)="openDialog(1, content)" style="cursor:pointer"><div><h3>Is Your Application Vulnerable to {{content.title}}</h3></div></a>
-    <a (click)="openDialog(2, content)" style="cursor:pointer"><div><h3>How to prevent</h3></div></a>
-    <a (click)="openDialog(3, content)" style="cursor:pointer"><div><h3>Examples</h3></div></a>
-
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ content.title }} </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{ content.subtitle }}</p>
+      <br />
+      <a (click)="openDialog(1, content)" style="cursor:pointer"
+        ><div>
+          <h3>Is Your Application Vulnerable to {{ content.title }}</h3>
+        </div></a
+      >
+      <a (click)="openDialog(2, content)" style="cursor:pointer"
+        ><div><h3>How to prevent</h3></div></a
+      >
+      <a (click)="openDialog(3, content)" style="cursor:pointer"
+        ><div><h3>Examples</h3></div></a
+      >
     </mat-expansion-panel>
-    </mat-accordion>
-    </mat-card>
+  </mat-accordion>
+</mat-card>
 
-<br>
-<h1> SANS TOP 25</h1>
+<br />
+<h1>SANS TOP 25</h1>
 <mat-divider></mat-divider>
 
-    <mat-card class="faq-card">
-
-
-
-    <mat-accordion>
-
+<mat-card class="faq-card">
+  <mat-accordion>
     <mat-expansion-panel *ngFor="let content of sansData">
-    <mat-expansion-panel-header>
-    <mat-panel-title>
-{{content.title}}  </mat-panel-title>
-    </mat-expansion-panel-header>
-<p>    {{content.subtitle}}</p>
-    <br>
-    <a (click)="openDialog(1, content)" style="cursor:pointer"><div><h3>Is Your Application Vulnerable ?</h3></div></a>
-    <a (click)="openDialog(2, content)" style="cursor:pointer"><div><h3>How to prevent</h3></div></a>
-    <a (click)="openDialog(3, content)" style="cursor:pointer"><div><h3>Examples</h3></div></a>
-
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ content.title }} </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{ content.subtitle }}</p>
+      <br />
+      <a (click)="openDialog(1, content)" style="cursor:pointer"
+        ><div><h3>Is Your Application Vulnerable ?</h3></div></a
+      >
+      <a (click)="openDialog(2, content)" style="cursor:pointer"
+        ><div><h3>How to prevent</h3></div></a
+      >
+      <a (click)="openDialog(3, content)" style="cursor:pointer"
+        ><div><h3>Examples</h3></div></a
+      >
     </mat-expansion-panel>
-    </mat-accordion>
-    </mat-card>
+  </mat-accordion>
+</mat-card>
 
-<br>
+<br />
 <h1>Other Resources</h1>
 <mat-divider></mat-divider>
 
 <div class="videosDiv">
-
-        <mat-list-item role="vlistitem"  class="videoItem" *ngFor="let iframe of iframeList">
-
-            <mat-card class="video-card">
-                <div  [innerHtml]="iframe"></div>
-            </mat-card>
-
-        </mat-list-item>
+  <mat-list-item
+    role="vlistitem"
+    class="videoItem"
+    *ngFor="let iframe of iframeList"
+  >
+    <mat-card class="video-card">
+      <div [innerHtml]="iframe"></div>
+    </mat-card>
+  </mat-list-item>
 </div>

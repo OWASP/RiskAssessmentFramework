@@ -1,4 +1,4 @@
-.primary-card{
+.primary-card {
   background-color: rgba(24, 28, 47, 0.7);
   width: 26%;
   margin-right: 3%;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.run-button{
+.run-button {
   align-items: center;
   width: 8vw;
   height: 8vw;

@@ -1,6 +1,5 @@
 export class Project {
-    projectId: string;
-    results: string;
-    date: string;
-    }
-    
+  projectId: string;
+  results: string;
+  date: string;
+}

@@ -21,20 +21,20 @@ export class AppComponent implements OnInit, OnDestroy {
   authSubscription: Subscription;
   constructor(private authService: AuthService, private router: Router) {
     if (this.router.url === 'register' || this.router.url === 'login') {
-      this.isShowNav =  false;
+      this.isShowNav = false;
     } else {
       this.isShowNav = true;
     }
 
   }
 
-ngOnDestroy() {
-  this.authSubscription.unsubscribe();
-}
+  ngOnDestroy() {
+    this.authSubscription.unsubscribe();
+  }
 
-ngOnInit() {
-this.authService.authChange.subscribe(authStatus => {
-this.isAuth = authStatus;
-});
-}
+  ngOnInit() {
+    this.authService.authChange.subscribe(authStatus => {
+      this.isAuth = authStatus;
+    });
+  }
 }

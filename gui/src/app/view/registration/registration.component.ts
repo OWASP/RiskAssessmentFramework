@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { first } from 'rxjs/operators';
+import { RestApiService } from 'src/app/shared/rest-api.service';
 
 @Component({
   selector: 'app-registration',
@@ -15,8 +16,9 @@ export class RegistrationComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  constructor( private formBuilder: FormBuilder,
-    private router: Router,) { }
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private restApi: RestApiService, ) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -25,32 +27,30 @@ export class RegistrationComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
       'confirm-password': ['', [Validators.required, Validators.minLength(6)]],
-      
-  });
+
+    });
   }
 
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
-        return;
+      return;
     }
 
     this.loading = true;
-    // this.userService.register(this.registerForm.value)
-    //     .pipe(first())
-    //     .subscribe(
-    //         data => {
-    //             this.alertService.success('Registration successful', true);
-    //             this.router.navigate(['/login']);
-    //         },
-    //         error => {
-    //             this.alertService.error(error);
-    //             this.loading = false;
-    //         });
-}
+    this.restApi.createUser(this.registerForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log('Registration successful', true);
+          this.router.navigate(['/login']);
+        },
+        error => {
+          console.log(error);
+          this.loading = false;
+        });
+  }
 
 }

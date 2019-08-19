@@ -1,43 +1,39 @@
-
-.content{
+.content {
   margin-top: 3%;
 }
 
-.verification-label{
+.verification-label {
   width: 50%;
   background-color: rgba(24, 28, 47, 0.7);
-text-align: start}
+  text-align: start;
+}
 
-.verification-label label{
-
+.verification-label label {
   margin-left: 3%;
 }
 
-.verification-label mat-icon{
+.verification-label mat-icon {
   position: relative;
   top: 0.3vw;
 }
 
-
-mat-icon{
+mat-icon {
   color: greenyellow;
   margin-top: 3px;
   line-height: 22px;
 }
 
-.detail-card
-{
-width: 50%;
-margin-top: 3%;
-background-color: rgba(24, 28, 47, 0.7);
-
+.detail-card {
+  width: 50%;
+  margin-top: 3%;
+  background-color: rgba(24, 28, 47, 0.7);
 }
 
-mat-card-content label{
+mat-card-content label {
   display: inline-block;
   width: 140px;
   text-align: left;
 }
-.field{
+.field {
   margin-left: 6%;
 }

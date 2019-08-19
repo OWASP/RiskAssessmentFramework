@@ -1,66 +1,55 @@
 <div class="header">
-    <h1>Profile</h1>
-    <mat-divider></mat-divider>
-    </div>
+  <h1>Profile</h1>
+  <mat-divider></mat-divider>
+</div>
 
-  <div class="content">
-
-    <div class="verification-label">
-
-        <label style="width: 80%"><h5>Account Verified</h5></label>
-        <mat-icon *ngIf="verified">check_circle</mat-icon>
-        <mat-icon *ngIf="!verified" >highlight_off</mat-icon>
-
-      </div>
-
-      <mat-card class="detail-card">
-          <mat-card-header>
-            <mat-card-title>User Details</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-              <label for="username">Username</label>
-              <mat-form-field  id="username" class="field">
-                  <input matInput disabled [value]=User.name>
-                </mat-form-field>
-          </mat-card-content>
-          <mat-card-content>
-              <label for="email">Email</label>
-              <mat-form-field id="email"  class="field">
-                  <input matInput disabled [value]=User.email>
-                </mat-form-field>
-          </mat-card-content>
-
-          <mat-card-content>
-              <label for="country">Country</label>
-              <mat-form-field id="country"  class="field">
-                  <input matInput disabled [value]=User.country>
-                </mat-form-field>
-          </mat-card-content>
-          <mat-card-content>
-              <label for="field">Field</label>
-              <mat-form-field id="field"  class="field">
-                  <input matInput disabled [value]=User.field>
-                </mat-form-field>
-          </mat-card-content>
-          <mat-card-content>
-              <label for="other">Other</label>
-              <mat-form-field id="other"  class="field">
-                  <input matInput disabled value="">
-                </mat-form-field>
-          </mat-card-content>
-          <mat-card-content>
-              <label for="status">Status</label>
-              <mat-form-field id="status"  class="field">
-                  <input matInput disabled value="Online">
-                </mat-form-field>
-          </mat-card-content>
-
-
-
-
-
-
-        </mat-card>
-
+<div class="content">
+  <div class="verification-label">
+    <label style="width: 80%"><h5>Account Verified</h5></label>
+    <mat-icon *ngIf="verified">check_circle</mat-icon>
+    <mat-icon *ngIf="!verified">highlight_off</mat-icon>
   </div>
 
+  <mat-card class="detail-card">
+    <mat-card-header>
+      <mat-card-title>User Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <label for="username">Username</label>
+      <mat-form-field id="username" class="field">
+        <input matInput disabled [value]="User.name" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <label for="email">Email</label>
+      <mat-form-field id="email" class="field">
+        <input matInput disabled [value]="User.email" />
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <label for="country">Country</label>
+      <mat-form-field id="country" class="field">
+        <input matInput disabled [value]="User.country" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <label for="field">Field</label>
+      <mat-form-field id="field" class="field">
+        <input matInput disabled [value]="User.field" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <label for="other">Other</label>
+      <mat-form-field id="other" class="field">
+        <input matInput disabled value="" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <label for="status">Status</label>
+      <mat-form-field id="status" class="field">
+        <input matInput disabled value="Online" />
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+</div>

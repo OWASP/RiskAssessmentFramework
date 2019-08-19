@@ -4,12 +4,10 @@
     **IN DEVELOPMENT**
 
     ## Description
-    Dialog to display results of the scanned project.
-
+      Updated gui in analysis-report component
 
     # Todos 
 
-    - Dynamic Fetching of the Resources
     - Improvements in Profile
     - Improvements in Settings
     - Other issue fixing related to theme

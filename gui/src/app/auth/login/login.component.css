@@ -1,17 +1,15 @@
-.login-card {    
-
+.login-card {
   width: fit-content;
   padding: 15%;
   align-items: center;
   background-color: rgba(24, 28, 47, 0.7);
-  }
+}
 
-  .body-div{
-    height: 100vh;
+.body-div {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-position: absolute;
-left: 35%;
-  }
-  
+  position: absolute;
+  left: 35%;
+}

@@ -1,15 +1,66 @@
-<div>
+<div class="dialog">
+  <app-charts
+    *ngIf="loadComplete"
+    style="width: 100%"
+    [data]="chartData"
+  ></app-charts>
 
-  <app-charts [data]="fetchProjectResults(data2.projectId)"></app-charts><span>
-      <mat-card class="primary-card">
-          <h1>SONARQUBE SCORE - A - {{data2.projectId}}</h1>
+  <div fxLayout fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <mat-card class="primary-card">
+      <h1>OWASP TOP 10 Vulnerabilities ({{ data2.projectId }})</h1>
+      <mat-list style="text-align: right">
+        <h3 mat-subheader>Issue <span style="flex: 2;">Count</span></h3>
+        <mat-list-item
+          >A1 Injection <span style="flex: 2;">{{ A1 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A2 Broken Authentication
+          <span style="flex: 2;">{{ A2 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A3 Sensitive Data Exposure
+          <span style="flex: 2;">{{ A3 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A4 XXE <span style="flex: 2;">{{ A4 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A5 Broken Access Control
+          <span style="flex: 2;">{{ A5 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A6 Security Misconfiguration
+          <span style="flex: 2;">{{ A6 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A7 XSS <span style="flex: 2;">{{ A7 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A8 Insecure Deserialization
+          <span style="flex: 2;">{{ A8 }}</span></mat-list-item
+        >
+        <mat-list-item
+          >A9 Using Components with Known Vulnerabilities<span style="flex: 2;">
+            {{ A9 }}</span
+          ></mat-list-item
+        >
+        <mat-list-item
+          >A10 Insufficient Logging & Monitoring
+          <span style="flex: 2;">{{ A10 }}</span></mat-list-item
+        >
+      </mat-list>
+    </mat-card>
 
-      </mat-card>
-
-      <mat-card class="secondary-card">
-
-      </mat-card>
-
-  </span>
-
+    <mat-card class="secondary-card">
+      <mat-list>
+        <h3 mat-subheader>Issues</h3>
+        <mat-list-item *ngFor="let issue of issueDetail">
+          <mat-icon mat-list-icon>report_problem</mat-icon>
+          <h4 mat-line>File : {{ issue.file }}</h4>
+          <p mat-line>Issue : {{ issue.message }}</p>
+          <p mat-line>End-line : {{ issue["end-line"] }}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
 </div>

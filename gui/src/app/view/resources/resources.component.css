@@ -1,94 +1,71 @@
-mat-divider{
+mat-divider {
   background-color: #3b3a54;
   height: 2px;
   width: 60%;
 }
 
-a{
+a {
   text-decoration: none;
- font-size: 125%;
+  font-size: 125%;
 }
 
-.resourceListDiv{
+.resourceListDiv {
   height: 43%;
   overflow: hidden;
 }
 
-.showList{
+.showList {
   overflow: visible;
   height: auto;
 }
 
-.showMoreText{
+.showMoreText {
   color: #313446;
   cursor: pointer;
   text-decoration: underline;
   font-size: 125%;
 
   margin-left: 1%;
-
-
 }
 
 /* Video cards */
 
-.videosDiv{
+.videosDiv {
   margin: 2%;
 }
 
-.videoItem{
+.videoItem {
   margin: 2%;
-
 }
 
-.video-card
-{
+.video-card {
   width: 29%;
-  background-color: rgba(24, 28, 47, 0.7)
+  background-color: rgba(24, 28, 47, 0.7);
 }
 
-
-
-mat-divider{
+mat-divider {
   background-color: #3b3a54;
   height: 2px;
   width: 60%;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-
-
-
-
-
-
 /* Card Style for the FAQ section */
 
-.faq-card{
+.faq-card {
   background-color: rgba(24, 28, 47, 0.7);
   margin-right: 30%;
   margin-top: 3%;
 }
 
-
 /* Expansion Panel Styles */
-mat-expansion-panel{
+mat-expansion-panel {
   background: none;
-
-
 }
 
-
-
-
-mat-panel-title{
-  color:#007be3;
+mat-panel-title {
+  color: #007be3;
 }
-
-
-
-
-

@@ -1,11 +1,11 @@
 import { OnInit, AfterViewInit, Component, ElementRef, Inject } from '@angular/core';
 import '@vaadin/vaadin-upload';
 import { FormControl, Validators } from '@angular/forms';
-import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MAT_BOTTOM_SHEET_DATA } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
-import {RestApiService} from '../../../shared/rest-api.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { RestApiService } from '../../../shared/rest-api.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AnalysisReportComponent } from './analysis-report/analysis-report.component';
 
 
@@ -17,26 +17,26 @@ import { AnalysisReportComponent } from './analysis-report/analysis-report.compo
   styleUrls: ['./top10.component.css']
 })
 export class Top10Component implements OnInit {
-   reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   uploadFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(this.reg)
 
 
-,
+    ,
   ]);
 
 
-  constructor(private elementRef:ElementRef, private _bottomSheet: MatBottomSheet) { }
+  constructor(private elementRef: ElementRef, private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
   }
-upload : any;
-projectId : String;
+  upload: any;
+  projectId: String;
 
- uploadFiles() {
+  uploadFiles() {
     this.upload.uploadFiles();
-    this.openBottomSheet("test");
+    this.openBottomSheet(this.projectId);
     console.log("upload complete");
 
 
@@ -45,32 +45,31 @@ projectId : String;
 
   openBottomSheet(projectId): void {
     this._bottomSheet.open(BottomSheetOverviewExampleSheet, {
-      data: { projectId : projectId} },);
+      data: { projectId: projectId }
+    });
 
   }
 
 
   ngAfterViewInit() {
     var _this = this;
-   this.upload =  this.elementRef.nativeElement.querySelector("vaadin-upload#manualUpload")
-    this.upload.addEventListener('upload-response', function(event) {
-      console.log('upload xhr after server response: ', event.detail.xhr);
-console.log("STATUS",event.detail.xhr.status);
-var response = JSON.parse(event.detail.xhr.response);
-this.projectId = response.FILE_NAME;
-_this.openBottomSheet(this.projectId);
-     if(event.detail.xhr.response.status!=200){
-         event.detail.file.error = event.detail.xhr.response.error;
+    this.upload = this.elementRef.nativeElement.querySelector("vaadin-upload#manualUpload")
+    this.upload.addEventListener('upload-response', function (event) {
+      var response = JSON.parse(event.detail.xhr.response);
+      this.projectId = response.FILE_NAME;
+      _this.openBottomSheet(this.projectId);
+      if (event.detail.xhr.response.status != 200) {
+        event.detail.file.error = event.detail.xhr.response.error;
 
 
-}
+      }
     });
 
   }
 
-  getProjectId(): String{
+  getProjectId(): String {
     return this.projectId;
-   }
+  }
 
 
 
@@ -84,13 +83,10 @@ _this.openBottomSheet(this.projectId);
 })
 
 export class BottomSheetOverviewExampleSheet {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any, public restApi: RestApiService, public dialog: MatDialog) {}
-  projectId : any = this.data.projectId ;
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any, public restApi: RestApiService, public dialog: MatDialog) { }
+  projectId: any = this.data.projectId;
 
   openLink(event: MouseEvent): void {
-    // var projectId = this.Top10Component.getProjectId();
-     console.log("PROJECT ID" ,this.data.projectId);
-
     this._bottomSheetRef.dismiss();
     event.preventDefault();
   }
@@ -99,35 +95,31 @@ export class BottomSheetOverviewExampleSheet {
     const _this = this;
     const dialogRef = this.dialog.open(AnalysisReportComponent, {
       width: '100%',
-      height : "100%",
-      maxHeight : "100%",
-      maxWidth : "100%",
-      data : {
-          projectId : _this.data.projectId
+      height: "100%",
+      maxHeight: "100%",
+      maxWidth: "100%",
+      data: {
+        projectId: _this.data.projectId
       }
     });
-    console.log('The dialog ID', _this.data.projectId);
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
-  scanProject():void{
-    console.log("scanning", this.projectId);
+  scanProject(): void {
 
     this.restApi.runScan(this.projectId).subscribe((data) => {
 
-        this.displayReport(data);
+      this.displayReport(data);
 
 
-  });
-}
+    });
+  }
 
-displayReport(data){
-
-console.log("GOT THE DATA", data);
+  displayReport(data) {
 
 
-}
+
+  }
 
 }
