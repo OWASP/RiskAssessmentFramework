@@ -74,7 +74,7 @@ we have update related web deface detection please see video below
 [![](http://img.youtube.com/vi/1vFaGxvzMh4/0.jpg)](http://www.youtube.com/watch?v=1vFaGxvzMh4 "Web Deface Detection ")
 ##   Static Application security Testing (Under Develoment)
 -   `cd gui/<br>
-[![](http://img.youtube.com/vi/1vFaGxvzMh4/0.jpg)](https://www.youtube.com/watch?v=o1doRGsWDNQ&feature=youtu.be "Risk Assessment SAST Tool ")<br>
+[![](http://img.youtube.com/vi/o1doRGsWDNQ/0.jpg)](http://www.youtube.com/watch?v=o1doRGsWDNQ "Risk Assessment SAST Tool")<br>
 ## Wiki
 https://github.com/OWASP/RiskAssessmentFramework/wiki
 ____
