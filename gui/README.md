@@ -4,18 +4,7 @@
     **IN DEVELOPMENT**
 
     ## Description
-      Updated gui in analysis-report component
-
-    # Todos 
-
-    - Improvements in Profile
-    - Improvements in Settings
-    - Other issue fixing related to theme
-
-
-
-
-
+      Code Refactored and Cleaning
 
     ## Impacted Areas in Application
     General components of the application that this PR will affect:
