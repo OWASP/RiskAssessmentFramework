@@ -27,55 +27,14 @@ There are hundreds of SAST tools available for a penetration tester to use from 
 -   `pip install -r requirements.txt`
 -   `python web_deface.py <notif arguments>`
 
-### Arguments
-
-List of all arguments / usage
-```arguments
-usage: web_deface.py [-h] [--twitter_api_key TWITTER_API_KEY]
-                     [--twitter_api_secret_key TWITTER_API_SECRET_KEY]
-                     [--twitter_access_token TWITTER_ACCESS_TOKEN]
-                     [--twitter_access_token_secret TWITTER_ACCESS_TOKEN_SECRET]
-                     [--telegram_bot_token TELEGRAM_BOT_TOKEN]
-                     [--telegram_user_id TELEGRAM_USER_ID]
-                     [--twilio_sid TWILIO_SID] [--twilio_token TWILIO_TOKEN]
-                     [--twilio_from TWILIO_FROM] [--twilio_to TWILIO_TO]
-                     [--slack_token SLACK_TOKEN]
-                     [--slack_user_id SLACK_USER_ID]
-Risk Assessment Framework
-optional arguments:
-  -h, --help            show this help message and exit
-  --twitter_api_key TWITTER_API_KEY, -tak TWITTER_API_KEY
-                        Twitter api key
-  --twitter_api_secret_key TWITTER_API_SECRET_KEY, -tas TWITTER_API_SECRET_KEY
-                        Twitter api secret
-  --twitter_access_token TWITTER_ACCESS_TOKEN, -tat TWITTER_ACCESS_TOKEN
-                        Twitter access token
-  --twitter_access_token_secret TWITTER_ACCESS_TOKEN_SECRET, -tats TWITTER_ACCESS_TOKEN_SECRET
-                        Twitter access token secret
-  --telegram_bot_token TELEGRAM_BOT_TOKEN, -tbt TELEGRAM_BOT_TOKEN
-                        Telegram Bot Token
-  --telegram_user_id TELEGRAM_USER_ID, -tui TELEGRAM_USER_ID
-                        Telegram user id
-  --twilio_sid TWILIO_SID, -tws TWILIO_SID
-                        Twilio SID
-  --twilio_token TWILIO_TOKEN, -twt TWILIO_TOKEN
-                        Twilio authorization token
-  --twilio_from TWILIO_FROM, -twf TWILIO_FROM
-                        Twilio (From) phone number
-  --twilio_to TWILIO_TO, -twto TWILIO_TO
-                        Twilio (To) phone number
-  --slack_token SLACK_TOKEN, -st SLACK_TOKEN
-                        Slack token
-  --slack_user_id SLACK_USER_ID, -suid SLACK_USER_ID
-                        Slack user id
-```
-
 we have update related web deface detection please see video below
 [![](http://img.youtube.com/vi/1vFaGxvzMh4/0.jpg)](http://www.youtube.com/watch?v=1vFaGxvzMh4 "Web Deface Detection ")
 ##   Static Application security Testing (Under Develoment)
--   `cd gui/<br>
-[![](http://img.youtube.com/vi/o1doRGsWDNQ/0.jpg)](http://www.youtube.com/watch?v=o1doRGsWDNQ "Risk Assessment SAST Tool")<br>
-## Wiki
+-   For more detailed information, refer to the [usage guide]https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-guide.md)<br>
+##Demo RAF SAST Tool
+![Demo-1](https://user-images.githubusercontent.com/36698676/63649995-a32f0180-c762-11e9-999c-2b50f32340fd.gif)
+
+![Demo-2](https://user-images.githubusercontent.com/36698676/63650087-649a4680-c764-11e9-9fca-86ccc4880f18.gif)## Wiki
 https://github.com/OWASP/RiskAssessmentFramework/wiki
 ____
 
