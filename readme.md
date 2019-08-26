@@ -32,11 +32,11 @@ we have update related web deface detection please see video below
 ##   Static Application security Testing (Under Develoment)
 -   For more detailed information, refer to the [usage guide]https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-guide.md)<br>
 ##Demo RAF SAST Tool
-<br>
-![Demo-1](https://user-images.githubusercontent.com/36698676/63649995-a32f0180-c762-11e9-999c-2b50f32340fd.gif)<br>
+
+![Demo-1](https://user-images.githubusercontent.com/36698676/63649995-a32f0180-c762-11e9-999c-2b50f32340fd.gif) <br>
 
 ![Demo-2](https://user-images.githubusercontent.com/36698676/63650087-649a4680-c764-11e9-9fca-86ccc4880f18.gif)## Wiki
-https://github.com/OWASP/RiskAssessmentFramework/wiki<br>
+https://github.com/OWASP/RiskAssessmentFramework/wiki <br>
 ____
 
 ## Contribute
