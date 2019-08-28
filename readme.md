@@ -7,7 +7,7 @@
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/OWASP/RiskAssessmentFramework/issues)
 ![Last commit](https://img.shields.io/github/last-commit/OWASP/RiskAssessmentFramework.svg)
 [![OWASP Incubator](https://img.shields.io/badge/owasp-tool-blue.svg)](https://www.owasp.org/index.php/Risk_Assessment_Framework)
-[![PRESENT](https://img.shields.io/badge/Arsenal%20-Blackhat%20US%202019-green)](https://www.blackhat.com/us-19/arsenal/schedule/index.html#rwdd-remote-web-deface-detection-tool-16775
+[![PRESENT](https://img.shields.io/badge/Arsenal%20-Blackhat%20US%202019-green)](https://www.blackhat.com/us-19/arsenal/schedule/index.html#rwdd-remote-web-deface-detection-tool-16775)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 The OWASP Risk Assessment Framework consist of Static application security testing and Risk Assessment tools, Eventhough there are many SAST tools available for testers, but the compatibility and the Environement setup process is complex. By using OWASP Risk Assessment Framework's Static Appilication Security Testing tool Testers will be able to analyse and review their code quality and vulnerabilities without any additional setup. OWASP Risk Assessment Framework can be integrated in the DevSecOps toolchain to help developers to write and produce secure code.<br>
