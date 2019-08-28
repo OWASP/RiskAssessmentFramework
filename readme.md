@@ -40,7 +40,7 @@ ____
 
 
 ## Project Lead
--   [Ade Yoseman][Ade]
+-   [Ade]: https://www.owasp.org/index.php/Ade_Yoseman_Putra
 
 
 [License]:  /LICENSE
