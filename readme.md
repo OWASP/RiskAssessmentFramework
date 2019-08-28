@@ -14,7 +14,7 @@ The OWASP Risk Assessment Framework consist of Static application security testi
 
 ## features
 
--   Remote Web Deface Detection 
+-   Remote Web Deface Detection (Optional)
 -   Static Application security Testing
 
 ##    Web Deface Detection
