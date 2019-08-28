@@ -40,10 +40,10 @@ ____
 
 
 ## Project Lead
--   [Ade Yoseman Putra]
+-  Ade Yoseman Putra [(@adeyosemanputra)](https://github.com/adeyosemanputra)
 
 ## Mentor
-- [Azzedine RAMRAMI]
+- AZZEDDINE Ramrami [(@aramrami)](https://github.com/aramrami)
 
 
 [License]:  /LICENSE
