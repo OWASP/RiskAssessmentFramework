@@ -40,7 +40,10 @@ ____
 
 
 ## Project Lead
--   [Ade]: https://www.owasp.org/index.php/Ade_Yoseman_Putra
+-   [Ade Yoseman Putra]
+
+## Mentor
+- [Azzedine RAMRAMI]
 
 
 [License]:  /LICENSE
