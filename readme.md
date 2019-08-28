@@ -10,10 +10,7 @@
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-The OWASP Risk Asessement Framework is Static application security testing and Risk Assesment tool.
-<br>
-Introduction to Problem <br>
-There are hundreds of SAST tools available for a penetration tester to use from and there are frameworks to assess the risk of a security flaw. But in the OWASP Risk Assessment to testers have to manually input the the test results from each and every tool to get a relative approximation. This makes the assessment part as a separate component from all other tools<br>
+The OWASP Risk Assessment Framework consist of Static application security testing and Risk Assessment tools, Eventhough there are many SAST tools available for testers, but the compatibility and the Environement setup process is complex. By using OWASP Risk Assessment Framework's Static Appilication Security Testing tool Testers will be able to analyse and review their code quality and vulnerabilities without any additional setup. OWASP Risk Assessment Framework can be integrated in the DevSecOps toolchain to help developers to write and produce secure code.<br>
 
 ## features
 
