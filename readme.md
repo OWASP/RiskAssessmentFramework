@@ -24,7 +24,7 @@ The OWASP Risk Assessment Framework consist of Static application security testi
 -   `python web_deface.py <notif arguments>`
 
 we have update related web deface detection please see video below
-[![](http://img.youtube.com/vi/1vFaGxvzMh4/0.jpg)](http://www.youtube.com/watch?v=1vFaGxvzMh4 "Web Deface Detection ")
+(http://www.youtube.com/watch?v=1vFaGxvzMh4 "Web Deface Detection ")
 ##   Static Application security Testing (Under Develoment)
 -   For more detailed information, refer to the [usage guide] [https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-guide.md]<br>
 ## Demo RAF SAST Tool
@@ -40,8 +40,7 @@ ____
 
 
 ## Project Lead
-Ade Yoseman Putra
-<https://www.owasp.org/index.php/Ade_Yoseman_Putra>
+-   [Ade Yoseman][Ade]
 
 
 [License]:  /LICENSE
