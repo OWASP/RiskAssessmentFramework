@@ -21,8 +21,8 @@ The OWASP Risk Assessment Framework consist of Static application security testi
 ## Web Deface Detection Installation
 -   `cd web_deface/`
 -   `pip install -r requirements.txt`
--   `python web_deface.py <notif arguments>`
-
+-   `python web_deface.py <notif arguments>` <br>
+-   For more detailed information, refer to the [user guide](https://github.com/OWASP/RiskAssessmentFramework/blob/master/web_deface/README.md)
 we have update related web deface detection please see video below
 (http://www.youtube.com/watch?v=1vFaGxvzMh4 "Web Deface Detection ")
 ##   Static Application security Testing (Under Develoment)
