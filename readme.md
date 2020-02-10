@@ -11,7 +11,7 @@
 [![PRESENT](https://img.shields.io/badge/Arsenal%20-Blackhat%20Asia%202020-blue)](https://www.blackhat.com/asia-20/arsenal/schedule/index.html#the-owasp-raf-static-application-security-testing-tool-19261)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-The OWASP Risk Assessment Framework consist of Static application security testing and Risk Assessment tools, Eventhough there are many SAST tools available for testers, but the compatibility and the Environement setup process is complex. By using OWASP Risk Assessment Framework's Static Appilication Security Testing tool Testers will be able to analyse and review their code quality and vulnerabilities without any additional setup. OWASP Risk Assessment Framework can be integrated in the DevSecOps toolchain to help developers to write and produce secure code.<br>
+The OWASP Risk Assessment Framework consist of Static application security testing and Risk Assessment tools. By using OWASP Risk Assessment Framework's Static Appilication Security Testing tool Testers will be able to analyse and review their code quality and vulnerabilities without any additional setup. OWASP Risk Assessment Framework can be integrated in the DevSecOps toolchain to help developers to write and produce secure code.<br>
 
 ## features
 
