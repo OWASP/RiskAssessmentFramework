@@ -34,8 +34,8 @@ The OWASP Risk Assessment Framework consist of Static application security testi
 ____
 
 ## Contribute
- wanna contribute this project dm me via twitter @johnleedik
-
+ -  Wanna contribute this project dm me via twitter @johnleedik <br>
+ -  For new contributor see our [TODO and Requirement](https://github.com/OWASP/RiskAssessmentFramework/blob/master/TODO.md)
 
 
 ## Project Lead
