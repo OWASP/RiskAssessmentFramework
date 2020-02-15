@@ -33,7 +33,7 @@ ____
 
 ## Project Lead
 - Ade Yoseman Putra [(@adeyosemanputra)](https://github.com/adeyosemanputra)
-- AZZEDDINE Ramrami [(@aramrami)](https://github.com/aramrami)
+- Azzeddine RAMRAMI [(@doukkali)](https://github.com/aramrami)
 - Rejah Rehim [(@RejahRehim)](https://github.com/rejahrehim)
 
 
