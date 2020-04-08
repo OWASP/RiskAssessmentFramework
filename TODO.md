@@ -8,6 +8,15 @@ Dashboard
 - Update resources
 - Add multi support
 
+Scanner
+- support any programming languages
+- integrated to IDE
+- integrated to jenkins
+- integrated to github
+
+Instalation
+- work with docker
+
 ### Requirement 
 ## Important Selection Criteria
 
