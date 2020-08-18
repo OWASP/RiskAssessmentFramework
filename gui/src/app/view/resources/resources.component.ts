@@ -1480,7 +1480,7 @@ export class ResourcesComponent implements OnInit {
   password processes, such as "knowledge based answers",
   which cannot be made safe.
   •
-  Uses plain text, encrypted, or weakly hashed passwords (see
+  Uses plain text, unencrypted, or weakly hashed passwords (see
   A3:2017 Sensitive Data Exposure
   •
   Has missing or ineffective multi factor authentication.
